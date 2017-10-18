@@ -14,7 +14,8 @@ def compute_forces(x):
 
 def step_euler(x, v, dt):
     f = compute_forces(x)
-    # TODO
+    x += v*dt
+    v += f*dt/m    
     return x, v
 
 # Initialize variables
@@ -29,6 +30,6 @@ while x[1] >= 0.0:
     traj.append(x.copy())
 
 # Plot
-traj = array(traj)
+traj = np.array(traj)
 plt.plot(traj[:,0], traj[:,1], '-')
 plt.show()
