@@ -23,6 +23,7 @@ t = 0.0
 x = np.array([0.0, 0.0])
 v = np.array([50.0, 50.0])
 traj = []
+traj.append(x.copy())
 
 while x[1] >= 0.0:
     x, v = step_euler(x, v, dt)
@@ -32,6 +33,8 @@ while x[1] >= 0.0:
 # Plot
 traj = np.array(traj)
 plt.plot(traj[:,0], traj[:,1], '-')
+plt.axis([0,600,0,140])
+plt.title('Trajectory of a Cannonball Without Friction')
+plt.xlabel('x position')
+plt.ylabel('y position')
 plt.show()
-
-#test comment
