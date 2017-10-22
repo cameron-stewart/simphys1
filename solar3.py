@@ -42,32 +42,49 @@ def step_vv(x, v, a, dt):
     v += a*dt/2
     a = compute_forces(x)/m
     v += a*dt/2
-    return x, v
+    return x, v, a
 
 # Define the main simulation loop, takes the timestep as an argument
-def sim_loop(dt, flag):
+def sim_loop(dt, tmax, flag):
     traj = []
     t = 0
     x = x_init.copy()
     v = v_init.copy()
     a = compute_forces(x)/m
     traj.append(x.copy())
-    while t <= 1.0:
-        if flag==-1:
-            x, v = step_euler(x, v, dt)
+    while t <= tmax:
         if flag==0:
-            x, v = step_eulersym(x, v, dt)
+            x, v = step_euler(x, v, dt)
         if flag==1:
-            x, v = step_vv(x, v, a, dt)
+            x, v = step_eulersym(x, v, dt)
+        if flag==2:
+            x, v, a = step_vv(x, v, a, dt)
         t += dt
         traj.append(x.copy())
     return np.array(traj)
 
-# Run the simulation
+# Set time constants
 step = 0.01
-for i in range(1):
-    nptraj = sim_loop(step, 1)
-    plt.plot(nptraj[:,0,2]-nptraj[:,0,1],nptraj[:,1,2]-nptraj[:,1,1], label = str(i))
-plt.title("Trajectory of the Moon for Different Time Steps: Simple Euler")
+tmax = 1.0
+
+# Simulate and plot simple Euler integrator
+nptraj = sim_loop(step, tmax, 0)
+moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
+plt.subplot(131)
+plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Simple Euler")
+
+# Simulate and plot symplectic Euler integrator
+nptraj = sim_loop(step, tmax, 1)
+moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
+plt.subplot(132)
+plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Symplectic Euler")
+
+# Simulate and plot velocity Verlet integrator
+nptraj = sim_loop(step, tmax, 2)
+moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
+plt.subplot(133)
+plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Velocity Verlet")
+
+
 plt.legend()
 plt.show()
