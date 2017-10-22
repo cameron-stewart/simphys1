@@ -14,7 +14,7 @@ N,M = x_init.shape
 
 # Define functions
 def compute_forces(x):
-    f = np.empty(x_init.shape)
+    f = np.zeros(x_init.shape)
     for i in range(M):
         for j in range(M):
             if i != j:
