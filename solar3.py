@@ -14,7 +14,7 @@ N,M = x_init.shape
 
 # Define functions
 def compute_forces(x):
-    f = np.empty(x_init.shape)
+    f = np.zeros(x_init.shape)
     for i in range(M):
         for j in range(M):
             if i != j:
@@ -37,7 +37,12 @@ def step_eulersym(x, v, dt):
     return x, v
 
 # Define a velocity Verlet integrator
-def vel_verl(x,
+def step_vv(x, v, a, dt):
+    x += v*dt+a*dt**2/2
+    v += a*dt/2
+    a = compute_forces(x)/m
+    v += a*dt/2
+    return x, v
 
 # Define the main simulation loop, takes the timestep as an argument
 def sim_loop(dt, flag):
@@ -45,12 +50,15 @@ def sim_loop(dt, flag):
     t = 0
     x = x_init.copy()
     v = v_init.copy()
+    a = compute_forces(x)/m
     traj.append(x.copy())
     while t <= 1.0:
         if flag==-1:
             x, v = step_euler(x, v, dt)
         if flag==0:
             x, v = step_eulersym(x, v, dt)
+        if flag==1:
+            x, v = step_vv(x, v, a, dt)
         t += dt
         traj.append(x.copy())
     return np.array(traj)
@@ -58,7 +66,7 @@ def sim_loop(dt, flag):
 # Run the simulation
 step = 0.01
 for i in range(1):
-    nptraj = sim_loop(step, 0)
+    nptraj = sim_loop(step, 1)
     plt.plot(nptraj[:,0,2]-nptraj[:,0,1],nptraj[:,1,2]-nptraj[:,1,1], label = str(i))
 plt.title("Trajectory of the Moon for Different Time Steps: Simple Euler")
 plt.legend()
