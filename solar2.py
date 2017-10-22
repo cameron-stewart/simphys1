@@ -22,29 +22,31 @@ def compute_forces(x):
                 f[:,i] += -g*m[i]*m[j]*r_ij/(la.norm(r_ij)**3)
     return f
 
+# Define a simple euler integration scheme
 def step_euler(x, v, dt):
     f = compute_forces(x)
     x += v*dt
     v += f*dt/m    
     return x, v
 
+# Define the main simulation loop, takes the timestep as an argument
 def sim_loop(dt):
     traj = []
     t = 0
-    x = x_init
-    v = v_init
+    x = x_init.copy()
+    v = v_init.copy()
     traj.append(x.copy())
-    
     while t <= 1.0:
         x, v = step_euler(x, v, dt)
         t += dt
         traj.append(x.copy())
     return np.array(traj)
 
-nptraj = sim_loop(0.0001)
-
-for i in range(M):
-    plt.plot(nptraj[:,0,i],nptraj[:,1,i], label = name[i])
-plt.title("Trajectory of Solar System for 1 Year, dt = 0.0001")
-plt.legend(loc="lower right", ncol=2)
+# Run the simulation
+for i in range(4):
+    step = 0.0001+i*0.0003
+    nptraj = sim_loop(step)
+    plt.plot(nptraj[:,0,2]-nptraj[:,0,1],nptraj[:,1,2]-nptraj[:,1,1], label = str(step))
+plt.title("Trajectory of the Moon for Different Time Steps: Simple Euler")
+plt.legend()
 plt.show()
