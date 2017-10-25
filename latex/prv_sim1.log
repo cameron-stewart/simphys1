@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  25 OCT 2017 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  25 OCT 2017 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -815,53 +815,55 @@ Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen133
 \Gin@req@width=\dimen134
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 130.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 131.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 130.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 131.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 130
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 131
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 130
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 131
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 130.
+(Font)              <10.95> on input line 131.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 130.
+(Font)              <8> on input line 131.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 130.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 130.
+(Font)              <6> on input line 131.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 131.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 130.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 131.
 
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 130.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 131.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -869,9 +871,9 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) )
 Beginning to dump on file prv_sim1.fmt
  (preloaded format=prv_sim1 2017.10.25)
-16733 strings of total length 259200
-330599 memory locations dumped; current usage is 294&298717
-13135 multiletter control sequences
+16735 strings of total length 259325
+330599 memory locations dumped; current usage is 294&298743
+13133 multiletter control sequences
 \font\nullfont=nullfont
 \font\OMX/cmex/m/n/10=cmex10
 \font\tenln=line10
@@ -916,9 +918,9 @@ Beginning to dump on file prv_sim1.fmt
 \font\T1/lmr/bx/n/10.95=ec-lmbx10 at 10.95pt
 \font\T1/lmr/bx/it/10.95=ec-lmbxi10 at 10.95pt
 \font\T1/lmr/m/it/10.95=ec-lmri10 at 10.95pt
-\font\T1/lmtt/m/n/10.95=ec-lmtt10 at 10.95pt
+\font\T1/pcr/m/n/10.95=pcrr8t at 10.95pt
 \font\T1/lmss/m/n/10.95=ec-lmss10 at 10.95pt
-50786 words of font info for 45 preloaded fonts
+50789 words of font info for 45 preloaded fonts
 1141 hyphenation exceptions
 Hyphenation trie of length 335944 has 8290 ops out of 35111
   97 for language 80

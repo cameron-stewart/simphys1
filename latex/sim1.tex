@@ -103,7 +103,8 @@
 % Allow for bold math fonts
 \usepackage{bm}
 
-
+% Include Courier font
+\usepackage{courier}
 \usepackage{graphicx} % Required for including images                                                                 
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
@@ -179,17 +180,71 @@ def compute_forces(x):
     return f
 \end{python}
 
-\begin{figure}[t]
+\begin{figure}[h]
   \includegraphics[width=0.7\linewidth]{../fig/cannonball1.png}
   \centering
-  \caption{Trajectory of a cannonball with no friction using the simple Euler scheme}
+  \caption{Trajectory of a cannonball with no friction using the
+    simple Euler scheme}
   \label{fig:cannonball1}
 \end{figure}
 
-We integrate until the cannonball reaches the ground. The trajectory
-can be seen in fig. \ref{fig:cannonball1}.
+We integrate until the cannonball reaches the ground with a timestep
+$\Delta t = \unit[01]{s}$ . The trajectory can be seen in
+fig. \ref{fig:cannonball1} and the source code can be found at
+\texttt{src/cannonball.py}. As expected, the trajectory looks parabolic.
 
 
+\subsection{Influence of friction and wind}
 
+Next we will include a velocity dependant friction term in the force
+given by
+\begin{equation}
+  F_\mathrm{fric}(\bm{v}) = -\gamma(\bm{v}-\bm{v}_0)
+\end{equation}
+where
+$\bm{v}_0 = \begin{pmatrix}v_\mathrm{w} \\ 0 \end{pmatrix}
+\unitfrac{m}{s}$ is the wind speed.  The compute forces function was
+modified into the following form:
+
+\begin{python}
+def compute_forces(x, v, y, vw):
+    f_fric = -y*(v - np.array([vw, 0.0]))
+    f = np.array([0.0, -m*g])+f_fric
+    return f
+\end{python}
+
+We used a value of $\gamma = 0.1$ for the friction coefficient and
+once again used a time step of $\Delta t = 0.1$.
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball2.png}
+  \centering
+  \caption{Trajectory of a cannonball with and without friction and
+    for two different wind speeds}
+  \label{fig:cannonball2}
+\end{figure}
+
+Figure \ref{fig:cannonball2} shows this simulation in three different
+cases. The original parabola is shown with no friction along with the
+cases $v_\mathrm{w} = 0$ and $v_\mathrm{w} = -50$. Adding friction
+lowers the maximum height and distance where as adding wind only
+changes the distance. The code can be found in
+\texttt{src/cannonball\_fric.py}.
+
+Finally, we ran the simulation for various wind speeds until the
+cannonball landed near its original launching point as seen in
+fig. \ref{fig:cannonball3}. This occurred at wind speed near
+$v_\mathrm{w} = -200$. The code can be seen at
+\texttt{src/cannonball\_fric2.py}
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball3.png}
+  \centering
+  \caption{Trajectory of a cannonball with friction at various wind
+    speeds}
+  \label{fig:cannonball3}
+\end{figure}
+
+\section{Solar system}
 
 \end{document}

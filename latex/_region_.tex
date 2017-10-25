@@ -103,7 +103,8 @@
 % Allow for bold math fonts
 \usepackage{bm}
 
-
+% Include Courier font
+\usepackage{courier}
 \usepackage{graphicx} % Required for including images                                                                 
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
@@ -129,46 +130,37 @@ showstringspaces=false            %
                                                                  
 \begin{document}
 
-\message{ !name(sim1.tex) !offset(18) }
-\subsection{Simulating a cannonball}
-In this first exercise we simulate a cannonball in 2D under gravity in
-the absence of friction. The cannonball has a mass
-$m = \unit[2.0]{kg}$ ,we take gravitational acceleration to be
-$g = \unitfrac[9.81]{m}{s^2}$, the cannonball has initial position
-$\bm{x}(0) = \bm{0}$, and initial velocity
-$\bm{v}(0) = \begin{pmatrix} 50 \\ 50\\ \end{pmatrix}
-\unitfrac{m}{s}$. We will use the simple Euler scheme to integrate or
-system. This is given by:
-\begin{align}
-  \bm{x}(t+\Delta t) &= \bm{x}(t) + \bm{v}(t) \Delta t \\
-  \bm{v}(t+\Delta t) &= \bm{v}(t) + \frac{\bm{F}(t)}{m} \Delta t 
-\end{align}                       
-This is essentially just the Taylor expansion of position and velocity
-cut off below second order. We implement the simple Euler algorithm in
-python as follows:
-\begin{python}
-def step_euler(x, v, dt):
-    f = compute_forces(x)
-    x += v*dt
-    v += f*dt/m    
-    return x, v
-\end{python}
-The forces are computed simply with
+\message{ !name(sim1.tex) !offset(63) }
+\subsection{Influence of friction and wind}
 
+Next we will include a velocity dependant friction term in the force
+given by
+\begin{equation}
+  F_\mathrm{fric}(\bm{v}) = -\gamma(\bm{v}-\bm{v}_0)
+\end{equation}
+where
+$\bm{v}_0 = \begin{pmatrix}v_\mathrm{w} \\ 0 \end{pmatrix}
+\unitfrac{m}{s}$ is the wind speed.  The compute forces function was
+modified into the following form:
 \begin{python}
-def compute_forces(x):
-    f = np.array([0.0, -m*g])
+def compute_forces(x, v, y, vw):
+    f_fric = -y*(v - np.array([vw, 0.0]))
+    f = np.array([0.0, -m*g])+f_fric
     return f
 \end{python}
+We used a value of $\gamma = 0.1$ for the friction coefficient and
+once again used a time step of $\Delta t = 0.1$.
 \begin{figure}
-\includegraphics{../fig/cannonball1.png}
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball2.png}
+  \centering
+  \caption{Trajectory of a cannonball with and without friction and
+    for two different wind speeds}
+  \label{fig:cannonball2}
 \end{figure}
-We integrate until the cannonball reaches the ground. The trajectory
-can be seen in fig
+Figure \ref{fig:cannonball2} shows this simulation in three different
+cases. The original parabola is shown with no friction along with the
+case $v_\mathrm{w} = 0$ and $v_\mathrm{w} = -50$.
 
-
-
-
-\message{ !name(sim1.tex) !offset(16) }
+\message{ !name(sim1.tex) !offset(61) }
 
 \end{document}

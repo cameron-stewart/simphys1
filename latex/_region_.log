@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=prv_sim1 2017.10.25)  25 OCT 2017 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=prv_sim1 2017.10.25)  25 OCT 2017 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -90,30 +90,31 @@ listings.sty    2015/06/04 1.6 (Carsten Heinz)
 listings.cfg    2015/06/04 1.6 listings configuration
 lstlang1.sty    2015/06/04 1.6 listings language file
       bm.sty    2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
+ courier.sty    2005/04/12 PSNFSS-v9.2a (WaS) 
 graphicx.sty    2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
   ot1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
   omllmm.fd    2009/10/30 v1.6 Font defs for Latin Modern
  omslmsy.fd    2009/10/30 v1.6 Font defs for Latin Modern
  omxlmex.fd    2009/10/30 v1.6 Font defs for Latin Modern
    t1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
-  t1lmtt.fd    2009/10/30 v1.6 Font defs for Latin Modern
+   t1pcr.fd    2001/06/04 font definitions for T1/pcr.
   t1lmss.fd    2009/10/30 v1.6 Font defs for Latin Modern
         .
 No file _region_.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
 (/home/cameron/.emacs.d/elpa/auctex-11.91.0/latex/preview.sty
 Package: preview 2017/04/24 11.91 (AUCTeX/preview-latex)
 
@@ -139,15 +140,15 @@ Preview: Fontsize 10.95pt
 Preview: PDFoutput 1
 )
 Package nag Info: Command \frontmatter not defined, skipping amendment on input
- line 130.
+ line 131.
 Package nag Info: Command \mainmatter not defined, skipping amendment on input 
-line 130.
+line 131.
 Package nag Info: Command \backmatter not defined, skipping amendment on input 
-line 130.
+line 131.
 Package nag Info: Command \RaggedLeft not defined, skipping amendment on input 
-line 130.
+line 131.
 Package nag Info: Command \RaggedRight not defined, skipping amendment on input
- line 130.
+ line 131.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count128
@@ -163,7 +164,7 @@ Package nag Info: Command \RaggedRight not defined, skipping amendment on input
 \everyMPtoPDFconversion=\toks27
 )
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 130.
+Package hyperref Info: Link coloring OFF on input line 131.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -172,9 +173,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 130.
-LaTeX Info: Redefining \pageref on input line 130.
-LaTeX Info: Redefining \nameref on input line 130.
+LaTeX Info: Redefining \ref on input line 131.
+LaTeX Info: Redefining \pageref on input line 131.
+LaTeX Info: Redefining \nameref on input line 131.
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -191,165 +192,180 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 130.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 131.
 \c@lstlisting=\count135
 Package nag Info: Command \caption@xlabel not defined, skipping amendment on in
-put line 130.
+put line 131.
 Package nag Info: Command \hc@caption not defined, skipping amendment on input 
-line 130.
+line 131.
 Package nag Info: Command \topcaption not defined, skipping amendment on input 
-line 130.
+line 131.
 
- !name(sim1.tex) !offset(18) 
+ !name(sim1.tex) !offset(63) 
 ! Preview: Snippet 1 started.
 <-><->
       
-l.136 $
-       m = \unit[2.0]{kg}$ ,we take gravitational acceleration to be
+l.138 \begin{equation}
+                      
 Not a real error.
 
 Preview: Tightpage -32891 -32891 32891 32891
-! Preview: Snippet 1 ended.(494349+139535x3370207).
+! Preview: Snippet 1 ended.(717618+0x27410796).
 <-><->
       
-l.136 $m = \unit[2.0]{kg}$
-                           ,we take gravitational acceleration to be
+l.140 \end{equation}
+                    
 Not a real error.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 ! Preview: Snippet 2 started.
 <-><->
       
-l.137 $
-       g = \unitfrac[9.81]{m}{s^2}$, the cannonball has initial position
+l.142 $
+       \bm{v}_0 = \begin{pmatrix}v_\mathrm{w} \\ 0 \end{pmatrix}
 Not a real error.
 
-! Preview: Snippet 2 ended.(508288+262597x3370322).
+! Preview: Snippet 2 ended.(1162453+803646x4239316).
 <-><->
       
-l.137 $g = \unitfrac[9.81]{m}{s^2}$
-                                   , the cannonball has initial position
+l.143 \unitfrac{m}{s}$
+                       is the wind speed.  The compute forces function was
 Not a real error.
 
 [2]
+
+Package xcolor Warning: Incompatible color definition on input line 146.
+
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 147.
+
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 147.
+
+
+Package xcolor Warning: Incompatible color definition on input line 149.
+
 ! Preview: Snippet 3 started.
 <-><->
       
-l.138 $
-       \bm{x}(0) = \bm{0}$, and initial velocity
+l.151 We used a value of $
+                          \gamma = 0.1$ for the friction coefficient and
 Not a real error.
 
-! Preview: Snippet 3 ended.(538214+179404x2759366).
+! Preview: Snippet 3 ended.(451902+139537x2285190).
 <-><->
       
-l.138 $\bm{x}(0) = \bm{0}$
-                          , and initial velocity
+l.151 We used a value of $\gamma = 0.1$
+                                        for the friction coefficient and
 Not a real error.
 
 [3]
 ! Preview: Snippet 4 started.
 <-><->
       
-l.139 $
-       \bm{v}(0) = \begin{pmatrix} 50 \\ 50\\ \end{pmatrix}
+l.152 once again used a time step of $
+                                      \Delta t = 0.1$.
 Not a real error.
 
-! Preview: Snippet 4 ended.(1162453+803646x4803418).
+! Preview: Snippet 4 ended.(513815+0x2730922).
 <-><->
       
-l.140 \unitfrac{m}{s}$
-                      . We will use the simple Euler scheme to integrate or
+l.152 ...gain used a time step of $\Delta t = 0.1$
+                                                  .
 Not a real error.
 
 [4]
 ! Preview: Snippet 5 started.
 <-><->
       
-l.142 \begin{align}
-                   
+l.153 \begin{figure}
+                    
 Not a real error.
 
-! Preview: Snippet 5 ended.(2669372+0x27410796).
+<../fig/cannonball2.png, id=24, 517.4532pt x 409.53pt>
+File: ../fig/cannonball2.png Graphic file (type png)
+
+<use ../fig/cannonball2.png>
+Package pdftex.def Info: ../fig/cannonball2.png used on input line 154.
+(pdftex.def)             Requested size: 292.7776pt x 231.71606pt.
+
+! Preview: Snippet 5 ended.(17891073+0x27410796).
 <-><->
       
-l.145 \end{align}
-                 
+l.159 \end{figure}
+                  
 Not a real error.
 
-[5]
-
-Package xcolor Warning: Incompatible color definition on input line 150.
-
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 152.
-
-(/usr/share/texmf/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 152.
+[5
 
 
-Package xcolor Warning: Incompatible color definition on input line 154.
+ <../fig/cannonball2.png>]
 
-
-Package xcolor Warning: Incompatible color definition on input line 159.
-
-
-Package xcolor Warning: Incompatible color definition on input line 161.
+LaTeX Warning: Reference `fig:cannonball2' on page 1 undefined on input line 16
+0.
 
 ! Preview: Snippet 6 started.
 <-><->
       
-l.163 \begin{figure}
-                    
+l.162 case $
+            v_\mathrm{w} = 0$ and $v_\mathrm{w} = -50$.
 Not a real error.
 
-<../fig/cannonball1.png, id=29, 517.4532pt x 409.53pt>
-File: ../fig/cannonball1.png Graphic file (type png)
-
-<use ../fig/cannonball1.png>
-Package pdftex.def Info: ../fig/cannonball1.png used on input line 164.
-(pdftex.def)             Requested size: 517.45192pt x 409.52899pt.
-
-
-Package nag Warning: figure with no \caption on input line 165.
-
-! Preview: Snippet 6 ended.(26838892+0x33911729).
+! Preview: Snippet 6 ended.(451902+107642x2101414).
 <-><->
       
-l.165 \end{figure}
-                  
+l.162 case $v_\mathrm{w} = 0$
+                              and $v_\mathrm{w} = -50$.
 Not a real error.
 
-[6 <../fig/cannonball1.png>]  !name(sim1.tex) !offset(16) 
+[6]
+! Preview: Snippet 7 started.
+<-><->
+      
+l.162 case $v_\mathrm{w} = 0$ and $
+                                   v_\mathrm{w} = -50$.
+Not a real error.
 
-Package nag Warning: 1 complaints in total.
+! Preview: Snippet 7 ended.(451902+107642x3018373).
+<-><->
+      
+l.162 ..._\mathrm{w} = 0$ and $v_\mathrm{w} = -50$
+                                                  .
+Not a real error.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 174.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
+[7]  !name(sim1.tex) !offset(61) 
+No complaints by nag.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 166.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 1582 strings out of 483267
- 20685 string characters out of 5990800
- 338295 words of memory out of 5000000
- 14663 multiletter control sequences out of 15000+600000
- 56329 words of font info for 47 fonts, out of 8000000 for 9000
+ 1586 strings out of 483265
+ 20713 string characters out of 5990675
+ 336295 words of memory out of 5000000
+ 14665 multiletter control sequences out of 15000+600000
+ 56332 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,10n,73p,181b,1556s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
-/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texm
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
+m/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 b10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb>
-Output written on _region_.pdf (6 pages, 192488 bytes).
+ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+
+Output written on _region_.pdf (7 pages, 236986 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
