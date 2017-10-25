@@ -47,4 +47,6 @@ for i in range(M):
     plt.plot(nptraj[:,0,i],nptraj[:,1,i], label = name[i])
 plt.title("Trajectory of Solar System for 1 Year, dt = 0.0001")
 plt.legend(loc="lower right", ncol=2)
-plt.show()
+plt.xlabel("x position [AU]")
+plt.ylabel("y position [AU]")
+plt.savefig('../fig/solar1.png', dpi=300, bbox_inches='tight')

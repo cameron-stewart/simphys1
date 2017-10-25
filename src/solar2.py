@@ -49,4 +49,7 @@ for i in range(4):
     plt.plot(nptraj[:,0,2]-nptraj[:,0,1],nptraj[:,1,2]-nptraj[:,1,1], label = str(step))
 plt.title("Trajectory of the Moon for Different Time Steps: Simple Euler")
 plt.legend()
-plt.show()
+plt.xlabel("x position [AU]")
+plt.ylabel("y position [AU]")
+
+plt.savefig('../fig/solar2.png', dpi=300, bbox_inches='tight')

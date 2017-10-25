@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle, gzip
 import numpy.linalg as la
+import matplotlib.ticker as ticker
 
 # Read in initial planetary positions, velocities, and masses
 datafile = gzip.open('Solar_system.pkl.gz')
@@ -67,24 +68,31 @@ def sim_loop(dt, tmax, flag):
 step = 0.01
 tmax = 1.0
 
+plt.figure(figsize=(20,6))
+
 # Simulate and plot simple Euler integrator
 nptraj = sim_loop(step, tmax, 0)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
-plt.subplot(131)
-plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Simple Euler")
+ax1 = plt.subplot(131)
+plt.plot(moon_traj[:,0],moon_traj[:,1])
+ax1.set_title("Simple Euler")
+plt.ylabel("y position [AU]")
 
 # Simulate and plot symplectic Euler integrator
 nptraj = sim_loop(step, tmax, 1)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
-plt.subplot(132)
-plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Symplectic Euler")
+ax2 = plt.subplot(132)
+plt.plot(moon_traj[:,0],moon_traj[:,1])
+ax2.set_title("Symplectic Euler")
+ax2.xaxis.set_major_locator(ticker.MultipleLocator(0.002))
+plt.xlabel("x position [AU]")
 
 # Simulate and plot velocity Verlet integrator
 nptraj = sim_loop(step, tmax, 2)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
-plt.subplot(133)
-plt.plot(moon_traj[:,0],moon_traj[:,1], label = "Velocity Verlet")
+ax3 = plt.subplot(133)
+plt.plot(moon_traj[:,0],moon_traj[:,1])
+ax3.set_title("Velocity Verlet")
+ax3.xaxis.set_major_locator(ticker.MultipleLocator(0.002))
 
-
-plt.legend()
-plt.show()
+plt.savefig('../fig/solar3.png', dpi=300, bbox_inches='tight')

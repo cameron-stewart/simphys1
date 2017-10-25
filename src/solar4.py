@@ -68,29 +68,34 @@ def sim_loop(dt, tmax, flag):
 step = 0.01
 tmax = 10.0
 
+plt.figure(figsize=(20,6))
 # Simulate and plot simple Euler integrator
 nptraj = sim_loop(step, tmax, 0)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
 moon_dist = la.norm(moon_traj,axis=-1)
 tarray = np.linspace(0.0,tmax, num=moon_dist.shape[0], endpoint=True)
-plt.subplot(131)
+ax1 = plt.subplot(131)
 plt.plot(tarray, moon_dist, label = "Simple Euler")
+plt.ylabel("Distance from Earth [AU]")
+ax1.set_title("Simple Euler")
 
 # Simulate and plot symplectic Euler integrator
 nptraj = sim_loop(step, tmax, 1)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
 moon_dist = la.norm(moon_traj,axis=-1)
 tarray = np.linspace(0.0,tmax, num=moon_dist.shape[0], endpoint=True)
-plt.subplot(132)
+ax2 = plt.subplot(132)
 plt.plot(tarray, moon_dist, label = "Symplectic Euler")
+plt.xlabel("Time [year]")
+ax2.set_title("Symplectic Euler")
 
 # Simulate and plot velocity Verlet integrator
 nptraj = sim_loop(step, tmax, 2)
 moon_traj = nptraj[:,:,2]-nptraj[:,:,1]
 moon_dist = la.norm(moon_traj,axis=-1)
 tarray = np.linspace(0.0,tmax, num=moon_dist.shape[0], endpoint=True)
-plt.subplot(133)
+ax3 = plt.subplot(133)
 plt.plot(tarray, moon_dist, label = "Velocity Verlet")
 plt.axis([0,10,0,1.8])
-
-plt.show()
+ax3.set_title("Velocity Verlet")
+plt.savefig('../fig/solar4.png', dpi=300, bbox_inches='tight')

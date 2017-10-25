@@ -43,7 +43,7 @@ while vw >= -200.0:
 
 plt.axis([0,600,0,140])
 plt.title('Trajectory of a Cannonball with Various Wind Speeds')
-plt.xlabel('x position')
-plt.ylabel('y position')
+plt.xlabel('x position [m]')
+plt.ylabel('y position [m]')
 plt.legend()
 plt.savefig('../fig/cannonball3.png', dpi=300, bbox_inches='tight')
