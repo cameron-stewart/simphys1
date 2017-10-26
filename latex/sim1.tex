@@ -381,7 +381,7 @@ We now simulate our solar system for 1 year using a time step $\Delta t = 0.01$ 
 
 \subsection{Long term stability}
 
-Finally we run the simulation for $t = 10$ years and plot the distance between the moon and earth. This is plotted in fig. \ref{fig:solar4}. We see that eventually the symplectic Euler algorithm rockets the moon from the earth but the velocity Verlet algorithm manages to keep them bonded.
+Finally we run the simulation for $t = 10$ years and plot the distance between the moon and earth. This is plotted in fig. \ref{fig:solar4}. We see that eventually the symplectic Euler algorithm rockets the moon from the earth but the velocity Verlet algorithm manages to keep them bonded. The program is at \texttt{src/solar4.py}.
 \begin{figure}
 	\includegraphics[width=1.0\linewidth]{../fig/solar4.png}
 	\centering
