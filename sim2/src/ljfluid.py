@@ -1,36 +1,33 @@
+from __future__ import print_function, division
 from numpy import *
 from matplotlib.pyplot import *
+from ljlib import *
 
-def compute_lj_force(rij):
-    # TODO
-    # .
-    # .
-    # .
-    return fij
 
-def compute_lj_potential(rij):
-    # TODO
-    # .
-    # .
-    # .
-    return pot
+def minimum_image(ri, rj):
+    global L
+    # compute distance
+    rij = rj-ri
+    # wrap the distance into [-0.5, 0.5]
+    rij -= rint(rij/L)*L
+    return rij
 
-def compute_forces(x):
+def compute_forces(x, L):
     """Compute and return the forces acting onto the particles,
     depending on the positions x."""
-    global epsilon, sigma
     _, N = x.shape
     f = zeros_like(x)
+    rijs = empty_like(x)
     for i in range(1,N):
         for j in range(i):
             # distance vector
-            rij = x[:,j] - x[:,i]
-            fij = compute_lj_force(rij)
+            rij = minimum_image(x[:,i], x[:,j])
+            fij = compute_cutoff_force(rij)
             f[:,i] -= fij
             f[:,j] += fij
     return f
 
-def compute_energy(x, v):
+def compute_energy(x, v, L):
     """Compute and return the total energy of the system with the
     particles at positions x."""
     _, N = x.shape
@@ -40,8 +37,8 @@ def compute_energy(x, v):
     for i in range(1,N):
         for j in range(i):
             # distance vector
-            rij = x[:,j] - x[:,i]
-            E_pot += compute_lj_potential(rij)
+            rij = minimum_image(x[:,i], x[:,j])
+            E_pot += compute_cutoff_potential(rij)
     # sum up kinetic energy
     for i in range(N):
         E_kin += 0.5 * dot(v[:,i],v[:,i])
@@ -54,7 +51,7 @@ def step_vv(x, v, f, dt):
     v += 0.5*f * dt
         
     # compute new forces
-    f = compute_forces(x)
+    f = compute_forces(x, L)
     # we assume that m=1 for all particles
 
     # second half update of the velocity
@@ -62,73 +59,70 @@ def step_vv(x, v, f, dt):
 
     return x, v, f
 
-# constants
+# CONSTANTS
+# density
+density = 0.7
+# number of particles per side
+n = 3
+# timestep
 dt = 0.01
-tmax = 20.0
+# length of run
+tmax = 1.0
+# cutoff
+rcut = 2.5
+# potential shift
+shift = -0.016316891136
+# total number of particles
+N = n*n*n
 
-# running variables
+# particle positions on a cubic lattice
+x = empty((3,N))
+
+# TODO: 
+# - compute the size of the system
+L = (N/density)**(1/3)
+# - set up n*n*n particles on a cubic lattice
+lin = linspace(0,L,n)
+
+
+
+# random particle velocities
+v = 2.0*random.random((3,N))-1.0
+
+
+# RUNNING VARIABLES
 t = 0.0
 
-# particle positions
-x = zeros((3,5))
-x[:,0] = [0.0, 0.0, 0.0]
-x[:,1] = [5.0, 0.3, 0.0]
-x[:,2] = [8.0, 1.8, 0.0]
-x[:,3] = [11.0, 0.0, -1.0]
-x[:,4] = [12.0, 9.0, 0.0]
-
-# particle velocities
-v = zeros((3,5))
-v[:,0] = [2.0, 0.0, 0.0]
-v[:,1] = [0.0, 0.0, 0.0]
-v[:,2] = [0.0, 0.0, 0.0]
-v[:,3] = [0.0, 0.0, 0.0]
-v[:,4] = [0.0, 0.0, 0.0]
-
-f = compute_forces(x)
-
 # variables to cumulate data
-traj = []
+ts = []
 Es = []
-
-# number of particles
-N = x.shape[1]
+traj = []
 
 # open the trajectory file
-vtffile = open('ljbillards.vtf', 'w')
+vtffile = open('../dat/ljfluid.vtf', 'w')
 # write the structure of the system into the file: 
 # N particles ("atoms") with a radius of 0.5
-vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
+vtffile.write('atom 0:%s radius 0.5\n' % (N-1))
+vtffile.write('pbc %s %s %s\n' % (L, L, L))
 
 # main loop
+f = compute_forces(x, L)
 while t < tmax:
     x, v, f = step_vv(x, v, f, dt)
     t += dt
 
-    traj.append(x.copy())
-    Es.append(compute_energy(x, v))
+    E = compute_energy(x, v, L)
+    print("t=%s, E=%s" % (t, E))
+
+    ts.append(t)
+    Es.append(E)
     
     # write out that a new timestep starts
     vtffile.write('timestep\n')
     # write out the coordinates of the particles
     for i in range(N):
-        vtffile.write("{} {} {}\n".format(x[0,i], x[1,i], x[2,i]))
+        vtffile.write("%s %s %s\n" % (x[0,i], x[1,i], x[2,i]))
 
 vtffile.close()
-
-traj = array(traj)
-
-# plot the trajectory
-figure()
-for i in range(N):
-    plot(traj[:,0,i], traj[:,1,i], label='{}'.format(i))
-axes().set_aspect('equal')
-legend()
-
-# plot the total energy
-figure()
-xlabel("Time step")
-ylabel("Total energy")
-plot(Es)
-
-show()
+plot(ts, Es)
+        

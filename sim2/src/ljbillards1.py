@@ -11,8 +11,9 @@ def compute_forces(x):
     for i in range(1,N):
         for j in range(i):
             # distance vector
-            rij = fmod(x[:,j] - x[:,i],L)
-            fij = compute_lj_force(rij)
+            rij = x[:,j] - x[:,i]
+            rij = image(rij)
+            fij = compute_cutoff_force(rij)
             f[:,i] -= fij
             f[:,j] += fij
     return f
@@ -28,7 +29,8 @@ def compute_energy(x, v):
         for j in range(i):
             # distance vector
             rij = x[:,j] - x[:,i]
-            E_pot += compute_lj_potential(rij)
+            rij = image(rij)
+            E_pot += compute_cutoff_potential(rij)
     # sum up kinetic energy
     for i in range(N):
         E_kin += 0.5 * dot(v[:,i],v[:,i])
@@ -49,6 +51,11 @@ def step_vv(x, v, f, dt):
 
     return x, v, f
 
+def image(rij):
+    """Return the minimum image of particle j for particle i"""
+    rij -= L*rint(rij/L)
+    return rij
+
 # constants
 dt = 0.01
 tmax = 20.0
@@ -65,8 +72,8 @@ x[:,1] = [6.1, 5, 6]
 
 # particle velocities
 v = zeros((3,2))
-v[:,0] = [-2.0, -2.0, 0.0]
-v[:,1] = [0.0, 0.0, 0.0]
+v[:,0] = [-2.0, -2.0,-2.0]
+v[:,1] = [2.0, 2.0, 2.0]
 
 f = compute_forces(x)
 
@@ -79,9 +86,10 @@ N = x.shape[1]
 
 # open the trajectory file
 vtffile = open('../dat/ljbillards.vtf', 'w')
-# write the structure of the system into the file: 
+# write the structure of the system into the file:
 # N particles ("atoms") with a radius of 0.5
 vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
+vtffile.write('pbc 10.0 10.0 10.0\n')
 
 # main loop
 while t < tmax:
