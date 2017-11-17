@@ -17,3 +17,19 @@ def compute_lj_force(r_ij):
     d = la.norm(r_ij)
     f = 48*(d**-13 - d**-7)
     return f*r_ij/d
+
+def compute_cutoff_potential(r_ij):
+    """Compute cutoff potential on particle j from particle i"""
+    d = la.norm(r_ij)
+    if d <= 2.5:
+        return compute_lj_potential(r_ij) - compute_lj_potential(np.array([2.5,0,0]))
+    else:
+        return 0
+
+def compute_cutoff_force(r_ij):
+    """compute cutoff force on particle j from particle i"""
+    d = la.norm(r_ij)
+    if d <=2.5:
+        return 48*(d**-13 - d**-7)*r_ij/d
+    else:
+        return 0
