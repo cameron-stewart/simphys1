@@ -1,0 +1,174 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+% Pakete
+\usepackage[english]{babel}
+\usepackage[UKenglish]{isodate}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\sisetup{
+output-decimal-marker={.},
+exponent-product=\cdot }
+\usepackage{esvect}
+\usepackage{eqnarray}
+\usepackage{placeins}
+\usepackage{scrpage2}
+\usepackage{nameref}
+\usepackage{upgreek}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{mwe}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xstring}
+\usepackage{stringstrings}
+\usepackage{floatflt}
+\usepackage{pgfplots}
+
+% caption setup
+\captionsetup[subfigure]{labelformat=simple, labelsep=colon}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcommand{\thesubfigure}{\arabic{figure}.\arabic{subfigure}}
+\renewcommand{\thesubtable}{\arabic{table}.\arabic{subtable}}
+
+% Listning Einstellungen
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+  \parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing, labelfont=white, textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+\pagestyle{empty}
+\lstset{escapeinside={<@}{@>}}
+\lstset{language=Python,
+		numbers=left,
+		tabsize=4,
+		breaklines=true
+		}
+\renewcommand{\lstlistingname}{Code block}
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+
+
+% Griechische Buchstaben vereinheitlichen
+\renewcommand{\alpha}{\upalpha}
+\renewcommand{\beta}{\upbeta}
+\renewcommand{\gamma}{\upgamma}
+\renewcommand{\delta}{\updelta}
+
+% Eigene mathematische Kommandos
+\renewcommand{\d}{\text{d}} 							% Differential
+\newcommand{\p}{\partial} 								% Partielles Differential
+\newcommand{\D}{\Delta} 								% Fehler / Laplace
+\newcommand{\order}[1]{\mathcal{O}\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1\right|} 					% Betrag
+\newcommand{\Max}[1]{\max \left\lbrace #1\right\rbrace} % max{}
+\newcommand{\Min}[1]{\min \left\lbrace #1\right\rbrace} % min{}
+\newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}	% Ableitung
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}} % Partielle Ableitung
+\newcommand{\errprop}[2]{\left| \frac{\partial #1}{\partial #2}\right| \cdot \Delta #2}
+														% Fehlerfortpflanzung
+\newcommand{\rel}[1]{\frac{\Delta #1}{#1}}				% Relativer Fehler
+
+% Eigene trigonometrische Funktionen
+\newcommand{\Exp}[1]{\text{exp}\left( #1 \right)}
+\newcommand{\Sin}[1]{\text{sin}\left( #1 \right)}     	% sin()
+\newcommand{\Cos}[1]{\text{cos}\left( #1 \right)}		% cos()
+\newcommand{\Sinz}[1]{\text{sin}^2\left( #1 \right)}	% sin^2()
+\newcommand{\Cosz}[1]{\text{cos}^2\left( #1 \right)}	% cos^2()
+\newcommand{\Tan}[1]{\text{tan}\left( #1 \right)}		% tan()
+\newcommand{\Asin}[1]{\text{asin}\left( #1 \right)}		% asin()
+\newcommand{\Acos}[1]{\text{acos}\left( #1 \right)}		% acos()
+\newcommand{\Atan}[1]{\text{atan} \left( #1 \right)}	% atan()
+
+% Eigene Vektor Kommandos
+\newcommand{\tovec}[2]{\begin{pmatrix}#1\\ #2\end{pmatrix}}	% 2D-Vektor
+\newcommand{\trvec}[3]{\begin{pmatrix}#1\\ #2\\ #3\end{pmatrix}}	% 3D-Vektor	
+\newcommand{\ovec}[1]{\boldsymbol{#1}}
+
+% Eigene Referenz-Kommandos
+\newcommand{\eref}[1]{(\ref{#1})}						% Gleichungen
+\newcommand{\sref}[2]{\subref{#2}}						% Unterabbildungen
+\newcommand{\kref}[1]{\ref{#1} \glqq\nameref{#1}\grqq}  % Kapitel
+\newcommand{\lref}[1]{$[#1]$}							% Quellen: \newcommand{\lit}{1} => \lref{\lit}
+
+% listing commandos
+\newcommand{\listfile}[5]{
+\lstinputlisting[linerange={#2-#3}, firstnumber=#2, caption={#4} \hfill script:  \lstinline@#1@, label=#5]{#1}}
+% doesn't work: \convertchar[q]{#1}{_}{\_} \decodetoken\convertword{#1}{_}{\ \Underscore}
+% actual {filename}{escape filname}{firstnumber}{lastnumber}{title}{label}
+
+%Examples
+%\begin{lstlisting}[caption=Aufgabe XX]
+%<@\textbf{\textcolor{red}{Komentar vom Assi}}@>
+%# -*- coding: utf-8 -*-
+%# Michael Maquardt
+%# Matthias Hayer
+%\end{lstlisting}
+%
+%\StrSubstitute{ab_cde.fg}{_}{\_}
+%
+% Im Text \lstinline@code@ geht auch!
+% Beliebige zeichen statt @
+
+% commands for this task
+\newcommand{\ua}{AU}
+\newcommand{\vecx}[1]{\ovec{x}^{(#1)}}
+\newcommand{\vecv}[1]{\ovec{v}^{(#1)}}
+\newcommand{\veca}[1]{\ovec{a}^{(#1)}}
+\newcommand{\vecF}[1]{\ovec{F}^{(#1)}}
+\newcommand{\vecr}[1]{\ovec{r}^{(#1)}}
+\newcommand{\nx}[1]{x^{(#1)}}
+\newcommand{\nv}[1]{v^{(#1)}}
+\newcommand{\na}[1]{a^{(#1)}}
+\newcommand{\nm}[1]{m^{(#1)}}
+\newcommand{\nF}[1]{F^{(#1)}}
+\newcommand{\nr}[1]{r^{(#1)}}
+
+
+% Kopf-/Fusszeile
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\chead{Simulation Methods in Physics I}
+\ihead{Worksheet 1}
+\ohead{\today}
+\ofoot{\pagemark}
+\ifoot{Michael Marquardt}
+
+\begin{document}
+
+% Titelseite
+\begin{titlepage}
+
+\ \\ \ \\ \ \\
+
+\center\textbf{
+\begin{large}
+Simulation Methods in Physics I
+\end{large} \\ \ \\
+\begin{Large}
+Worksheet 1: Integrators
+\end{Large}}   \\ \ \\
+\ \\ \ \\
+
+\begin{tabular}{ll}
+Student: &Michael Marquardt\\ 
+matriculation number: &3122118\\
+\end{tabular}
+
+
+
+\end{titlepage}
+
+% Inhaltsverzeichnis
+\tableofcontents
+\newpage
+
+% -------------------------------------- Begin Of Document ----------------------------------------
+
+This is text
+
+\end{document}
