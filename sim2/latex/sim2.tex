@@ -1,0 +1,392 @@
+% TEMPLATE.TEX
+%
+% Time-stamp: <2013-03-26 11:09 olenz>
+%
+% This is an extensively documented LaTeX file that shows how to
+% produce a good-looking document with current LaTeX (11/2012).
+%
+% IMPORTANT!
+%
+%   Some obsolete commands and packages
+% ----------|-------------------------------
+% obsolete  |     Replacement in LATEX 2ε
+% ----------|-------------------------------
+%           | local            global/switch
+% ----------|-------------------------------
+% {\bf ...} | \textbf{...}     \bfseries
+%     -     | \emph{...}       \em
+% {\it ...} | \textit{...}     \itshape
+%     -     | \textmd{...}     \mdseries
+% {\rm ...} | \textrm{...}     \rmfamily
+% {\sc ...} | \textsc{...}     \scshape
+% {\sf ...} | \textsf{...}     \sffamily
+% {\sl ...} | \textsl{...}     \slshape
+% {\tt ...} | \texttt{...}     \ttfamily
+%     -     | \textup{...}     \upshape
+%
+% DON'T USE \\ TO MAKE LINEBREAKS, INSTEAD JUST LEAVE A BLANK LINE!
+%
+\RequirePackage[l2tabu,orthodox]{nag} % turn on warnings because of bad style
+\documentclass[a4paper,11pt,bibtotoc]{scrartcl}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KOMA CLASSES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The class "scrartcl" is one of the so-called KOMA-classes, a set of
+% very well done LaTeX-classes that produce a very European layout
+% (e.g. titles with a sans-serif font).
+% 
+% The KOMA classes have extensive documentation that you can access
+% via the commands:
+%   texdoc scrguide # in German
+%   texdoc scrguien # in English
+%   
+%
+% The available classes are:
+%
+% scrartcl - for "articles", typically for up to ~20 pages, the
+%            highest level sectioning command is \section
+%
+% scrreprt - for "reports", typically for up to ~200 pages, the
+%            highest level sectioning command is \chapter
+%
+% scrbook  - for "books", for more than 200 pages, the highest level
+%            sectioning command is \part.
+%
+% USEFUL OPTIONS
+%
+% a4paper  - Use a4 paper instead of the default american letter
+%            format.
+%
+% 11pt, 12pt, 10pt 
+%          - Use a font with the given size.
+%
+% bibtotoc - Add the bibliography to the table of contents
+%
+% The KOMA-script classes have plenty of options to modify
+
+% This allows to type UTF-8 characters like ä,ö,ü,ß
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage[T1]{fontenc}        % Tries to use Postscript Type 1 Fonts for better rendering
+\usepackage{lmodern}            % Provides the Latin Modern Font which offers more glyphs than the default Computer Modern
+\usepackage[intlimits]{amsmath} % Provides all mathematical commands
+
+\usepackage{hyperref}           % Provides clickable links in the PDF-document for \ref
+\usepackage{grffile}            % Allow you to include images (like graphicx). Usage: \includegraphics{path/to/file}
+
+% Allows to set units
+\usepackage[ugly]{units}        % Allows you to type units with correct spacing and font style. Usage: $\unit[100]{m}$ or $\unitfrac[100]{m}{s}$
+
+% Additional packages
+\usepackage{url}                % Lets you typeset urls. Usage: \url{http://...}
+\usepackage{breakurl}           % Enables linebreaks for urls
+\usepackage{xspace}             % Use \xpsace in macros to automatically insert space based on context. Usage: \newcommand{\es}{ESPResSo\xspace}
+\usepackage{xcolor}             % Obviously colors. Usage: \color{red} Red text
+\usepackage{booktabs}           % Nice rules for tables. Usage \begin{tabular}\toprule ... \midrule ... \bottomrule
+
+% Source code listings
+\usepackage{listings}           % Source Code Listings. Usage: \begin{lstlisting}...\end{lstlisting}
+\lstloadlanguages{python}       % Default highlighting set to "python"
+
+% Allow for bold math fonts
+\usepackage{bm}
+
+% Include Courier font
+\usepackage{courier}
+
+% For boxing equations
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+% Required for including images                                                                 
+\usepackage{graphicx}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}                                                                 
+                                                                 
+\begin{document}
+
+\titlehead{Simulation Methods in Physics I \hfill WS 2017/2018}
+\title{Worksheet 1: Integrators}
+\author{Cameron N. Stewart}
+\date{\today}
+\publishers{Institute for Computational Physics, University of
+  Stuttgart}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+In this worksheet we use will be using molecular dynamics simulation
+to look at the trajectory of a cannonball under the influence of
+gravity, friction, and wind and at a 2D representation of the solar
+system. We will be studying the behavior of a few different
+integrators in the latter simulation.
+
+\section{Cannonball}
+\subsection{Simulating a cannonball}
+In this first exercise we simulate a cannonball in 2D under gravity in
+the absence of friction. The cannonball has a mass
+$m = \unit[2.0]{kg}$ ,we take gravitational acceleration to be
+$g = \unitfrac[9.81]{m}{s^2}$, the cannonball has initial position
+$\bm{x}(0) = \bm{0}$, and initial velocity
+$\bm{v}(0) = \begin{pmatrix} 50 \\ 50\\ \end{pmatrix}
+\unitfrac{m}{s}$. We will use the simple Euler scheme to integrate or
+system. This is given by:
+\begin{align}
+  \bm{x}(t+\Delta t) &= \bm{x}(t) + \bm{v}(t) \Delta t \\
+  \bm{v}(t+\Delta t) &= \bm{v}(t) + \frac{\bm{F}(t)}{m} \Delta t 
+\end{align}                       
+This is essentially just the Taylor expansion of position and velocity
+cut off below second order. We implement the simple Euler algorithm in
+python as follows:
+\begin{python}
+def step_euler(x, v, dt):
+    f = compute_forces(x)
+    x += v*dt
+    v += f*dt/m    
+    return x, v
+\end{python}
+The forces are computed simply with
+
+\begin{python}
+def compute_forces(x):
+    f = np.array([0.0, -m*g])
+    return f
+\end{python}
+
+\begin{figure}[h]
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball1.png}
+  \centering
+  \caption{Trajectory of a cannonball with no friction using the
+    simple Euler scheme}
+  \label{fig:cannonball1}
+\end{figure}
+
+We integrate until the cannonball reaches the ground with a timestep
+$\Delta t = \unit[01]{s}$ . The trajectory can be seen in
+fig. \ref{fig:cannonball1} and the source code can be found at
+\texttt{src/cannonball.py}. As expected, the trajectory looks parabolic.
+
+
+\subsection{Influence of friction and wind}
+
+Next we will include a velocity dependant friction term in the force
+given by
+\begin{equation}
+  F_\mathrm{fric}(\bm{v}) = -\gamma(\bm{v}-\bm{v}_0)
+\end{equation}
+where
+$\bm{v}_0 = \begin{pmatrix}v_\mathrm{w} \\ 0 \end{pmatrix}
+\unitfrac{m}{s}$ is the wind speed.  The compute forces function was
+modified into the following form:
+
+\begin{python}
+def compute_forces(x, v, y, vw):
+    f_fric = -y*(v - np.array([vw, 0.0]))
+    f = np.array([0.0, -m*g])+f_fric
+    return f
+\end{python}
+
+We used a value of $\gamma = 0.1$ for the friction coefficient and
+once again used a time step of $\Delta t = 0.1$.
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball2.png}
+  \centering
+  \caption{Trajectory of a cannonball with and without friction and
+    for two different wind speeds}
+  \label{fig:cannonball2}
+\end{figure}
+
+Figure \ref{fig:cannonball2} shows this simulation in three different
+cases. The original parabola is shown with no friction along with the
+cases $v_\mathrm{w} = 0$ and $v_\mathrm{w} = -50$. Adding friction
+lowers the maximum height and distance where as adding wind only
+changes the distance. The code can be found in
+\texttt{src/cannonball\_fric.py}.
+
+Finally, we ran the simulation for various wind speeds until the
+cannonball landed near its original launching point as seen in
+fig. \ref{fig:cannonball3}. This occurred at wind speed near
+$v_\mathrm{w} = -200$. The code can be seen at
+\texttt{src/cannonball\_fric2.py}
+
+\begin{figure}
+  \includegraphics[width=0.7\linewidth]{../fig/cannonball3.png}
+  \centering
+  \caption{Trajectory of a cannonball with friction at various wind
+    speeds}
+  \label{fig:cannonball3}
+\end{figure}
+
+\section{Solar system}
+
+In this exercise we perform and MD simulation of a 2d model of the solar system (with fewer planets than our own). The force on any given planet is given by a superposition of the force from all of other planets i.e.
+\begin{equation}
+	\bm{F}_i = \sum_{\substack{j=0 \\ i \neq j}}^N \bm{F}_{ij}
+\end{equation}
+where the force on $i$ from $j$ is given by
+\begin{equation}
+	\bm{F}_{ij} = -Gm_i m_j \frac{\bm{r}_{ij}}{\lvert\bm{r}_{ij}\rvert^3}
+\end{equation}
+where $m$ is the respective massses, G is the gravitational constant, and $/bm{r}_{ij}$ is the vector from j to i. This was implemented specifically as follows:
+\begin{python}
+def compute_forces(x):
+    f = np.zeros(x_init.shape)
+    for i in range(M):
+        for j in range(M):
+            if i != j:
+                r_ij = x[:,i] - x[:,j]
+                f[:,i] += -g*m[i]*m[j]*r_ij/(la.norm(r_ij)**3)
+    return f
+\end{python}
+\subsection{Simulating the solar system with the Euler scheme}
+
+The names, masses, initial positions, and initial velocities of the planets as well as the gravitational constant are read in from \texttt{src/solar\_system.pkl.gz} using the Python module Pickle:
+\begin{python}
+datafile = gzip.open('Solar_system.pkl.gz')
+name, x_init, v_init, m, g = pickle.load(datafile)
+datafile.close()
+\end{python}
+The first simulation was done using the simple Euler algorithm from the cannonball exercise. The simulation was run for 1 year ($t = 1.0$) with time steps of $\Delta t = 0.0001$. The trajectory can be seen in fig. \ref{fig:solar1} and the code is at \texttt{src/solar1.py}. In one year the Earth orbits the Sun once as expected and the moon doesn't leave the Earth.
+\begin{figure}
+	\includegraphics[width=0.7\linewidth]{../fig/solar1.png}
+	\centering
+	\caption{Trajectory of a 2d model of the solar system using a simple Euler integrator and a time step of $\Delta t = 0.0001$.}
+	\label{fig:solar1}
+\end{figure}
+
+Now we would like to run this simulation using a few different time steps and look at the trajectory of the moon in the rest frame of the Earth. This is seen in fig. \ref{fig:solar2} and the code is at \texttt{src/solar2.py}. Any time step larger than $\Delta t = 0.0001$ launches the moon into deep space. An unexpected behavior for the moon.
+\begin{figure}
+	\includegraphics[width=0.7\linewidth]{../fig/solar2.png}
+	\centering
+	\caption{The trajectory of the moon in the rest frame of the Earth for various time steps}
+	\label{fig:solar2}
+\end{figure}
+\subsection{Integrators}
+The unexpected ejection of the moon illustrates the flawed nature of the simple Euler algorithm we've been using. In particular the algorithm is not symplectic meaning that the Hamiltonian is not conserved. One simple symplectic algorithm can be obtained by switching the order of the velocity and position updates like this:
+\begin{empheq}[box=\widefbox]{align}
+\bm{v}(t+\Delta t) &= \bm{v}(t) + \bm{a}(t) \Delta t \\
+\bm{x}(t + \Delta t) &= \bm{x}(t) + \bm{v}(t+\Delta t) \Delta t.
+\end{empheq}
+This is the \textbf{Symplectic Euler Algorithm}. We implement this algorithm in python as follows:
+\begin{python}
+def step_eulersym(x, v, dt):
+    f = compute_forces(x)
+    v += f*dt/m    
+    x += v*dt
+    return x, v
+\end{python}
+
+We now derive another symplectic integrator, the \textbf{Velocity Verlet Algorithm}. We begin by expanding the position and velocity to second order.
+\begin{align}
+\bm{x}(t + \Delta t) &= \bm{x}(t) + \frac{\partial }{\partial t}\bm{x}(t)\Delta t + \frac{1}{2} \frac{\partial^2}{\partial t^2} \bm{x}(t)\Delta t^2 \label{eq:vvx} \\
+\bm{v}(t + \Delta t) &= \bm{v}(t) + \frac{\partial }{\partial t}\bm{v}(t)\Delta t + \frac{1}{2} \frac{\partial^2 }{\partial t^2} \bm{v}(t)\Delta t^2 
+\label{eq:vtaylor}
+\end{align}
+Now we look for an expression for the second order term of velocity. We expand the time derivative of velocity to first order as
+\begin{equation}
+\frac{\partial}{\partial t} \bm{v}(t + \Delta t) = \frac{\partial}{\partial t} \bm{v}(t) + \frac{\partial^2 }{\partial t^2}\bm{v}(t)\Delta t.
+\end{equation}
+Solving for the term of interest leaves us with
+\begin{equation}
+\frac{\partial^2 }{\partial t^2}\bm{v}(t)\Delta t = \frac{\partial}{\partial t} \bm{v}(t + \Delta t) - \frac{\partial}{\partial t} \bm{v}(t)
+\end{equation}
+Inserting into eq. \ref{eq:vtaylor} leaves us with
+\begin{equation}
+\bm{v}(t + \Delta t) = \bm{v}(t)  + \frac{1}{2} \left( \frac{\partial}{\partial t} \bm{v}(t)+\frac{\partial}{\partial t} \bm{v}(t + \Delta t)\right) \Delta t.\label{eq:vvv}
+\end{equation}
+Inserting velocity and acceleration for the time derivatives in eqs. \ref{eq:vvx} and \ref{eq:vvv} gives us the final \textbf{Velocity Verlet Algorithm}
+\begin{empheq}[box=\widefbox]{align}
+\bm{x}(t + \Delta t) &= \bm{x}(t) + \bm{v}(t)\Delta t + \frac{\bm{a}(t)}{2}\Delta t^2 \label{eq:vv1} \\
+\bm{v}(t + \Delta t) &= \bm{v}(t) + \frac{\bm{a}(t)+\bm{a}(t+\Delta t)}{2}\Delta t \label{eq:vv2}
+\end{empheq}
+We can implement this algorithm in python in this way:
+\begin{python}
+def step_vv(x, v, a, dt):
+    x += v*dt+a*dt**2/2
+    v += a*dt/2
+    a = compute_forces(x)/m
+    v += a*dt/2
+    return x, v, a
+\end{python}
+We do this in two steps so that we don't have to save current acceleration time step.
+
+From this we now derive the \textbf{Verlet Algorithm}. We begin by writing eq. \ref{eq:vv1} for the current time step in terms of the previous time step. It looks like
+\begin{equation}
+\bm{x}(t) = \bm{x}(t - \Delta t) + \bm{v}(t - \Delta t)\Delta t + \frac{\bm{a}(t - \Delta t)}{2}\Delta t^2 \label{eq:vv3}.
+\end{equation}
+We then rearrange eq. \ref{eq:vv1} to solve for the position at the current time step giving
+\begin{equation}
+\bm{x}(t) = \bm{x}(t + \Delta t) - \bm{v}(t)\Delta t - \frac{\bm{a}(t)}{2}\Delta t^2.
+\end{equation}
+Adding the previous two equations gives
+\begin{equation}
+2\bm{x}(t) = \bm{x}(t + \Delta t) + \bm{x}(t - \Delta t) +\left[\bm{v}(t - \Delta t) -\bm{v}(t)\right]\Delta t + \frac{1}{2} \left[\bm{a}(t -\Delta t) - \bm{a}(t)\right]\Delta t^2\label{eq:vv4}
+\end{equation}
+Now we write eq. \ref{eq:vv2} for the current time step in terms of the previous time step and rearrange the velocity terms to the left side giving
+\begin{equation}
+\bm{v}(t - \Delta t) -\bm{v}(t) = -\frac{1}{2}\left[\bm{a}(t-\Delta t) +\bm{a}(t)\right] \Delta t
+\end{equation}
+Inserting into eq. \ref{eq:vv4} leaves us with
+\begin{equation}
+2\bm{x}(t) = \bm{x}(t + \Delta t)+\bm{x}(t - \Delta t) - \bm{a}(t)\Delta t^2
+\end{equation}
+and we can finally rearrange to find the \textbf{Verlet Algorithm}:
+\begin{empheq}[box=\widefbox]{equation}
+\bm{x}(t + \Delta t) = 2\bm{x}(t) - \bm{x}(t - \Delta t) + \bm{a}(t)\Delta t^2
+\end{empheq}
+So we see that the \textbf{Verlet} and \textbf{Velocity Verlet} are equivalent. This is difficult to implement since we would need to keep a history of the position in order to use the $\bm{x}(t+\Delta t)$ term.
+
+\begin{figure}
+	\includegraphics[width=1.0\linewidth]{../fig/solar3.png}
+	\centering
+	\caption{Trajectory of the moon using three different integrators and a time step of $\Delta t = 0.01$.}
+	\label{fig:solar3}
+\end{figure}
+We now simulate our solar system for 1 year using a time step $\Delta t = 0.01$ for each of the three integrators. We can see the trajectory of the moon for all three in fig. \ref{fig:solar3}. The two symplectic algorithms manage to keep the moon bound to the earth unlike the simple Euler algorithm. The code for this plot can be found at \texttt{src/solar3.py}.
+
+\subsection{Long term stability}
+
+Finally we run the simulation for $t = 10$ years and plot the distance between the moon and earth. This is plotted in fig. \ref{fig:solar4}. We see that eventually the symplectic Euler algorithm rockets the moon from the earth but the velocity Verlet algorithm manages to keep them bonded. The program is at \texttt{src/solar4.py}.
+\begin{figure}
+	\includegraphics[width=1.0\linewidth]{../fig/solar4.png}
+	\centering
+	\caption{Distance between the Earth and moon using three different integrators and a time step of $\Delta t = 0.01$.}
+	\label{fig:solar4}
+\end{figure}
+
+\end{document}
