@@ -1,6 +1,5 @@
 from numpy import *
 from matplotlib.pyplot import *
-from ../src/ljlib import *
 
 def compute_lj_force(rij):
     # TODO
