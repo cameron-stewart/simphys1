@@ -116,7 +116,7 @@ void step_vv(double *x, double *v, double *f, double dt) {
 int main() {
   // Constants
   const double density = 0.7;
-  const int n = 3;
+  const int n = 12;
   const double dt = 0.01;
   const double tmax = 1.0;
   rcut = 2.5;
@@ -154,11 +154,11 @@ int main() {
   
   compute_forces(x, f);
 
-  ofstream vtffile("../dat/ljfluid_c.vtf");
+  ofstream vtffile("../dat/ljfluid_c12.vtf");
   vtffile << "atom 0:" << (N-1) << " radius 0.5" << endl;
   vtffile << "unitcell " << L << " " << L << " " << L << endl;
 
-  ofstream datfile("../dat/ljfluid_c.dat");
+  ofstream datfile("../dat/ljfluid_c12.dat");
 
   while (t < tmax) {
     step_vv(x, v, f, dt);
