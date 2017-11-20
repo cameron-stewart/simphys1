@@ -6,7 +6,7 @@ from lj import *
 # density
 density = 0.7
 # number of particles per side
-n = 12
+n = 20
 # timestep
 dt = 0.01
 # length of run
@@ -46,7 +46,7 @@ Es = []
 traj = []
 
 # open the trajectory file
-vtffile = open('../../dat/cy/ljfluid12.vtf', 'w')
+vtffile = open('../../dat/cy/ljfluid20.vtf', 'w')
 # write the structure of the system into the file: 
 # N particles ("atoms") with a radius of 0.5
 vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
