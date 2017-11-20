@@ -16,8 +16,8 @@ v = np.zeros((1000,1))
 f = np.zeros((1000,3))
 
 for i in range(1000):
-    v[i] = lj.compute_lj_potential(r[i])
-    f[i] = lj.compute_lj_force(r[i])
+    v[i] = lj.compute_cutoff_potential(r[i])
+    f[i] = lj.compute_cutoff_force(r[i])
     
 plt.plot(d,v, label="LJ Potential")
 plt.plot(d,f[:,0], label="LJ Force")
@@ -27,4 +27,5 @@ plt.xlabel("Distance [A.U.]")
 plt.ylabel("Magnitude [A.U.]")
 plt.grid(True)
 plt.legend()
-plt.savefig('../fig/ljplot.png')
+#plt.savefig('../fig/ljplot.png')
+plt.show()

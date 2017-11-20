@@ -42,7 +42,7 @@ def compute_energy(x, v, L):
     # sum up kinetic energy
     for i in range(N):
         E_kin += 0.5 * dot(v[:,i],v[:,i])
-    return E_pot + E_kin
+    return  E_pot + E_kin
     
 def step_vv(x, v, f, dt):
     # update positions
@@ -79,14 +79,13 @@ N = n*n*n
 x = empty((3,N))
 
 # - compute the size of the system
-L = (N/density)**(1/3)
+L = (N/density)**(1./3.)
 
 # - set up n*n*n particles on a cubic lattice
-lin = linspace(0,L,n+1) # using n causes divide by zero in forces
 for i in range(n):
     for j in range(n):
         for k in range(n):
-            x[:,i*n*n+j*n+k] = np.array([lin[i],lin[j],lin[k]]) 
+            x[:,i*n*n+j*n+k] = np.array([i*L/n,j*L/n,k*L/n]) 
 
 
 # random particle velocities
@@ -128,4 +127,5 @@ while t < tmax:
         vtffile.write("%s %s %s\n" % (x[0,i], x[1,i], x[2,i]))
 
 vtffile.close()
-plot(ts, Es)        
+plot(ts, Es)
+#show()
