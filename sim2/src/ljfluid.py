@@ -63,7 +63,7 @@ def step_vv(x, v, f, dt):
 # density
 density = 0.7
 # number of particles per side
-n = 3
+n = 5
 # timestep
 dt = 0.01
 # length of run
@@ -78,12 +78,15 @@ N = n*n*n
 # particle positions on a cubic lattice
 x = empty((3,N))
 
-# TODO: 
 # - compute the size of the system
 L = (N/density)**(1/3)
-# - set up n*n*n particles on a cubic lattice
-lin = linspace(0,L,n)
 
+# - set up n*n*n particles on a cubic lattice
+lin = linspace(0,L,n+1) # using n causes divide by zero in forces
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            x[:,i*n*n+j*n+k] = np.array([lin[i],lin[j],lin[k]]) 
 
 
 # random particle velocities
@@ -99,7 +102,7 @@ Es = []
 traj = []
 
 # open the trajectory file
-vtffile = open('../dat/ljfluid.vtf', 'w')
+vtffile = open('../dat/ljfluid_5.vtf', 'w')
 # write the structure of the system into the file: 
 # N particles ("atoms") with a radius of 0.5
 vtffile.write('atom 0:%s radius 0.5\n' % (N-1))
@@ -107,6 +110,7 @@ vtffile.write('pbc %s %s %s\n' % (L, L, L))
 
 # main loop
 f = compute_forces(x, L)
+               
 while t < tmax:
     x, v, f = step_vv(x, v, f, dt)
     t += dt
@@ -124,5 +128,4 @@ while t < tmax:
         vtffile.write("%s %s %s\n" % (x[0,i], x[1,i], x[2,i]))
 
 vtffile.close()
-plot(ts, Es)
-        
+plot(ts, Es)        
