@@ -65,15 +65,16 @@ exponent-product=\cdot }
 \renewcommand{\lstlistingname}{Code block}
 \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
 
-
 % Griechische Buchstaben vereinheitlichen
 \renewcommand{\alpha}{\upalpha}
 \renewcommand{\beta}{\upbeta}
 \renewcommand{\gamma}{\upgamma}
 \renewcommand{\delta}{\updelta}
+\newcommand{\w}{\omega}
+\newcommand{\la}{\lambda}
 
 % Eigene mathematische Kommandos
-%\renewcommand{\d}{\text{d}} 							% Differential
+\newcommand{\dd}{\text{d}} 							% Differential
 \newcommand{\p}{\partial} 								% Partielles Differential
 \newcommand{\D}{\Delta} 								% Fehler / Laplace
 \newcommand{\order}[1]{\mathcal{O}\left( #1 \right)}
@@ -209,24 +210,156 @@ Figure \ref{sysA} shows a thermodynamic System $A$ which consists of two subsyst
 Thereby the system $A_1$ has $\Omega_1=10^{31}$ and $A_2$ $\Omega_2=10^{28}$ possible configurations. 
 The number of possible configurations $\Omega$ of the combined system $A$ therefore is the product of $\Omega_1$ and $\Omega_2$:
 \begin{align}
-\Omega =&\; \Omega_1\cdot\Omega_2 = 10^{31+28} = 10^{59}\label{omega}
+\Omega 
+	=&\; \Omega_1\cdot\Omega_2 
+	= 10^{31+28} = 10^{59}
+	\label{omega}
 \end{align}
 
 The entropy of such a system is $S=k_B \ln \Omega$, where $k_B=\SI{1.38E-23}{\joule\per\kelvin}$ is the Boltzmann constant. 
 Therefor the entropies of $A$, $A_1$ and $A_2$ are:
 \begin{align}
-S_1 =&\; k_B\cdot \ln\Omega_1 = 31 k_B = \SI{9.850E-22}{\joule\per\kelvin}\label{S1}\\
-S_2 =&\; k_B\cdot \ln\Omega_2 = 28 k_B = \SI{8.897E-22}{\joule\per\kelvin}\label{S2}\\
-S =&\; k_B\cdot \ln\Omega = k_B\cdot\Ln{\Omega_1\cdot\Omega_2} = k_B\cdot\ln\Omega_1+k_B\cdot\ln\Omega_2\nonumber\\
-=&\; S_1+S_2 = 59 k_B = \SI{18.748E-22}{\joule\per\kelvin}\label{S}
+S_1 
+	=&\; k_B\cdot \ln\Omega_1 
+	= 31 k_B\cdot\ln 10  
+	= \SI{9.850E-22}{\joule\per\kelvin}
+	\label{S1}\\
+S_2 
+	=&\; k_B\cdot \ln\Omega_2 
+	= 28 k_B\cdot\ln 10 
+	= \SI{8.897E-22}{\joule\per\kelvin}
+	\label{S2}\\
+S 
+	=&\; k_B\cdot \ln\Omega 
+	= k_B\cdot\Ln{\Omega_1\cdot\Omega_2} 
+	= k_B\cdot\ln\Omega_1+k_B\cdot\ln\Omega_2
+	\nonumber\\
+=&\; S_1+S_2 
+	= 59 k_B\cdot\ln 10 
+	= \SI{18.748E-22}{\joule\per\kelvin}
+	\label{S}
 \end{align}
 
 As you can see, the entropy of the combined system is the sum of its sybsystems entropies.\\
 
+\subsection{Isothermal Change of States}
+
+Consider a volume $V_0=\SI{1}{\metre\cubed}$ of the nearly ideal gas neon at a pressure $p_0=\SI{1}{atm}=\SI{1013.25}{\hecto\pascal}$ and temperature $T=\SI{298}{\kelvin}$. 
+Now the Volume of this gas is expanded isothermal by $\SI{1}{\percent}=f_V-1$. 
+For an ideal 1-atomic gas the intrinsic energy is $U=\frac{3}{2}Nk_BT$. 
+Because of this $U$ does not change through an isothermal process.
+At least we can use the first principle of thermodynamics \eref{1HS} and the ideal gas law \eref{id} in order to derive the the factor $f_\Omega$ by which the number of possible states $\Omega$ increase. 
+\begin{align}
+\D U 
+	=&\; \D Q + \D W
+	\label{1HS}\\
+pV 
+	=&\; Nk_BT
+	\label{id}\\
+\D T 
+	=&\; 0 \ \ \Rightarrow \ \ \D U 
+	= \frac{3}{2}Nk_B\cdot \D T
+	= 0
+	\label{kons}\\
+\dd S 
+	=&\; \frac{\dd Q}{T} 
+	\stackrel{\eref{1HS}}{=} \frac{\dd U-\dd W}{T} 
+	\stackrel{\eref{kons}}{=} \frac{p}{T}\dd V 
+	\stackrel{\eref{id}}{=} \frac{Nk_B}{V}\dd V 
+	&|\int
+	\label{dS}\\
+\int_{S_0}^{S_1} \dd S
+	=&\; \int_{V_0}^{V_1}\frac{Nk_B}{V}\dd V
+	\label{sint}\\
+\D S 
+	=&\; Nk_B\cdot\left(\Ln{V_1}-\Ln{V_0}\right) 
+	=\frac{p_0V_0}{T}\cdot\Ln{\frac{V_0+\D V}{V_0}}
+	\label{DS}\\
+k_B\cdot \Ln{\frac{\Omega_0+\D \Omega}{\Omega}} 
+	=&\;\frac{p_0V_0}{T}\cdot\Ln{\frac{V_0+\D V}{V_0}} 
+	&|:k_B
+	\label{SO}\\
+\Ln{f_\Omega} 
+	=&\; \frac{p_0V_0}{k_BT}\cdot\Ln{f_V} 
+	=\Ln{f_V^{\frac{p_0V_0}{k_BT}}} 
+	&|\exp
+	\label{lnO}\\
+f_\Omega 
+	=&\; f_V^{\frac{p_0V_0}{k_BT}} 
+	= f_V^N 
+	= 29.5^{1/k_B} 
+	\rightarrow \text{overflow}
+	\label{Omega}
+\end{align}
+
+This is an incredible high number. 
+This shall show that only a little more space for our simulation increases the number of possible staes with the power $N = \frac{p_0V_0}{k_BT}\approx\SI{41}{\mole}$ (number of particles). 
+
+\subsection{Increasing Energy of a System}
+
+%TODO Figure out the solution. Maybe dS=0
+
+\subsection{Thermodynamic Variables in the Canonical Ensemble}
+
+Helmholtz free energy:
+\begin{align}
+F 
+	=&\; U\left( S(N,V,T),V,N\right) -T\cdot S\left( T,V,N\right) 
+	=-k_BT\cdot\Ln{Z(T,V,N)}
+	\label{helm}
+\end{align}
+
+From equation \eref{helm} we can derive the intrinsic energy $U$, the pressure $p$ and the entropy $S$. Therefor we use $\pdiff{U}{S}=T$.
+\begin{align}
+\pdiff{F}{V} 
+	=&\; \pdiff{U}{S}\pdiff{S}{V}+\pdiff{U}{V}-T\pdiff{S}{V}
+	=-p(T,V,N)
+	\label{hp}\\
+p(T,V,N) 
+	=&\; \frac{k_BT}{Z(T,V,N)}\cdot\pdiff{Z}{V}(T,V,N)
+	\label{hp2}\\
+\pdiff{F}{T} 
+	=&\; \pdiff{U}{S}\pdiff{S}{T}-T\pdiff{S}{T}-S
+	=-S(T,V,N)
+	\label{hS}\\
+S(T,V,N) 
+	=&\; \frac{k_BT}{Z(T,V,N)}\cdot\pdiff{Z}{T}(T,V,N)
+	\label{hS2}\\
+U(T,V,N) 
+	=&\; T\cdot S(T,V,N) + F(T,V,N)
+	\nonumber\\
+=&\; T\cdot S(T,V,N)-k_BT\cdot\Ln{Z(T,V,N)}
+	\label{hU}\\	
+\end{align}
+
+\subsection{Ideal Gas}
+
+The canonical partition function if an ideal gas is:
+\begin{align}
+Z(T,V,N)
+	=&\; \frac{V^N}{\la^{3N}N!}
+	&\la 
+	=&\; \sqrt{\frac{h^2\beta}{2\pi m}}
+	&\beta 
+	=&\; \frac{1}{k_BT}
+	\label{Zid}
+\end{align}
+
+Now we calculate the Helmholtz free energy \eref{helm} for this $Z$.
+\begin{align}
+F(T,V,N)
+	=&\; -k_BT\cdot\Ln{\frac{V^N}{\la^{3N}N!}}
+	\label{f1}\\
+	=&\; -k_BT\cdot\left(N\cdot\Ln{\frac{V}{\la^{3}}}-\Ln{N!}\right)
+	\label{f2}\\
+	\stackrel{N>10^3}{=}& -k_BTN\cdot\left(\Ln{\frac{V}{\la^{3}N}}+1\right)
+	\label{f3}\\
+=&\; -k_BTN\cdot\left(\Ln{\frac{V}{N}\left(\frac{2\pi mk_BT}{h^2}\right)^{3/2}}+1\right)
+	\label{f4}
+\end{align}
 
 
-
-
+%TODO Derive the C_V
 
 
 
