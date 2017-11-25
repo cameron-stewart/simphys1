@@ -249,6 +249,7 @@ Now the Volume of this gas is expanded isothermal by $\SI{1}{\percent}=f_V-1$.
 For an ideal 1-atomic gas the intrinsic energy is $U=\frac{3}{2}Nk_BT$. 
 Because of this $U$ does not change through an isothermal process.
 At least we can use the first principle of thermodynamics \eref{1HS} and the ideal gas law \eref{id} in order to derive the the factor $f_\Omega$ by which the number of possible states $\Omega$ increase. 
+
 \begin{align}
 \D U 
 	=&\; \D Q + \D W
@@ -257,7 +258,8 @@ pV
 	=&\; Nk_BT
 	\label{id}\\
 \D T 
-	=&\; 0 \ \ \Rightarrow \ \ \D U 
+	=&\; 0 
+	\ \ \Rightarrow \ \ \D U 
 	= \frac{3}{2}Nk_B\cdot \D T
 	= 0
 	\label{kons}\\
@@ -266,7 +268,7 @@ pV
 	\stackrel{\eref{1HS}}{=} \frac{\dd U-\dd W}{T} 
 	\stackrel{\eref{kons}}{=} \frac{p}{T}\dd V 
 	\stackrel{\eref{id}}{=} \frac{Nk_B}{V}\dd V 
-	&|\int
+	&&|\int
 	\label{dS}\\
 \int_{S_0}^{S_1} \dd S
 	=&\; \int_{V_0}^{V_1}\frac{Nk_B}{V}\dd V
@@ -277,12 +279,12 @@ pV
 	\label{DS}\\
 k_B\cdot \Ln{\frac{\Omega_0+\D \Omega}{\Omega}} 
 	=&\;\frac{p_0V_0}{T}\cdot\Ln{\frac{V_0+\D V}{V_0}} 
-	&|:k_B
+	&&|:k_B
 	\label{SO}\\
 \Ln{f_\Omega} 
 	=&\; \frac{p_0V_0}{k_BT}\cdot\Ln{f_V} 
 	=\Ln{f_V^{\frac{p_0V_0}{k_BT}}} 
-	&|\exp
+	&&|\exp
 	\label{lnO}\\
 f_\Omega 
 	=&\; f_V^{\frac{p_0V_0}{k_BT}} 
@@ -295,9 +297,50 @@ f_\Omega
 This is an incredible high number. 
 This shall show that only a little more space for our simulation increases the number of possible staes with the power $N = \frac{p_0V_0}{k_BT}\approx\SI{41}{\mole}$ (number of particles). 
 
-\subsection{Increasing Energy of a System}
+\subsection{Isochoral Change of States}
 
-%TODO Figure out the solution. Maybe dS=0
+The considered system contains $N=\SI{1}{\mole}$ of particles at a temperature of $T_0=\SI{400}{\kelvin}$. Now an energy of $\D U =\SI{100}{\kilo\joule}$ is added to the system. We again want to figure out $f_\Omega$.
+\begin{align}
+\D V 
+	=&\; 0
+	\ \ \Rightarrow \ \ \D W 
+	= -p \D V
+	= 0
+	\label{kons2}\\
+\dd S
+	=&\; \frac{\dd Q}{T}
+	\stackrel{\eref{1HS}}{=} \frac{\dd U}{T}
+	\label{dS2}\\
+\dd U 
+	=&\; \frac{3}{2}k_BN\cdot\dd T
+	\ \ \ \text{(ideal gas)}
+	\label{idU}\\
+f_T 
+	=&\; \frac{T_0+\D T}{T_0} 
+	=1+\frac{2\D U}{3k_BNT_0}
+	\label{fT1}\\
+=&\; 21.06
+	\label{fT2}\\
+\dd S
+	=&\; \frac{3k_BN}{2T}\dd T
+	&&|\int
+	\label{dSdT}\\
+\int_{S_0}^{S_1} \dd S
+	=&\; \int_{T_0}^{T_1}\frac{3k_BN}{T}\dd T
+	\label{sint2}\\
+k_B\cdot\Ln{f_\Omega}
+	=&\; \frac{3}{2}k_BN\cdot\left(\Ln{T_1}-\Ln{T_0}\right) 
+	= \frac{3}{2}k_BN\cdot\Ln{f_T}
+	&&|:k_B\ |\exp
+	\label{DO2}\\
+f_\Omega 
+	=&\; f_T^{\frac{3}{2}N}
+	=21.06^{\frac{3}{2}\SI{}{\mole}}
+	\rightarrow \text{overflow}
+	\label{fO2}
+\end{align}
+
+As you can see, this number is also very large. The number of possible states increases with a factor to the power $\frac{3}{2} N = \frac{3}{2}\SI{}{\mole}$.
 
 \subsection{Thermodynamic Variables in the Canonical Ensemble}
 
@@ -327,9 +370,9 @@ S(T,V,N)
 	\label{hS2}\\
 U(T,V,N) 
 	=&\; T\cdot S(T,V,N) + F(T,V,N)
-	\nonumber\\
+	\label{hU}\\
 =&\; T\cdot S(T,V,N)-k_BT\cdot\Ln{Z(T,V,N)}
-	\label{hU}\\	
+	\label{hU2}	
 \end{align}
 
 \subsection{Ideal Gas}
@@ -345,7 +388,7 @@ Z(T,V,N)
 	\label{Zid}
 \end{align}
 
-Now we calculate the Helmholtz free energy \eref{helm} for this $Z$.
+Now we calculate the Helmholtz free energy $F$ \eref{helm} for this partition function $Z$.
 \begin{align}
 F(T,V,N)
 	=&\; -k_BT\cdot\Ln{\frac{V^N}{\la^{3N}N!}}
@@ -358,9 +401,34 @@ F(T,V,N)
 	\label{f4}
 \end{align}
 
+The last step is to derive an expression for the heat capacity at constant volume $C_V$. 
+\begin{align}
+C_V 
+	=&\; \left(\diff{Q}{T}\right)_V
+	=\left(\diff{U}{T}\right)_V
+	\stackrel{\eref{hU}}{=} \left(\diff{(T\cdot S+F)}{T}\right)_V
+	\label{cv1}\\
+S(T,V,N)
+	\stackrel{\eref{hS2}}{=}&\; -\pdiff{F}{T}
+	\label{fs1}\\
+\stackrel{\eref{f4}}{=}&\; \pdiff{ }{T} k_BTN\cdot\left(\Ln{\frac{V}{N}\left(\frac{2\pi mk_BT}{h^2}\right)^{3/2}}+1\right)
+	\label{fs2}\\
+=&\; k_BN\cdot\left(\Ln{\ldots}+1\right)
+	+ \frac{3}{2}k_BN\cdot\left(\frac{2\pi mk_BT}{h^2}\right)^{3/2}\cdot\left(\frac{2\pi mk_BT}{h^2}\right)^{-3/2}
+	\label{fs3}\\
+=&\; -\frac{F}{T} + \frac{3}{2}k_BN
+	\label{fs4}\\
+C_V
+	\stackrel{\eref{fs4}}{=}&\; \left(\diff{(-T\cdot\frac{F}{T}+\frac{3}{2}k_BNT+F}{T}\right)_V
+	=\left(\diff{}{T}\frac{3}{2}k_BNT\right)_V
+	\label{cv2}\\
+=&\; \frac{3}{2}k_BN
+	\label{cv3}
+\end{align}
 
-%TODO Derive the C_V
+\subsection{Lennard-Jones Potential}
 
+%TODO do the programming parts
 
 
 \end{document}
