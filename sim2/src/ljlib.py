@@ -29,7 +29,7 @@ def compute_cutoff_potential(r_ij):
 def compute_cutoff_force(r_ij):
     """compute cutoff force on particle j from particle i"""
     d = la.norm(r_ij)
-    if d <=2.5:
+    if d <= 2.5:
         return 48*(d**-13 - 0.5*d**-7)*r_ij/d
     else:
         return 0
