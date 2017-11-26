@@ -510,9 +510,11 @@ The trajectory can be seen in Fig. \ref{fig:pbc}.
 \label{fig:pbc}
 \end{figure}
 \subsection{Lennard-Jones Fluid}
-test
-
-
+\subsubsection{Pure Python}
+We now inherit a nice python program to simulate an LJ fluid with periodic boundary conditions. We have only to import {\tt ljlib.py}, compute the size of the system, and place the particles programatically as shown in the following code block.
+ \listfile{../src/ljfluid.py}{/src/ljfluid.py}{81}{88}{Particle Placement}{place}
+We then ran the simulation with $n = {3, 4, 5}$ particles per side for $t = 1.0$ and $dt = 0.01$ and measured the time taken to complete the simulation. We recorded times of 1.472, 5.328, and 16.704 seconds respectively.
+\subsubsection{Pure C/C++}
 
 
 
