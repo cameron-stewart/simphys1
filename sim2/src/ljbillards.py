@@ -113,11 +113,13 @@ axes().set_aspect('equal')
 legend()
 xlabel('x position')
 ylabel('y position')
+savefig('../fig/billardplt.png')
 
 # plot the total energy
-#figure()
-#xlabel("Time step")
-#ylabel("Total energy")
-#plot(Es)
+figure()
+xlabel("Time step")
+ylabel("Total energy")
+plot(Es)
+savefig('../fig/energy.png')
 
-savefig('../fig/billardplt.png')
+

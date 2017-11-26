@@ -66,8 +66,8 @@ t = 0.0
 
 # particle positions
 x = zeros((3,2))
-x[:,0] = [3.9, 3, 4]
-x[:,1] = [6.1, 5, 6]
+x[:,0] = [3.9, 3.0, 4.0]
+x[:,1] = [6.1, 5.0, 6.0]
 
 # particle velocities
 v = zeros((3,2))
