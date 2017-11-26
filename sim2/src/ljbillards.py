@@ -62,7 +62,7 @@ x[:,0] = [0.0, 0.0, 0.0]
 x[:,1] = [5.0, 0.3, 0.0]
 x[:,2] = [8.0, 1.8, 0.0]
 x[:,3] = [11.0, 0.0, -1.0]
-x[:,4] = [12.0, 9.0, 0.0]
+x[:,4] = [12.0, 7.5, 0.0]
 
 # particle velocities
 v = zeros((3,5))
@@ -82,7 +82,7 @@ Es = []
 N = x.shape[1]
 
 # open the trajectory file
-vtffile = open('../dat/ljbillards.vtf', 'w')
+vtffile = open('../dat/ljbillards3.vtf', 'w')
 # write the structure of the system into the file: 
 # N particles ("atoms") with a radius of 0.5
 vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
@@ -111,11 +111,13 @@ for i in range(N):
     plot(traj[:,0,i], traj[:,1,i], label='{}'.format(i))
 axes().set_aspect('equal')
 legend()
+xlabel('x position')
+ylabel('y position')
 
 # plot the total energy
-figure()
-xlabel("Time step")
-ylabel("Total energy")
-plot(Es)
+#figure()
+#xlabel("Time step")
+#ylabel("Total energy")
+#plot(Es)
 
-show()
+savefig('../fig/billardplt.png')

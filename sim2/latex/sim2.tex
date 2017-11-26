@@ -31,6 +31,14 @@ exponent-product=\cdot }
 \usepackage{pgfplots}
 \usepackage{tikz}
 
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
 % tikz
 \usetikzlibrary{arrows}
 
@@ -112,8 +120,8 @@ exponent-product=\cdot }
 \newcommand{\lref}[1]{$[#1]$}							% Quellen: \newcommand{\lit}{1} => \lref{\lit}
 
 % listing commandos
-\newcommand{\listfile}[5]{
-\lstinputlisting[linerange={#2-#3}, firstnumber=#2, caption={#4} \hfill script:  \lstinline@#1@, label=#5]{#1}}
+\newcommand{\listfile}[6]{
+\lstinputlisting[linerange={#3-#4}, firstnumber=#3, caption={#5} \hfill script:  \lstinline@#2@, label=#6]{#1}}
 % arguments:
 % {filename}{firstline}{lastline}{title}{label}
 % Imports code from a file 
@@ -150,7 +158,7 @@ exponent-product=\cdot }
 \pagestyle{scrheadings}
 \clearscrheadfoot
 \chead{Simulation Methods in Physics I}
-\ihead{Worksheet 1}
+\ihead{Worksheet 2}
 \ohead{\today}
 \ofoot{\pagemark}
 \ifoot{Michael Marquardt}
@@ -167,13 +175,13 @@ exponent-product=\cdot }
 Simulation Methods in Physics I
 \end{large} \\ \ \\
 \begin{Large}
-Worksheet 1: Integrators
+Worksheet 2: Statistical Mechanics and Molecular Dynamics
 \end{Large}}   \\ \ \\
 \ \\ \ \\
 
 \begin{tabular}{lll}
 Students: &Michael Marquardt &Cameron Stewart\\ 
-matriculation numbers: &3122118 &-------\\
+matriculation numbers: &3122118 &3216338\\
 \end{tabular}
 
 
@@ -427,9 +435,86 @@ C_V
 	\label{cv3}
 \end{align}
 
-\subsection{Lennard-Jones Potential}
+\section{Molecular Dynamics: Lennard-Jones Fluid}
+In this worksheet we will simulate a simple Lennard-Jones fluid using Molecular Dynamics.  We begin by implementing the Lennard-Jones (LJ) potential and force in python and simulate a few particles as "billards." We will move on to simulating a LJ fluid using periodic boundary conditions and random initial velcities. We then compare the run times for this system using implementations using python, C, and cython. Finally, we include cell lists and Verlet lists in order to further improve our efficiency.
+\subsection{Lennard Jones Potential}
+The LJ potential is originally a model used to represent a system of noble gas particles and consists of a hard core repulsion as well as a longer ranged attractive potential due to the dipole-dipole interaction. At longer ranges the potential is nearly zero. It is given by
+\begin{equation}
+V_\mathrm{LJ}(r) = 4\epsilon\left(\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6\right).
+\end{equation}
+\subsection{Reduced Units}
+We may define a set of dimensionless reduced units because the LJ potential is of the general form
+\begin{equation}\label{genpot}
+U(r) = \epsilon \phi(\sigma/r)
+\end{equation}
+where $\sigma$ and $\epsilon$ are constants and $\phi$ is smooth and differentiable. We use
+\begin{equation}
+x^* = x/\sigma,\quad V^* = V/\sigma^3, \quad T^* = k_\mathrm{B} T/\epsilon,\quad p^* = p\sigma^3/\epsilon.
+\end{equation}
+The law of corresponding states claims that any system interacting with an potential such as \ref{genpot} is described by the same equation of state. We may therefore simulate at $/epsilon = /sigma = 1.0$ without any loss of generality.
 
-%TODO do the programming parts
+With the help of numpy, we implement the LJ potential in the following way:
+\listfile{../src/ljlib.py}{/src/ljlib.py}{10}{13}{LJ Potential}{ljpotential}
+The force due to this potential is simply given by the negative gradient and is implemented as:
+\listfile{../src/ljlib.py}{/src/ljlib.py}{15}{19}{LJ Force}{ljforce}
+The output of these functions for values from 0.85 to 2.5 can be seen in Fig. \ref{fig:lj}.
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../fig/ljplot.png}
+  \centering
+  \caption{Output of the compute\_lj\_potential and compute\_lj\_force functions.}
+\label{fig:lj}
+\end{figure}
+\subsection{Lennard-Jones Billards}
+We would now like to use this potential to run an MD simulation.We use the velocity verlet integrator to run the MD. Our first simulation will place 5 particles by hand and integrate until $t = 20.0$ with a timestep of $dt = 0.01$. We begin with a supplied template and simply import the library created in the previous task.  
+\listfile{../src/ljbillards.py}{/src/ljbillards.py}{1}{3}{Import ljlib.py}{imports}
+We can use VMD in order to visualize the simulation once we've run the program. A still shot from our simulation can be seen in Fig. \ref{fig:vmd}.
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../fig/vmdscene.png}
+  \centering
+  \caption{A snapshot of the LJ billards simulation}
+\label{fig:vmd}
+\end{figure}
+In the original simulation, the first (not zeroth) particle did not collide with the fourth. We moved the fifth particle slightly south in order to correct this and the trajectory can be seen in Fig. \ref{fig:bplot}. Another feature of this trajectory is that the second and third particles do not behave like billard balls at all. This is due to the attractive part of the LJ potential.
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../fig/billardplt.png}
+  \centering
+  \caption{Billard trajectory with modified initial conditions}
+\label{fig:bplot}
+\end{figure}
+\subsection{Periodic Boundary Conditions}
+Because computers have limited resources and computing power, we can never simulate a full system. Rather we simulate a much smaller system. Unfortunately, if we had only a few particles in a boundless space, they would escape to infinity and no longer interact. We can't simply add walls because we must then account for surface effects. We can solve this problem by using periodic boundary conditions (PBC).  Images of our central box essentially extend infinitely in every direction. We now have an infinite volume $V$ and particle number $N$ but we may prescribe a density $\rho = N/V$.
+\subsubsection{Long and Short Range Interactions}
+One problem with an infinite number of particles is that long range interactions become hard to model since we must compute an infinite number of interactions. Fortunately, LJ is essentially short ranged and we can define a cutoff distance as follows.
+
+\begin{equation*}
+V^`_\mathrm{LJ}(r)=\begin{cases}
+V_\mathrm{LJ}(r) - V_\mathrm{LJ}(r_\mathrm{cutoff}), & r \leq r_\mathrm{cutoff}\\
+0, & \text{else}
+\end{cases}
+\end{equation*}
+We implent this for both the LJ potential and force as
+ \listfile{../src/ljlib.py}{/src/ljlib.py}{21}{35}{LJ Cutoff}{cuttoff}
+We use a value of $2.5$ for $r_\mathrm{cutoff}$.
+\subsubsection{Minimum Image Convention}
+If we use a cutoff range that is less than the length of our box $L$ then we only have to compute the interaction between the closest image of the particles. All other images will be too far to interact. Knowing this, we can implement pbc by simply calculating the minimum image distance and using that distance to calculate the forces. Our particles will then freely propogate outof the box while still experiencing the correct force. When looking at the trajectory in VMD or in python we can then simpy wrap the particle locations back to the first box to see the true trajectories. The following code block shows how the minimum image is calculated:
+ \listfile{../src/ljbillards1.py}{/src/ljbillards1.py}{54}{57}{Minimum Image}{image}
+ The compute\_forces function was modified as well.
+  \listfile{../src/ljbillards1.py}{/src/ljbillards1.py}{5}{19}{PBC Forces}{pbcforces}
+We tested the pbc by setting up two particles with the following initial conditions:
+ \listfile{../src/ljbillards1.py}{/src/ljbillards1.py}{67}{75}{Initial Conditions}{init}
+The trajectory can be seen in Fig. \ref{fig:pbc}. 
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../fig/pbcplot.png}
+  \centering
+  \caption{Billard trajectory with modified initial conditions}
+\label{fig:pbc}
+\end{figure}
+\subsection{Lennard-Jones Fluid}
+test
+
+
+
+
 
 
 \end{document}

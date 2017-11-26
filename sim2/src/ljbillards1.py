@@ -69,7 +69,6 @@ x = zeros((3,2))
 x[:,0] = [3.9, 3, 4]
 x[:,1] = [6.1, 5, 6]
 
-
 # particle velocities
 v = zeros((3,2))
 v[:,0] = [-2.0, -2.0,-2.0]
@@ -116,11 +115,14 @@ for i in range(N):
     plot(traj[:,0,i], traj[:,1,i], 'o', label='{}'.format(i))
 axes().set_aspect('equal')
 legend()
+xlabel('x position')
+ylabel('y position')
 
 # plot the total energy
-figure()
-xlabel("Time step")
-ylabel("Total energy")
-plot(Es)
+#figure()
+#xlabel("Time step")
+#ylabel("Total energy")
+#plot(Es)
 
-show()
+savefig('../fig/pbcplot.png')
+#show()
