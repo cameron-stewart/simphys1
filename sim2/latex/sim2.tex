@@ -527,6 +527,7 @@ We then ran the simulation for $n = {5,6,7,8,9,10,11,12}$ and measured the compu
   \caption{Plot of number of particles vs computing time for the C++ implementation along with a quadratic fit.}
 \label{fig:cpp}
 \end{figure}
-
+\subsection{Cython}
+Finally we will use cython as an interface between python and C so that the time intensive code is written in C and the control is done with python. We copied the compute\_energy() function from the previous task into the supplied template, lines 10 1nd 21 through 24 were uncommented in {\tt /src/cython1/lj.pyx}, and lines 84 through 87 were uncommented in {/tt /src/cython1/ljfluid.py}.
 
 \end{document}
