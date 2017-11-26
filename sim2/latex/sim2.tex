@@ -57,7 +57,21 @@ exponent-product=\cdot }
 \lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
 \pagestyle{empty}
 \lstset{escapeinside={<@}{@>}}
-\lstset{language=Python,
+\lstdefinestyle{MyPythonStyle}{
+		language=Python,
+		numbers=left,
+		breaklines=true,
+		basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+		}
+\lstdefinestyle{MyCStyle}{
+		language=C,
 		numbers=left,
 		tabsize=4,
 		breaklines=true,
@@ -120,24 +134,13 @@ exponent-product=\cdot }
 \newcommand{\lref}[1]{$[#1]$}							% Quellen: \newcommand{\lit}{1} => \lref{\lit}
 
 % listing commandos
-\newcommand{\listfile}[6]{
-\lstinputlisting[linerange={#3-#4}, firstnumber=#3, caption={#5} \hfill script:  \lstinline@#2@, label=#6]{#1}}
+\newcommand{\listfile}[7][MyPythonStyle]{
+\lstinputlisting[linerange={#4-#5}, firstnumber=#4, caption={#6} \hfill script:  \lstinline@#3@, label=#7, style=#1]{#2}}
 % arguments:
-% {filename}{firstline}{lastline}{title}{label}
+% \listfile[style]{location/filename}{filename}{firstline}{lastline}{title}{label}
 % Imports code from a file 
-
-%Examples
-%\begin{lstlisting}[caption=Aufgabe XX]
-%<@\textbf{\textcolor{red}{Komentar vom Assi}}@>
-%# -*- coding: utf-8 -*-
-%# Michael Maquardt
-%# Matthias Hayer
-%\end{lstlisting}
-%
-%\StrSubstitute{ab_cde.fg}{_}{\_}
-%
-% Im Text \lstinline@code@ geht auch!
-% Beliebige zeichen statt @
+% You will not have to escape the filename, but the title
+% style is an optional argument.
 
 % commands for this task
 \newcommand{\ua}{AU}
