@@ -515,8 +515,15 @@ We now inherit a nice python program to simulate an LJ fluid with periodic bound
  \listfile{../src/ljfluid.py}{/src/ljfluid.py}{81}{88}{Particle Placement}{place}
 We then ran the simulation with $n = {3, 4, 5}$ particles per side for $t = 1.0$ and $dt = 0.01$ and measured the time taken to complete the simulation. We recorded times of 1.472, 5.328, and 16.704 seconds respectively.
 \subsubsection{Pure C/C++}
-
-
+Similar to the previous task we were given a template to modify. In this case we needed to implement the compute\_energy() function.
+ \listfile{../src/ljfluid.cpp}{/src/ljfluid.cpp}{73}{91}{Compute Energy}{computeenergy}
+We then ran the simulation for $n = {5,6,7,8,9,10,11,12}$ and measured the computation time. For $n=5$, a time of 0.188 seconds was measured. Almost 10 times faster than python. The data along with a fit of the obvious quadratic trend is included in Fig. \ref{fig:cpp}.
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../fig/fit.png}
+  \centering
+  \caption{Plot of number of particles vs computing time for the C++ implementation along with a quadratic fit.}
+\label{fig:cpp}
+\end{figure}
 
 
 \end{document}
