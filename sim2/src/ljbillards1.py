@@ -96,7 +96,8 @@ while t < tmax:
     x, v, f = step_vv(x, v, f, dt)
     t += dt
 
-    traj.append(x.copy())
+    traj.append(x.copy()-L*floor(x.copy()/L))
+    
     Es.append(compute_energy(x, v))
     
     # write out that a new timestep starts
@@ -112,7 +113,7 @@ traj = array(traj)
 # plot the trajectory
 figure()
 for i in range(N):
-    plot(traj[:,0,i], traj[:,1,i], label='{}'.format(i))
+    plot(traj[:,0,i], traj[:,1,i], 'o', label='{}'.format(i))
 axes().set_aspect('equal')
 legend()
 
