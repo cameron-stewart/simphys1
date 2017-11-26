@@ -91,13 +91,17 @@ extern "C" {
       double epot = 0, ekin = 0;
 
       // add up potential energy
-      for (int i = 1; i < N; i++) {
-         for (int j = 0; j < i; j++) {
-            minimum_image(x, i, j, rij);
-           epot += compute_lj_potential(rij);
-         }
-      }
-
+      vector<int>::iterator it = verlet_list.begin();
+      vector<int>::iterator end = verlet_list.end();
+      while (it != end) {
+         int i = *it;
+         ++it;
+         int j = *it;
+         ++it;
+         minimum_image(x, i, j, rij);
+         epot += compute_lj_potential(rij);
+      
+      
       // add up kinetic energy
       for (int i = 0; i < N; i++) {
          ekin += 0.5*(v[i]*v[i]+v[i+N]*v[i+N]+v[i+2*N]*v[i+2*N]);

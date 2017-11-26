@@ -164,7 +164,7 @@ exponent-product=\cdot }
 \ihead{Worksheet 2}
 \ohead{\today}
 \ofoot{\pagemark}
-\ifoot{Michael Marquardt}
+\ifoot{Michael Marquardt, Cameron Stewart}
 
 \begin{document}
 
@@ -192,7 +192,6 @@ matriculation numbers: &3122118 &3216338\\
 \end{titlepage}
 
 % Inhaltsverzeichnis
-\tableofcontents
 \newpage
 
 % -------------------------------------- Begin Of Document ----------------------------------------
@@ -530,6 +529,8 @@ We then ran the simulation for $n = {5,6,7,8,9,10,11,12}$ and measured the compu
 \subsection{Cython}
 Finally we will use cython as an interface between python and C so that the time intensive code is written in C and the control is done with python. We copied the compute\_energy() function from the previous task into the supplied template, lines 10 1nd 21 through 24 were uncommented in {\tt /src/cython1/lj.pyx}, and lines 84 through 87 were uncommented in {\tt /src/cython1/ljfluid.py}. The simulation was run for $n = {5,10}$ and runtimes of 0.568 and 2.724 seconds respectively were recorded. Compared to pure C++ the lower $n$ had a slower runtime while the higher had a quicker runtime.
 \subsection{Cell Lists and Verlet Lists}
-
+Finally, we use cell lists and Verlet lists to further increase the efficiency of our simulation. We had to modify the c\_compute\_energy() function in order to incorporate the verlet lists.
+\listfile[myCStyle]{../src/cython2/c_lj.cpp}{/src/cython2/c\_lj.cpp}{89}{111}{Compute Energy Verlet}{computeenergyverlet}
+We ran this simulation for $n = {5, 10, 15, 20}$ and got runtimes of 0.392, 1.732, 11.916, and 59.960 seconds respectively. This shows a clear advantage in runtimes over the previous methods. All recorded runtimes can be found in {\tt /dat/times.txt}.
 
 \end{document}
