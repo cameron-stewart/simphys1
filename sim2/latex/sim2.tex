@@ -459,9 +459,9 @@ x^* = x/\sigma,\quad V^* = V/\sigma^3, \quad T^* = k_\mathrm{B} T/\epsilon,\quad
 The law of corresponding states claims that any system interacting with an potential, such as \eref{genpot}, is described by the same equation of state. We may therefore simulate at $\epsilon = \sigma = 1.0$ without any loss of generality.
 
 With the help of numpy, we implement the LJ potential in the following way:
-\listfile{../src/ljlib.py}{ljlib.py}{10}{13}{LJ Potential}{ljpotential}
+\listfile{../src/ljlib.py}{src/ljlib.py}{10}{13}{LJ Potential}{ljpotential}
 The force due to this potential is simply given by the negative gradient and is implemented as:
-\listfile{../src/ljlib.py}{ljlib.py}{15}{19}{LJ Force}{ljforce}
+\listfile{../src/ljlib.py}{src/ljlib.py}{15}{19}{LJ Force}{ljforce}
 The output of these functions for distances from 0.85 to 2.5 can be seen in Fig. \ref{fig:lj}.
 \begin{figure}[h]
 \includegraphics[width=0.7\linewidth]{../fig/ljplot.png}
@@ -471,7 +471,7 @@ The output of these functions for distances from 0.85 to 2.5 can be seen in Fig.
 \end{figure}
 \subsection{Lennard-Jones Billards}
 We would now like to use this potential to run an MD simulation. We use the velocity verlet integrator to run the MD. Our first simulation will place 5 particles by hand and integrate until time $t = 20.0$ with a timestep of $dt = 0.01$. We begin with a supplied template and simply import the library created in the previous task.  
-\listfile{../src/ljbillards.py}{ljbillards.py}{1}{3}{Import ljlib.py}{imports}
+\listfile{../src/ljbillards.py}{src/ljbillards.py}{1}{3}{Import ljlib.py}{imports}
 We can use VMD in order to visualize the simulation once we've run the program. A still shot from our simulation can be seen in Fig. \ref{fig:vmd}.
 \begin{figure}[h]
 \includegraphics[width=0.7\linewidth]{../fig/vmdscene.png}
@@ -505,16 +505,16 @@ V_\mathrm{LJ}(r) - V_\mathrm{LJ}(r_\mathrm{cutoff}), & r \leq r_\mathrm{cutoff}\
 0, & \text{else}
 \end{cases}
 \end{equation*}
- \listfile{../src/ljlib.py}{ljlib.py}{21}{35}{LJ Cutoff}{cuttoff}
+ \listfile{../src/ljlib.py}{src/ljlib.py}{21}{35}{LJ Cutoff}{cuttoff}
 We use a value of $2.5$ for $r_\mathrm{cutoff}$.
 \subsubsection{Minimum Image Convention}
 If we use a cutoff range that is less than the length of our box $L$ then we only have to compute the interaction between the closest image of the particles. All other images will be too far to interact. Knowing this, we can implement periodic boundary conditions by simply calculating the minimum image distance and using that distance to calculate the forces. Our particles will then freely propogate out of the box while still experiencing the correct force. When looking at the trajectory in VMD or in python we can then simpy wrap the particle locations back to the first box to see the true trajectories. The following code block shows how the minimum image is calculated:
- \listfile{../src/ljbillards1.py}{ljbillards1.py}{54}{57}{Minimum Image}{image}
+ \listfile{../src/ljbillards1.py}{src/ljbillards1.py}{54}{57}{Minimum Image}{image}
  Thereby the length $L$ is defined elsewhere in the script as $L = 10.0$.
  The compute\_forces function was modified as well in order to include the functions image and the compute\_cutoff\_force. The function compute\_energy is extended in the same way.
-  \listfile{../src/ljbillards1.py}{ljbillards1.py}{5}{19}{PBC Forces}{pbcforces}
+  \listfile{../src/ljbillards1.py}{src/ljbillards1.py}{5}{19}{PBC Forces}{pbcforces}
 We tested the periodic boundary conditions by setting up two particles with the following initial conditions:
- \listfile{../src/ljbillards1.py}{ljbillards1.py}{67}{75}{Initial Conditions}{init}
+ \listfile{../src/ljbillards1.py}{src/ljbillards1.py}{67}{75}{Initial Conditions}{init}
 The trajectory can be seen in Fig. \ref{fig:pbc}. 
 \begin{figure}[h]
 \includegraphics[width=0.7\linewidth]{../fig/pbcplot.png}
@@ -525,7 +525,7 @@ The trajectory can be seen in Fig. \ref{fig:pbc}.
 \subsection{Lennard-Jones Fluid}
 \subsubsection{Pure Python}
 We now inherit a nice python program to simulate an LJ fluid with periodic boundary conditions. We have only to import {\tt ljlib.py}, compute the size of the system, and place the particles programatically as shown in the following code block.
- \listfile{../src/ljfluid.py}{ljfluid.py}{81}{88}{Particle Placement}{place}
+ \listfile{../src/ljfluid.py}{src/ljfluid.py}{81}{88}{Particle Placement}{place}
  Thereby $x$ contains the (initial) position of each particle and $i$, $j$ and $k$ describe the three dimensional lattice.\\
  
  We then ran the simulation with $n = {3, 4, 5}$ particles per side and the overall number of particles $N=n^3$ for $t = 1.0$ and $dt = 0.01$ and measured the time taken to complete the simulation. \\
@@ -533,7 +533,7 @@ We now inherit a nice python program to simulate an LJ fluid with periodic bound
  We recorded times of 1.472, 5.328, and 16.704 seconds respectively.
 \subsubsection{Pure C/C++}
 Similar to the previous task we were given a template, this time in C++, to modify. In this case we needed to implement the compute\_energy() function.
- \listfile[myCStyle]{../src/ljfluid.cpp}{ljfluid.cpp}{73}{91}{Compute Energy}{computeenergy}
+ \listfile[myCStyle]{../src/ljfluid.cpp}{src/ljfluid.cpp}{73}{91}{Compute Energy}{computeenergy}
 We then ran the simulation for $n = {5,6,7,8,9,10,11,12}$ and measured the computation time. For $n=5$, a time of 0.188 seconds was measured. Almost 10 times faster than python. The data along with a fit of the obvious quadratic trend is included in Fig. \ref{fig:cpp}.
 \begin{figure}[h]
 \includegraphics[width=0.7\linewidth]{../fig/fit.png}
@@ -546,7 +546,7 @@ Finally we will use cython as an interface between python and C so that the time
 \subsection{Cell Lists and Verlet Lists}
 Finally, we use cell lists and Verlet lists to further increase the efficiency of our simulation. We had to modify the c\_compute\_energy() function in order to incorporate the verlet lists.
 \newpage
-\listfile[myCStyle]{../src/cython2/c_lj.cpp}{cython2/c\_lj.cpp}{89}{111}{Compute Energy Verlet}{computeenergyverlet}
+\listfile[myCStyle]{../src/cython2/c_lj.cpp}{src/cython2/c\_lj.cpp}{89}{111}{Compute Energy Verlet}{computeenergyverlet}
 We ran this simulation for $n = {5, 10, 15, 20}$ and got runtimes of 0.392, 1.732, 11.916, and 59.960 seconds respectively. This shows a clear advantage in runtimes over the previous methods. All recorded runtimes can be found in {\tt times.txt}.
 
 \end{document}
