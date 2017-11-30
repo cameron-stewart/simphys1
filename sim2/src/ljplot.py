@@ -21,10 +21,11 @@ for i in range(1000):
     
 plt.plot(d,v, label="LJ Potential")
 plt.plot(d,f[:,0], label="LJ Force")
-plt.axis([0.85,2.5,-15,15])
+plt.axis([0.85,2.5,-5,10])
 plt.plot(d,np.zeros((1000,1)), 'k')
 plt.xlabel("Distance [A.U.]")
 plt.ylabel("Magnitude [A.U.]")
 plt.grid(True)
 plt.legend()
 plt.savefig('../fig/ljplot.png')
+#plt.show()

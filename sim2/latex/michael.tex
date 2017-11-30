@@ -50,7 +50,7 @@ exponent-product=\cdot }
 		breaklines=true
 		}
 \renewcommand{\lstlistingname}{Code block}
-\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+\renewcommand{\lstlistlistingname}{List of \lstlistingnames}
 
 
 % Griechische Buchstaben vereinheitlichen
@@ -96,10 +96,12 @@ exponent-product=\cdot }
 \newcommand{\lref}[1]{$[#1]$}							% Quellen: \newcommand{\lit}{1} => \lref{\lit}
 
 % listing commandos
-\newcommand{\listfile}[5]{
-\lstinputlisting[linerange={#2-#3}, firstnumber=#2, caption={#4} \hfill script:  \lstinline@#1@, label=#5]{#1}}
-% doesn't work: \convertchar[q]{#1}{_}{\_} \decodetoken\convertword{#1}{_}{\ \Underscore}
-% actual {filename}{escape filname}{firstnumber}{lastnumber}{title}{label}
+\newcommand{\listfile}[6]{
+\lstinputlisting[linerange={#3-#4}, firstnumber=#3, caption={#5} \hfill script:  \lstinline@#2@, label=#6]{#1}}
+% arguments:
+% \listfile{location/filename}{filename}{firstline}{lastline}{title}{label}
+% Imports code from a file 
+% You will not have to escape the filename, but the title
 
 %Examples
 %\begin{lstlisting}[caption=Aufgabe XX]
