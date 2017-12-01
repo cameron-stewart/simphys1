@@ -143,7 +143,7 @@ while t < tmax:
         print("t={}, E={}".format(t, E_tot))
 
         ts.append(t)
-        Es.append([E_pot,E_kin,E_tot])
+        Es.append(E_tot)
 
         # write out that a new timestep starts
         vtffile.write('timestep\n')
@@ -166,11 +166,6 @@ print("Finished simulation.")
 print("Plotting...")
 ts = array(ts)
 Es = array(Es)
-plot(ts, Es[:,0],'g-',label=r'E_{pot}')
-plot(ts, Es[:,1],'r-',label=r'E_{kin}')
-plot(ts, Es[:,2],'b-',label=r'E_{tot}')
-xlabel("Time t [s]")
-ylabel("Energy E [?]")
-legend()
+plot(ts, Es)
 show()
 print("Finished.")
