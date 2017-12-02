@@ -9,8 +9,9 @@ import argparse
 # command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--cont", type=double ,help="continue calculation where you stopped it?")
+parser.add_argument("--time", type=double ,help="How long do you want to run the simulation?")
+
 args = parser.parse_args()
-cont=args.cont
 
 # SYSTEM CONSTANTS
 # density
@@ -43,20 +44,23 @@ volume = N/density
 L = volume**(1./3.)
 	
 # Import previous data
-if cont:
+if args.cont:
 	# open datafile
 	datafile = open(datafilename,'r')
-	ts, Es, x, v = pickle.load(datafile)
+	ts, Es, Ts, Ps, x, v = pickle.load(datafile)
 	datafile.close()
 	
 	# length of run
 	t = ts[-1]
-	tmax = t+cont
+	tmax = t+args.cont
 	step = 0
 
 else:
 	# length of run
-	tmax = 10.0
+	if args.time:
+		tmax = args.time
+	else:
+		tmax = 10.0
 
 	print("Starting simulation...")
 	# particle positions on cubic lattice
@@ -78,6 +82,8 @@ else:
 	# variables to cumulate data
 	ts = []
 	Es = []
+	Ts = []
+	Ps = []
 
 print("density={}, L={}, N={}".format(density, L, N))
 
@@ -140,10 +146,14 @@ while t < tmax:
 
     if step % measurement_stride == 0:
         E_pot, E_kin, E_tot = compute_energy(x, v)
-        print("t={}, E={}".format(t, E_tot))
+        T = 2*E_kin/(3*N)
+        P = compute_pressure(E_kin, x)
+        print("t={}:\n\tE_pot={}\n\tE_kin={}\n\tE_tot={}\n\tT={}\n\tP={}".format(t, E_pot, E_kin, E_tot, T, P))
 
         ts.append(t)
-        Es.append(E_tot)
+        Es.append([E_pot,E_kin,E_tot])
+        Ts.append(T)
+        Ps.append(P)
 
         # write out that a new timestep starts
         vtffile.write('timestep\n')
@@ -158,7 +168,7 @@ vtffile.close()
 # write out simulation data
 print("Writing simulation data to {}.".format(datafilename))
 datafile = open(datafilename, 'w')
-pickle.dump([ts, Es, x, v], datafile)
+pickle.dump([ts, Es, Ts, Ps, x, v], datafile)
 datafile.close()
 
 print("Finished simulation.")
@@ -166,6 +176,11 @@ print("Finished simulation.")
 print("Plotting...")
 ts = array(ts)
 Es = array(Es)
-plot(ts, Es)
+plot(ts, Es[:,0],'g-',label=r'E_{pot}')
+plot(ts, Es[:,1],'r-',label=r'E_{kin}')
+plot(ts, Es[:,2],'b-',label=r'E_{tot}')
+xlabel("Time t [s]")
+ylabel("Energy E [?]")
+legend()
 show()
 print("Finished.")

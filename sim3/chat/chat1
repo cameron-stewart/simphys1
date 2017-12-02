@@ -1,0 +1,13 @@
+Hi Cameron
+
+I created this folder for giving deeper insights in the others work. 
+It will be easier to put information about what you have done in a txt file than explain it in the commit message or whatsapp.
+
+I expanded the ljsim.py for the --time <simtime> command-line option.
+It works analougus to the --cont <simtime>
+
+I expanded the ljsim.py for computing the temperature directly and to get the pressure from c.
+I did this because the temperature is a scalar multiplication and dividion, but the pressure has to be calculated from vectors like the force.
+Therefore I replaced sum(m*v^2) through 2*E_kin in order to save runtime.
+I interpreted the direction of the force fij as -fij because otherwise the pressure will become negative in about 50% of the cases.
+At least I interpreted the mass m as 1.
