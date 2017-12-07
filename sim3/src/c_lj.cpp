@@ -272,7 +272,7 @@ extern "C" {
         compute_lj_force(rij,fij);
         
         for (int k = 0; k < 3; k++)
-          interaction -= fij[k]*rij[k];
+          interaction += fij[k]*rij[k];
       }
     }
     return (2.*E_kin+interaction)/(3*L*L*L);

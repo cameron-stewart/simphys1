@@ -8,8 +8,8 @@ import argparse
 
 # command line arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--cont", type=double, help="continue calculation where you stopped it?")
-parser.add_argument("--time", type=double, help="How long do you want to run the simulation?")
+parser.add_argument("--cont", type=double, help="continue calculation with for cont further time")
+parser.add_argument("--time", type=double, help="How long do you want to run the simulation? | default time=10s")
 
 args = parser.parse_args()
 
