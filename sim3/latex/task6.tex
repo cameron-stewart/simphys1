@@ -3,14 +3,17 @@
 For the \emph{velocity rescaling} thermostat we can derive the rescaling-factor $\fr$ from equation \eqref{fr1}.
 
 \begin{align}
-\frac{1}{2}k_BT 
-	&= \frac{\Ekin}{3N}
+\frac{3}{2}k_BT_0
+	&= \frac{\Ekino}{N}
 	\label{fr1}\\
-&= \frac{1}{3N}\sum_{i=1}^{N} \frac{(\fr\cdot\vecv{i})^2}{2m}
+&= \frac{1}{N}\sum_{i=1}^{N} \frac{(\fr\cdot\vecv{i})^2}{2m}
 	\label{fr2}\\
-&= \fr^2\frac{\Ekin}{3N}
+&= \fr^2\frac{\Ekin}{N}
 	\label{fr3}\\
+&=\fr^2\frac{3}{2}k_BT
+	\label{fr4}\\
 \fr
-	&= \sqrt{\frac{3Nk_BT}{2\Ekin}}
+	&= \sqrt{\frac{T_0}{T}}
+	\label{fr5}
 \end{align}
 

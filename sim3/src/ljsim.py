@@ -8,8 +8,8 @@ import argparse
 
 # command line arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--cont", type=double ,help="continue calculation where you stopped it?")
-parser.add_argument("--time", type=double ,help="How long do you want to run the simulation?")
+parser.add_argument("--cont", type=double, help="continue calculation where you stopped it?")
+parser.add_argument("--time", type=double, help="How long do you want to run the simulation?")
 
 args = parser.parse_args()
 
@@ -31,9 +31,9 @@ rcut = 2.5
 # potential shift
 shift = -0.016316891136
 # VTF filename 
-vtffilename = "ljsim.vtf"
+vtffilename = "../dat/ljsim.vtf"
 # DATA filename 
-datafilename = "ljsim.dat"
+datafilename = "../dat/ljsim.dat"
 
 # COMPUTED CONSTANTS
 # total number of particles
@@ -90,7 +90,10 @@ print("density={}, L={}, N={}".format(density, L, N))
 # check whether vtf file already exists
 print("Creating {}...".format(vtffilename))
 # create a new file and write the structure
-vtffile = open(vtffilename, 'w')
+if args.cont:
+	vtffile = open(vtffilename, 'a')
+else:
+	vtffile = open(vtffilename, 'w')
 
 # write the structure of the system into the file: 
 # N particles ("atoms") with a radius of 0.5
@@ -176,11 +179,37 @@ print("Finished simulation.")
 print("Plotting...")
 ts = array(ts)
 Es = array(Es)
+Ts = array(Ts)
+Ps = array(Ps)
+# Energies
 plot(ts, Es[:,0],'g-',label=r'E_{pot}')
 plot(ts, Es[:,1],'r-',label=r'E_{kin}')
 plot(ts, Es[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t [s]")
-ylabel("Energy E [?]")
+ylabel("Energy E")
 legend()
-show()
+savefig('../dat/Energies.png')
+close()
+# Total Energy
+plot(ts, Es[:,2],'b-',label=r'E_{tot}')
+xlabel("Time t [s]")
+ylabel("Energy E")
+legend()
+savefig('../dat/Total_Energy.png')
+close()
+# Temperature
+plot(ts, Ts,'g-',label=r'Temperature T')
+xlabel("Time t [s]")
+ylabel("Temperature T")
+#legend()
+savefig('../dat/Temperature.png')
+close()
+# Pressure
+plot(ts, Ps,'g-',label=r'Pressure P')
+xlabel("Time t [s]")
+ylabel("Pressure P")
+#legend()
+savefig('../dat/Pressure.png')
+close()
+
 print("Finished.")
