@@ -277,4 +277,11 @@ extern "C" {
     }
     return (2.*E_kin+interaction)/(3*L*L*L);
   }
+  
+  void c_velocity_rescaling(double T0, double T, double*v){
+  	double f = sqrt(T0/T);
+  	for (int k = 0; k < 3*N; k++){
+  		v[k] *= f;
+  	}
+  } 	
 }

@@ -7,24 +7,14 @@ import argparse
 
 # command line arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--M", type=int, help="window size | default: M=10")
-parser.add_argument("--datafile", type=str, help="datafilename | default: '../dat/ljsim.dat'")
+parser.add_argument("--M", type=int, default=10, help="window size | default: M=10")
+parser.add_argument("--datafile", type=str, default='../dat/ljsim.dat', help="datafilename | default: '../dat/ljsim.dat'")
 parser.add_argument("--teq", type=double, help="equilibration time [s] | calculates averages after equilibration time")
 
 args = parser.parse_args()
 
-# get M from command line
-if args.M:
-	MM = args.M
-else:
-	MM = 10
-print(MM)
-
-# get filename on command line
-if args.datafile:
-	datafilename = args.datafile
-else:
-	datafilename = '../dat/ljsim.dat'
+MM = args.M
+datafilename = args.datafile
 
 # check whether data file exists
 if not os.path.exists(datafilename):

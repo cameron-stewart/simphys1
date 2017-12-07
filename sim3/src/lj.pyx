@@ -10,6 +10,7 @@ cdef extern void c_compute_forces(double *x, double *f)
 cdef extern double c_compute_energy (double *x, double *v, double *E_pot, double *E_kin)
 cdef extern double c_rebuild_neighbor_lists(double *x, double vlsize)
 cdef extern double c_compute_pressure(double Ekin, double* x)
+cdef extern void c_velocity_rescaling(double T0, double T, double*v)
 
 def set_globals(double L, int N, double rcut, double shift):
     c_set_globals(L, N, rcut, shift)
@@ -38,5 +39,7 @@ def compute_pressure(double E_kin,
     N = x.shape[1]
     P = c_compute_pressure(E_kin, &x[0,0])
     return P
-	
-	
+
+def velocity_rescaling(T0, T, np.ndarray[double, ndim=2, mode='c'] v not None):
+    N = v.shape[1]
+    c_velocity_rescaling(T0, T, &v[0,0])
