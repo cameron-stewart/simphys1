@@ -31,10 +31,16 @@ measurement_stride = 100
 rcut = 2.5
 # potential shift
 shift = -0.016316891136
+
+if args.tstat:
+        tstat = "_" + str(args.tstat)
+else:
+        tstat = ""
+        
 # VTF filename 
-vtffilename = "../dat/ljsim.vtf"
+vtffilename = "../dat/ljsim{}.vtf".format(tstat)
 # DATA filename 
-datafilename = "../dat/ljsim.dat"
+datafilename = "../dat/ljsim{}.dat".format(tstat)        
 
 # COMPUTED CONSTANTS
 # total number of particles
@@ -195,28 +201,28 @@ plot(ts, Es[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t [s]")
 ylabel("Energy E")
 legend()
-savefig('../dat/Energies.png')
+savefig('../dat/Energies{}.png'.format(tstat))
 close()
 # Total Energy
 plot(ts, Es[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t [s]")
 ylabel("Energy E")
 legend()
-savefig('../dat/Total_Energy.png')
+savefig('../dat/Total_Energy{}.png'.format(tstat))
 close()
 # Temperature
 plot(ts, Ts,'g-',label=r'Temperature T')
 xlabel("Time t [s]")
 ylabel("Temperature T")
 #legend()
-savefig('../dat/Temperature.png')
+savefig('../dat/Temperature{}.png'.format(tstat))
 close()
 # Pressure
 plot(ts, Ps,'g-',label=r'Pressure P')
 xlabel("Time t [s]")
 ylabel("Pressure P")
 #legend()
-savefig('../dat/Pressure.png')
+savefig('../dat/Pressure{}.png'.format(tstat))
 close()
 
 print("Finished.")
