@@ -284,4 +284,23 @@ extern "C" {
   		v[k] *= f;
   	}
   } 	
+  
+  double c_force_capping(double* f, double fcap){
+    double fcap2 = fcap*fcap;
+    double test_cap = true; // if true: no force is capped any more
+    for (int k = 0; k < N; k++) {
+      double fabs2 = f[k]*f[k] + f[k+1]*f[k+1] + f[k+2]*f[k+2];
+      if (fabs2 > fcap2) {
+        test_cap = false;
+        double ff = sqrt(fcap2/fabs2);
+        f[k] *= ff;
+        f[k+N] *= ff;
+        f[k+2*N] *= ff;
+      }
+    }
+    if (test_cap){
+      fcap = 0;
+    }
+  return fcap;
+  }
 }

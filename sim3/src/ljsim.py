@@ -11,6 +11,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--cont", type=double, help="continue calculation with for cont further time")
 parser.add_argument("--time", type=double, help="How long do you want to run the simulation? | default time=10s")
 parser.add_argument("--tstat", type=double, help="Uses a thermostat with a given temperature")
+parser.add_argument("--warm", type=double, help="Use the warming up | pass force")
+parser.add_argument("--ctstat", type=double, help="continue for the simulation with tstat")
+parser.add_argument("--cwarm", type=double, help="continue for the simulation with warm")
 
 args = parser.parse_args()
 
@@ -32,15 +35,24 @@ rcut = 2.5
 # potential shift
 shift = -0.016316891136
 
-if args.tstat:
-        tstat = "_T" + str(args.tstat)
+# Filename addings
+if args.ctstat:
+	tstat = "_T" + str(args.ctstat)
+elif args.tstat:
+	tstat = "_T" + str(args.tstat) 
 else:
-        tstat = ""
-        
+	tstat = ""
+if args.cwarm:
+	warm = "_F" + str(args.cwarm)
+elif args.warm:
+	warm = "_F" + str(args.warm)
+else:
+	warm = ""
+		
 # VTF filename 
-vtffilename = "../dat/ljsim{}.vtf".format(tstat)
+vtffilename = "../dat/ljsim{}{}.vtf".format(tstat,warm)
 # DATA filename 
-datafilename = "../dat/ljsim{}.dat".format(tstat)        
+datafilename = "../dat/ljsim{}{}.dat".format(tstat,warm)        
 
 # COMPUTED CONSTANTS
 # total number of particles
@@ -73,15 +85,20 @@ else:
 	# particle positions on cubic lattice
 	t = 0.0
 	step = 0
-
-	x = empty((3,N))
-	l = L/n
-	count = 0
-	for i in range(n):
-		for j in range(n):
-		    for k in range(n):
-		        x[:,count] = [i*l, j*l, k*l]
-		        count += 1
+	
+	# Initialize particle position
+	if args.warm: 	# The warming up random positions
+		x = L*random.random((3,N))
+		print(args.warm)
+	else:
+		x = empty((3,N))
+		l = L/n
+		count = 0
+		for i in range(n):
+			for j in range(n):
+				for k in range(n):
+				    x[:,count] = [i*l, j*l, k*l]
+				    count += 1
 		        
 	# random particle velocities
 	v = 0.1*(2.0*random.random((3,N))-1.0)
@@ -101,11 +118,11 @@ if args.cont:
 	vtffile = open(vtffilename, 'a')
 else:
 	vtffile = open(vtffilename, 'w')
+	# write the structure of the system into the file: 
+	# N particles ("atoms") with a radius of 0.5
+	vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
+	vtffile.write('pbc {} {} {}\n'.format(L, L, L))
 
-# write the structure of the system into the file: 
-# N particles ("atoms") with a radius of 0.5
-vtffile.write('atom 0:{} radius 0.5\n'.format(N-1))
-vtffile.write('pbc {} {} {}\n'.format(L, L, L))
 
 # write out that a new timestep starts
 vtffile.write('timestep\n')
@@ -135,8 +152,10 @@ def step_vv(x, v, f, dt, xup):
     v += 0.5*f * dt
         
     # compute new forces
-    f = compute_forces(x)
     # we assume that m=1 for all particles
+    f = compute_forces(x)
+    if args.warm:
+        force_capping(f,args.warm)
 
     # second half update of the velocity
     v += 0.5*f * dt
@@ -148,6 +167,9 @@ set_globals(L, N, rcut, shift)
 rebuild_neighbor_lists(x, rcut+skin)
 xup = x.copy()
 f = compute_forces(x)
+if args.warm:
+    force_capping(f,args.warm)
+
 print("Simulating until tmax={}...".format(tmax))
 while t < tmax:
     x, v, f, xup = step_vv(x, v, f, dt, xup)
@@ -173,9 +195,11 @@ while t < tmax:
             
         # velocity rescaling thermostat
         if args.tstat:
-        	f = sqrt(args.tstat/T)
-        	v *= f
-        	#velocity_rescaling(args.tstat,T,v)
+        	velocity_rescaling(args.tstat,T,v)
+        	
+        # rescale fcap
+        if args.warm:
+        	args.warm *= 1.1
 
 # close vtf file
 print("Closing {}.".format(vtffilename))
@@ -198,31 +222,31 @@ Ps = array(Ps)
 plot(ts, Es[:,0],'g-',label=r'E_{pot}')
 plot(ts, Es[:,1],'r-',label=r'E_{kin}')
 plot(ts, Es[:,2],'b-',label=r'E_{tot}')
-xlabel("Time t [s]")
+xlabel("Time t")
 ylabel("Energy E")
 legend()
-savefig('../dat/Energies{}.png'.format(tstat))
+savefig('../dat/Energies{}{}.png'.format(tstat,warm))
 close()
 # Total Energy
 plot(ts, Es[:,2],'b-',label=r'E_{tot}')
-xlabel("Time t [s]")
+xlabel("Time t")
 ylabel("Energy E")
 legend()
-savefig('../dat/Total_Energy{}.png'.format(tstat))
+savefig('../dat/Total_Energy{}{}.png'.format(tstat,warm))
 close()
 # Temperature
 plot(ts, Ts,'g-',label=r'Temperature T')
-xlabel("Time t [s]")
+xlabel("Time t")
 ylabel("Temperature T")
 #legend()
-savefig('../dat/Temperature{}.png'.format(tstat))
+savefig('../dat/Temperature{}{}.png'.format(tstat,warm))
 close()
 # Pressure
 plot(ts, Ps,'g-',label=r'Pressure P')
-xlabel("Time t [s]")
+xlabel("Time t")
 ylabel("Pressure P")
 #legend()
-savefig('../dat/Pressure{}.png'.format(tstat))
+savefig('../dat/Pressure{}{}.png'.format(tstat,warm))
 close()
 
 print("Finished.")
