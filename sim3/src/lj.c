@@ -1235,7 +1235,7 @@ static PyObject *__pyx_codeobj__16;
 static PyObject *__pyx_codeobj__18;
 
 /* "lj.pyx":15
- * cdef extern void c_velocity_rescaling(double T0, double T, double*v)
+ * cdef extern void c_velocity_rescaling(double T0, double T, double* v)
  * 
  * def set_globals(double L, int N, double rcut, double shift):             # <<<<<<<<<<<<<<
  *     c_set_globals(L, N, rcut, shift)
@@ -1337,7 +1337,7 @@ static PyObject *__pyx_pf_2lj_set_globals(CYTHON_UNUSED PyObject *__pyx_self, do
   c_set_globals(__pyx_v_L, __pyx_v_N, __pyx_v_rcut, __pyx_v_shift);
 
   /* "lj.pyx":15
- * cdef extern void c_velocity_rescaling(double T0, double T, double*v)
+ * cdef extern void c_velocity_rescaling(double T0, double T, double* v)
  * 
  * def set_globals(double L, int N, double rcut, double shift):             # <<<<<<<<<<<<<<
  *     c_set_globals(L, N, rcut, shift)
@@ -4572,7 +4572,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__6);
 
   /* "lj.pyx":15
- * cdef extern void c_velocity_rescaling(double T0, double T, double*v)
+ * cdef extern void c_velocity_rescaling(double T0, double T, double* v)
  * 
  * def set_globals(double L, int N, double rcut, double shift):             # <<<<<<<<<<<<<<
  *     c_set_globals(L, N, rcut, shift)
@@ -4775,7 +4775,7 @@ PyMODINIT_FUNC PyInit_lj(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "lj.pyx":15
- * cdef extern void c_velocity_rescaling(double T0, double T, double*v)
+ * cdef extern void c_velocity_rescaling(double T0, double T, double* v)
  * 
  * def set_globals(double L, int N, double rcut, double shift):             # <<<<<<<<<<<<<<
  *     c_set_globals(L, N, rcut, shift)

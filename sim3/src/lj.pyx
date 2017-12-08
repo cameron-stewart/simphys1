@@ -10,7 +10,7 @@ cdef extern void c_compute_forces(double *x, double *f)
 cdef extern double c_compute_energy (double *x, double *v, double *E_pot, double *E_kin)
 cdef extern double c_rebuild_neighbor_lists(double *x, double vlsize)
 cdef extern double c_compute_pressure(double Ekin, double* x)
-cdef extern void c_velocity_rescaling(double T0, double T, double*v)
+cdef extern void c_velocity_rescaling(double T0, double T, double* v)
 
 def set_globals(double L, int N, double rcut, double shift):
     c_set_globals(L, N, rcut, shift)
