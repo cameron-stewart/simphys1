@@ -33,7 +33,7 @@ rcut = 2.5
 shift = -0.016316891136
 
 if args.tstat:
-        tstat = "_" + str(args.tstat)
+        tstat = "_T" + str(args.tstat)
 else:
         tstat = ""
         
