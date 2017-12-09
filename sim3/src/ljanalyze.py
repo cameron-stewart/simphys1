@@ -9,7 +9,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--M", type=int, default=10, help="window size | default: M=10")
 parser.add_argument("--datafile", type=str, default='../dat/ljsim.dat', help="datafilename | default: '../dat/ljsim.dat'")
-parser.add_argument("--teq", type=double, help="equilibration time [s] | calculates averages after equilibration time")
+parser.add_argument("--teq", type=double, help="equilibration time | calculates averages after equilibration time")
 parser.add_argument("--tlim", type=double, nargs='+', help="type in the time limits you want to plot")
 
 args = parser.parse_args()

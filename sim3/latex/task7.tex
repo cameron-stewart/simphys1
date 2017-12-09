@@ -1,0 +1,32 @@
+\subsection{Warming up the System}
+
+When warming up the system you want to state a initial maximum force.
+Therefor the command line option \ls{--warm} can be used (code block \ref{comsim}).
+The option \ls{--cwarm} works analougus to \ls{--ctstat}.\\
+
+The first thing needed is the function c\_force\_capping() which is implemented in C. 
+The reason for this is because you have to do many if requests and calculations for each particle.
+
+\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{288}{305}{Force capping}{7forcap}
+
+The function in code block \ref{7forcap} limits the forces to a given maximum force fcap, but conserves the direction if the forces. 
+Although this process is not physically correct.
+Furthermore the function tests if no force is capped any more. 
+When this is the case it sets fcap to zero.\\
+
+The function is called in the vv\_step() function in ljsim.py.
+
+\listfile{../src/ljsim.py}{src/ljsim.py}{154}{158}{Limiting forces}{7limfor}
+
+As you can see, the function will not be activated any more if fcap = args.warm is set to zero.\\
+
+At least the fcap should be increased by ten percent every time the measurements are done. 
+This is done in code block \ref{7inc}.
+
+\listfile{../src/ljsim.py}{src/ljsim.py}{200}{202}{Increase maximum force}{7inc}
+
+But all the capping is useless without random initial conditions. 
+The velocity is already random, so only the initial position has to be changed. 
+You can do this with a similar command like in \ref{7rand}.
+
+\listfile{../src/ljsim.py}{src/ljsim.py}{89}{92}{Random initial position}{7rand}

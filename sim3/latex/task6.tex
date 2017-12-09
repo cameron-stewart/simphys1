@@ -1,19 +1,28 @@
 \section{Molecular Dynamics at a Desired Temperature}
 
-For the \emph{velocity rescaling} thermostat we can derive the rescaling-factor $\fr$ from equation \eqref{fr1}.
-
+For the \emph{velocity rescaling} thermostat we can derive the rescaling-factor $\fr$ from equation \eqref{6fr1}.
 \begin{align}
 \frac{3}{2}k_BT_0
 	&= \frac{\Ekino}{N}
-	\label{fr1}\\
+	\label{6fr1}\\
 &= \frac{1}{N}\sum_{i=1}^{N} \frac{(\fr\cdot\vecv{i})^2}{2m}
-	\label{fr2}\\
+	\label{6fr2}\\
 &= \fr^2\frac{\Ekin}{N}
-	\label{fr3}\\
+	\label{6fr3}\\
 &=\fr^2\frac{3}{2}k_BT
-	\label{fr4}\\
+	\label{6fr4}\\
 \fr
 	&= \sqrt{\frac{T_0}{T}}
-	\label{fr5}
+	\label{6r5}
 \end{align}
 
+This rescaling is implemented in C. In fact the implementation in C is not much faster than in python, but the thermostat in python did some crazy stuff.
+The function c\_velocity\_rescaling can be seen in code block \ref{6rescaling}.
+
+\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{281}{286}{Velocity rescaling}{6rescaling}
+
+This function is used in the main loop in ljsim.py every time after meausuring the observalbles.\\
+
+To start the thermostat you can use the command line option \ls{--tstat} which accepts the desired temperature as argument (see code block \ref{comsim}).
+The option \ls{--ctstat} is there for continuing the simulation for the interrupted simulation with temperature T thermostat, but now with deactivated thermostat.
+This is necessary because the programm saves the results of the simulation with different names for different temperatures.

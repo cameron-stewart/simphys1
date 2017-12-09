@@ -87,9 +87,9 @@ else:
 	step = 0
 	
 	# Initialize particle position
-	if args.warm: 	# The warming up random positions
+	if args.warm: 	
+		# The warming up random positions
 		x = L*random.random((3,N))
-		print(args.warm)
 	else:
 		x = empty((3,N))
 		l = L/n
