@@ -143,7 +143,7 @@ exponent-product=\cdot }
 % You will have to escape the filename and the title
 % style is an optional argument.
 
-%\newenvironment{listcode}[3][MyPythonStyle]{\begin{lstlisting}[style=#1, caption=#2, label=#3]}{\end{lstlisting}}
+\newcommand{\ls}[1]{\lstinline@#1@}
 
 % using \lstinline@code@ for code in line
 % works with every sign instead of @
@@ -164,6 +164,13 @@ exponent-product=\cdot }
 \newcommand{\Ekin}{E_\text{kin}}
 \newcommand{\Ekino}{E_{\text{kin},0}}
 \newcommand{\fr}{f_\text{re}}
+\newcommand{\fij}{\ovec{f}_{ij}}
+\newcommand{\rij}{\ovec{r}_{ij}}
+\newcommand{\fji}{\ovec{f}_{ji}}
+\newcommand{\rji}{\ovec{r}_{ji}}
+\newcommand{\rj}{\ovec{r}_{j}}
+\newcommand{\ri}{\ovec{r}_{i}}
+
 
 
 % Kopf-/Fusszeile
@@ -199,12 +206,14 @@ matriculation numbers: &3122118 &3216338\\
 \end{titlepage}
 
 % Inhaltsverzeichnis
-\newpage
 
 % -------------------------------------- Begin Of Document ----------------------------------------
 
+\input{commandline}
 \input{task3}
+\input{task4}
 \input{task6}
+
 
 
 

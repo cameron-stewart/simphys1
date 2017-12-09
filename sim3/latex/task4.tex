@@ -1,0 +1,55 @@
+\section{Calculating Temperature and Pressure}
+
+\subsection*{Deviation of the pressure}
+
+The virial of a system is defined as:
+\begin{align}
+G
+	&=\sum_i^N\ovec{p}_i\cdot\ovec{r}_i
+	\label{4p1}
+\end{align}
+
+In the case
+\begin{align}
+0
+	&=\left\langle\diff{G}{t}\right\rangle 
+	=\left\langle\sum_i^N\frac{\ovec{p}_i^2}{m_i}\right\rangle+\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+	\label{4p2}
+\end{align}
+
+the following equation can be derived:
+\begin{align}
+-\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+	&=2\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle
+	=2\left\langle E_\text{kin}\right\rangle
+	=3Nk_BT
+	\stackrel{\text{id. gas}}{=}3PV
+	\label{4p3}
+\end{align}
+
+For an pair interaction (like in the simulation) let the forces $\fij$ and the vectors $\rij$ be defined as follows:
+\begin{align}
+\rij
+	&=\rj - \ri
+	\label{4rij}\\
+\fij 
+	&= f_\text{lj}(\rij^2)\cdot\frac{\rij}{\abs{\rij}}
+	\label{4fij}
+\end{align}
+
+With this knowldege we can derive the pressure of the system:
+\begin{align}
+P
+	&=P_\text{id. gas} + P_\text{interaction}
+	\label{4p4}\\
+	&=\frac{Nk_BT}{V} + \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+	\label{4p5}\\
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
+	\label{4p6}\\
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rj-\fij\cdot\ri\right\rangle\right]
+	\label{4p7}\\
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	\label{4p8}\\
+	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	\label{4p9}
+\end{align}
