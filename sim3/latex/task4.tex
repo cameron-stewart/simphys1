@@ -1,6 +1,19 @@
 \section{Calculating Temperature and Pressure}
 
-\subsection*{Deviation of the pressure}
+\subsection{Expanding Energy Calculation}
+
+First the energy calculation should be changed in order to also get the kinetic and potential energy.
+This is done by changing the compute\_energy() function call and the parameter Es in ljsim.py (code block \ref{4energy}).
+
+\listfile{../src/ljsim.py}{src/ljsim.py}{179}{188}{$E_\text{kin}$ + $E_\text{pot}$}{4energy}
+
+\subsection{Calculating the Temperature}
+
+The temperature of the system can be calculated from the kinetic Energy E\_kin like in code block \ref{4energy} shown. This is a single scalar calculation and therefore can be done in python.
+
+\subsection{Calcating Pressure}
+
+\subsubsection*{Derivation of the pressure}
 
 The virial of a system is defined as:
 \begin{align}
@@ -42,7 +55,7 @@ With this knowldege we can derive the pressure of the system:
 P
 	&=P_\text{id. gas} + P_\text{interaction}
 	\label{4p4}\\
-	&=\frac{Nk_BT}{V} + \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+	&=\frac{Nk_BT}{V} + \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_{i,\text{interaction}}\cdot\ovec{r}_i\right\rangle
 	\label{4p5}\\
 	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
 	\label{4p6}\\
@@ -53,3 +66,13 @@ P
 	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p9}
 \end{align}
+
+\subsection*{Pressure in Cython}
+
+Becaus of the vectorial calculations for each particle pair the calculation has to be done in C if it should be fast. 
+Therefor the function c\_compute\_pressure() is written in c\_lj.cpp.
+
+\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{253}{279}{$E_\text{kin}$ + $E_\text{pot}$}{4pressure}
+
+As you can see the first part is the same like in c\_compute\_forces(), but the last part differs.
+In order to save calculation time the function takes the kinetic energy, which is already calculated, as an argument.
