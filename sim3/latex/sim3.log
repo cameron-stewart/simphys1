@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  10 DEC 2017 21:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  10 DEC 2017 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1775,104 +1775,104 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 259.
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 262.
-)) (./task6.tex [6]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 24--24
+)) (./task6.tex <../dat/Temperature_T0d3.png, id=35, 462.528pt x 346.896pt>
+File: ../dat/Temperature_T0d3.png Graphic file (type png)
+
+<use ../dat/Temperature_T0d3.png>
+Package pdftex.def Info: ../dat/Temperature_T0d3.png used on input line 25.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Temperature_T1d0.png, id=37, 462.528pt x 346.896pt>
+File: ../dat/Temperature_T1d0.png Graphic file (type png)
+
+<use ../dat/Temperature_T1d0.png>
+Package pdftex.def Info: ../dat/Temperature_T1d0.png used on input line 29.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Temperature_T2d0.png, id=38, 462.528pt x 346.896pt>
+File: ../dat/Temperature_T2d0.png Graphic file (type png)
+
+<use ../dat/Temperature_T2d0.png>
+Package pdftex.def Info: ../dat/Temperature_T2d0.png used on input line 33.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Energies_T0d3.png, id=39, 462.528pt x 346.896pt>
+File: ../dat/Energies_T0d3.png Graphic file (type png)
+
+<use ../dat/Energies_T0d3.png>
+Package pdftex.def Info: ../dat/Energies_T0d3.png used on input line 39.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Energies_T1d0.png, id=40, 462.528pt x 346.896pt>
+File: ../dat/Energies_T1d0.png Graphic file (type png)
+
+<use ../dat/Energies_T1d0.png>
+Package pdftex.def Info: ../dat/Energies_T1d0.png used on input line 43.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Energies_T2d0.png, id=41, 462.528pt x 346.896pt>
+File: ../dat/Energies_T2d0.png Graphic file (type png)
+
+<use ../dat/Energies_T2d0.png>
+Package pdftex.def Info: ../dat/Energies_T2d0.png used on input line 47.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Total_Energy_T0d3.png, id=42, 462.528pt x 346.896pt>
+File: ../dat/Total_Energy_T0d3.png Graphic file (type png)
+
+<use ../dat/Total_Energy_T0d3.png>
+Package pdftex.def Info: ../dat/Total_Energy_T0d3.png used on input line 53.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Total_Energy_T1d0.png, id=43, 462.528pt x 346.896pt>
+File: ../dat/Total_Energy_T1d0.png Graphic file (type png)
+
+<use ../dat/Total_Energy_T1d0.png>
+Package pdftex.def Info: ../dat/Total_Energy_T1d0.png used on input line 57.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Total_Energy_T2d0.png, id=44, 462.528pt x 346.896pt>
+File: ../dat/Total_Energy_T2d0.png Graphic file (type png)
+
+<use ../dat/Total_Energy_T2d0.png>
+Package pdftex.def Info: ../dat/Total_Energy_T2d0.png used on input line 61.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Pressure_T0d3.png, id=45, 462.528pt x 346.896pt>
+File: ../dat/Pressure_T0d3.png Graphic file (type png)
+
+<use ../dat/Pressure_T0d3.png>
+Package pdftex.def Info: ../dat/Pressure_T0d3.png used on input line 67.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Pressure_T1d0.png, id=46, 462.528pt x 346.896pt>
+File: ../dat/Pressure_T1d0.png Graphic file (type png)
+
+<use ../dat/Pressure_T1d0.png>
+Package pdftex.def Info: ../dat/Pressure_T1d0.png used on input line 71.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+
+<../dat/Pressure_T2d0.png, id=47, 462.528pt x 346.896pt>
+File: ../dat/Pressure_T2d0.png Graphic file (type png)
+
+<use ../dat/Pressure_T2d0.png>
+Package pdftex.def Info: ../dat/Pressure_T2d0.png used on input line 75.
+(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
+ [6]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 107--107
 [][][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 24--24
+Overfull \hbox (6.0pt too wide) in paragraph at lines 107--107
 [][][][][][][] 
  []
 
 (../src/c_lj.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-<../dat/Temperature_T0d3.png, id=38, 462.528pt x 346.896pt>
-File: ../dat/Temperature_T0d3.png Graphic file (type png)
-
-<use ../dat/Temperature_T0d3.png>
-Package pdftex.def Info: ../dat/Temperature_T0d3.png used on input line 56.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Temperature_T1d0.png, id=40, 462.528pt x 346.896pt>
-File: ../dat/Temperature_T1d0.png Graphic file (type png)
-
-<use ../dat/Temperature_T1d0.png>
-Package pdftex.def Info: ../dat/Temperature_T1d0.png used on input line 60.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Temperature_T2d0.png, id=41, 462.528pt x 346.896pt>
-File: ../dat/Temperature_T2d0.png Graphic file (type png)
-
-<use ../dat/Temperature_T2d0.png>
-Package pdftex.def Info: ../dat/Temperature_T2d0.png used on input line 64.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Energies_T0d3.png, id=42, 462.528pt x 346.896pt>
-File: ../dat/Energies_T0d3.png Graphic file (type png)
-
-<use ../dat/Energies_T0d3.png>
-Package pdftex.def Info: ../dat/Energies_T0d3.png used on input line 70.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Energies_T1d0.png, id=43, 462.528pt x 346.896pt>
-File: ../dat/Energies_T1d0.png Graphic file (type png)
-
-<use ../dat/Energies_T1d0.png>
-Package pdftex.def Info: ../dat/Energies_T1d0.png used on input line 74.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Energies_T2d0.png, id=44, 462.528pt x 346.896pt>
-File: ../dat/Energies_T2d0.png Graphic file (type png)
-
-<use ../dat/Energies_T2d0.png>
-Package pdftex.def Info: ../dat/Energies_T2d0.png used on input line 78.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Total_Energy_T0d3.png, id=45, 462.528pt x 346.896pt>
-File: ../dat/Total_Energy_T0d3.png Graphic file (type png)
-
-<use ../dat/Total_Energy_T0d3.png>
-Package pdftex.def Info: ../dat/Total_Energy_T0d3.png used on input line 84.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Total_Energy_T1d0.png, id=46, 462.528pt x 346.896pt>
-File: ../dat/Total_Energy_T1d0.png Graphic file (type png)
-
-<use ../dat/Total_Energy_T1d0.png>
-Package pdftex.def Info: ../dat/Total_Energy_T1d0.png used on input line 88.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Total_Energy_T2d0.png, id=47, 462.528pt x 346.896pt>
-File: ../dat/Total_Energy_T2d0.png Graphic file (type png)
-
-<use ../dat/Total_Energy_T2d0.png>
-Package pdftex.def Info: ../dat/Total_Energy_T2d0.png used on input line 92.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Pressure_T0d3.png, id=48, 462.528pt x 346.896pt>
-File: ../dat/Pressure_T0d3.png Graphic file (type png)
-
-<use ../dat/Pressure_T0d3.png>
-Package pdftex.def Info: ../dat/Pressure_T0d3.png used on input line 98.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Pressure_T1d0.png, id=49, 462.528pt x 346.896pt>
-File: ../dat/Pressure_T1d0.png Graphic file (type png)
-
-<use ../dat/Pressure_T1d0.png>
-Package pdftex.def Info: ../dat/Pressure_T1d0.png used on input line 102.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-
-<../dat/Pressure_T2d0.png, id=50, 462.528pt x 346.896pt>
-File: ../dat/Pressure_T2d0.png Graphic file (type png)
-
-<use ../dat/Pressure_T2d0.png>
-Package pdftex.def Info: ../dat/Pressure_T2d0.png used on input line 106.
-(pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 117--119
 
@@ -1893,7 +1893,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-) (./task7.tex
+[8] [9 <../dat/Temperature_T0d3.png> <../dat/Temperature_T1d0.png> <../dat/Temp
+erature_T2d0.png> <../dat/Energies_T0d3.png> <../dat/Energies_T1d0.png> <../dat
+/Energies_T2d0.png> <../dat/Total_Energy_T0d3.png> <../dat/Total_Energy_T1d0.pn
+g> <../dat/Total_Energy_T2d0.png> <../dat/Pressure_T0d3.png> <../dat/Pressure_T
+1d0.png> <../dat/Pressure_T2d0.png>]) (./task7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
@@ -1908,57 +1912,54 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 10--10
 [][][][][][][] 
  []
 
-(../src/c_lj.cpp [8])
-Underfull \hbox (badness 10000) in paragraph at lines 12--16
-
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 19--19
-[][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 19--19
-[][][][][][][] 
- []
-
-(../src/ljsim.py)
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 26--26
-[][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 26--26
-[][][][][][][] 
- []
-
-(../src/ljsim.py)
-Overfull \hbox (6.0pt too wide) in paragraph at lines 32--32
-[][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 32--32
-[][][][][][][] 
- []
-
-(../src/ljsim.py)) (./task8.tex [9]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
-[][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
-[][][][][][][] 
- []
-
 (../src/c_lj.cpp)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 18--18
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 18--18
+[][][][][][][] 
+ []
+
+(../src/ljsim.py)
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+[10
+
+]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 25--25
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 25--25
+[][][][][][][] 
+ []
+
+(../src/ljsim.py)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 31--31
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 31--31
+[][][][][][][] 
+ []
+
+(../src/ljsim.py)) (./task8.tex
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
+[][][][][][][] 
+ []
+
+(../src/c_lj.cpp [11])
 Overfull \hbox (6.0pt too wide) in paragraph at lines 11--11
 [][][][][][][] 
  []
@@ -1993,40 +1994,213 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 14--14
 [][][][][][][] 
  []
 
-(../src/ljanalyze.py) [10]) [11] [12 <../dat/Temperature_T0d3.png> <../dat/Temp
-erature_T1d0.png> <../dat/Temperature_T2d0.png> <../dat/Energies_T0d3.png> <../
-dat/Energies_T1d0.png> <../dat/Energies_T2d0.png> <../dat/Total_Energy_T0d3.png
-> <../dat/Total_Energy_T1d0.png> <../dat/Total_Energy_T2d0.png> <../dat/Pressur
-e_T0d3.png> <../dat/Pressure_T1d0.png> <../dat/Pressure_T2d0.png>] (./sim3.aux)
- ) 
+(../src/ljanalyze.py)) (./task9.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+
+Class scrartcl Warning: Usage of deprecated font command `\tt'!
+(scrartcl)              You should note, that in 1994 font command `\tt' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\tt' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\tt' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\tt'
+(scrartcl)              by `\normalfont \ttfamily ' on input line 4.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Class scrartcl Warning: Usage of deprecated font command `\tt'!
+(scrartcl)              You should note, that in 1994 font command `\tt' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\tt' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\tt' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\tt'
+(scrartcl)              by `\normalfont \ttfamily ' on input line 8.
+
+
+Overfull \hbox (14.8781pt too wide) in paragraph at lines 8--9
+[]\OT1/cmtt/m/n/10.95 python ljanalyze.py --datafile ../dat/ljsim[]T2d0[]F20d0.
+dat --tlim 100 1199
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+<fig/avTemperature_T0d3_F20d0_M100.png, id=81, 578.16pt x 433.62pt>
+File: fig/avTemperature_T0d3_F20d0_M100.png Graphic file (type png)
+
+<use fig/avTemperature_T0d3_F20d0_M100.png>
+Package pdftex.def Info: fig/avTemperature_T0d3_F20d0_M100.png used on input li
+ne 29.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avPressure_T0d3_F20d0_M100.png, id=82, 578.16pt x 433.62pt>
+File: fig/avPressure_T0d3_F20d0_M100.png Graphic file (type png)
+
+<use fig/avPressure_T0d3_F20d0_M100.png>
+Package pdftex.def Info: fig/avPressure_T0d3_F20d0_M100.png used on input line 
+33.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avEnergies_T0d3_F20d0_M100.png, id=83, 578.16pt x 433.62pt>
+File: fig/avEnergies_T0d3_F20d0_M100.png Graphic file (type png)
+
+<use fig/avEnergies_T0d3_F20d0_M100.png>
+Package pdftex.def Info: fig/avEnergies_T0d3_F20d0_M100.png used on input line 
+37.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avTemperature_T1d0_F20d0_M100.png, id=84, 578.16pt x 433.62pt>
+File: fig/avTemperature_T1d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avTemperature_T1d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avTemperature_T1d0_F20d0_M100.png used on input li
+ne 63.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avPressure_T1d0_F20d0_M100.png, id=85, 578.16pt x 433.62pt>
+File: fig/avPressure_T1d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avPressure_T1d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avPressure_T1d0_F20d0_M100.png used on input line 
+67.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avEnergies_T1d0_F20d0_M100.png, id=86, 578.16pt x 433.62pt>
+File: fig/avEnergies_T1d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avEnergies_T1d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avEnergies_T1d0_F20d0_M100.png used on input line 
+71.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avTemperature_T2d0_F20d0_M100.png, id=87, 578.16pt x 433.62pt>
+File: fig/avTemperature_T2d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avTemperature_T2d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avTemperature_T2d0_F20d0_M100.png used on input li
+ne 97.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avPressure_T2d0_F20d0_M100.png, id=88, 578.16pt x 433.62pt>
+File: fig/avPressure_T2d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avPressure_T2d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avPressure_T2d0_F20d0_M100.png used on input line 
+101.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/avEnergies_T2d0_F20d0_M100.png, id=89, 578.16pt x 433.62pt>
+File: fig/avEnergies_T2d0_F20d0_M100.png Graphic file (type png)
+
+<use fig/avEnergies_T2d0_F20d0_M100.png>
+Package pdftex.def Info: fig/avEnergies_T2d0_F20d0_M100.png used on input line 
+105.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+ [12] [13 <./fig/avTemperature_T0d3_F20d0_M100.png> <./fig/avPressure_T0d3_F20d
+0_M100.png> <./fig/avEnergies_T0d3_F20d0_M100.png> <./fig/avTemperature_T1d0_F2
+0d0_M100.png> <./fig/avPressure_T1d0_F20d0_M100.png> <./fig/avEnergies_T1d0_F20
+d0_M100.png> <./fig/avTemperature_T2d0_F20d0_M100.png> <./fig/avPressure_T2d0_F
+20d0_M100.png> <./fig/avEnergies_T2d0_F20d0_M100.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+
+Class scrartcl Warning: Usage of deprecated font command `\tt'!
+(scrartcl)              You should note, that in 1994 font command `\tt' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\tt' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\tt' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\tt'
+(scrartcl)              by `\normalfont \ttfamily ' on input line 117.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+ []
+
+<fig/meanRDF_T0d3.png, id=107, 578.16pt x 433.62pt>
+File: fig/meanRDF_T0d3.png Graphic file (type png)
+ <use fig/meanRDF_T0d3.png>
+Package pdftex.def Info: fig/meanRDF_T0d3.png used on input line 151.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/meanRDF_T1d0.png, id=108, 578.16pt x 433.62pt>
+File: fig/meanRDF_T1d0.png Graphic file (type png)
+ <use fig/meanRDF_T1d0.png>
+Package pdftex.def Info: fig/meanRDF_T1d0.png used on input line 155.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+
+<fig/meanRDF_T2d0.png, id=109, 578.16pt x 433.62pt>
+File: fig/meanRDF_T2d0.png Graphic file (type png)
+ <use fig/meanRDF_T2d0.png>
+Package pdftex.def Info: fig/meanRDF_T2d0.png used on input line 159.
+(pdftex.def)             Requested size: 125.47794pt x 94.10648pt.
+) [14
+
+ <./fig/meanRDF_T0d3.png> <./fig/meanRDF_T1d0.png> <./fig/meanRDF_T2d0.png>] (.
+/sim3.aux) ) 
 Here is how much of TeX's memory you used:
- 41493 strings out of 493029
- 946343 string characters out of 6136235
+ 41564 strings out of 493029
+ 948495 string characters out of 6136235
  1331196 words of memory out of 5000000
- 44341 multiletter control sequences out of 15000+600000
+ 44396 multiletter control sequences out of 15000+600000
  17257 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,12n,81p,10364b,1810s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on sim3.pdf (12 pages, 550203 bytes).
+ 63i,12n,81p,10364b,1808s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
+Output written on sim3.pdf (14 pages, 1119850 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 170 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

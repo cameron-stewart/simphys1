@@ -1,14 +1,30 @@
 \section{Measuring Equilibrium Mean Values of the Observables}
-We now run the simulation for the same three temperatures ${0.3, 1.0, 2.0}$ including random particle positions and the previously described warm up. We run the simulations for 1200 time steps. Using our command line arguments an example looks like:
+We now run the simulation for the same three temperatures ${0.3, 1.0, 2.0}$ including random particle positions and the previously described warm up. We run the simulations for 1200 time steps. Using our command line arguments an example looks like:\\
 
-{\tt python ljsim.py --warm 20 --tstat 0.3 --time 120}
+{\tt python ljsim.py --warm 20 --tstat 0.3 --time 120}\\
 
-This sets an inital force cap of 20. The equilibration of the observables is plotted in the following figures with the first 100 timesteps omitted to preserve plot scaling. The command to produce these plots with our command line arguments looks like:
+This sets an inital force cap of 20. The equilibration of the observables is plotted in the following figures with the first 100 timesteps omitted to preserve plot scaling. The command to produce these plots with our command line arguments looks like:\\
 
-{\tt python ljanalyze.py --datafile ../dat/ljsim\_T2d0\_F20d0.dat --tlim 100 1199 --M 100}
+{\tt python ljanalyze.py --datafile ../dat/ljsim\_T2d0\_F20d0.dat --tlim 100 1199 --M 100}\\
 
 Here we used a window of $M = 100$.
 \begin{figure}[ht]
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$T$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$P$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$E$
+\end{subfigure}
+
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avTemperature_T0d3_F20d0_M100.png}
 \end{subfigure}
@@ -20,9 +36,29 @@ Here we used a window of $M = 100$.
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avEnergies_T0d3_F20d0_M100.png}
 \end{subfigure}
+\caption{
+Desired Temperature: $T_0=0.3$.
+Average values of temperature, pressure and energies from the left to the right.}
+\label{9T0d3}
 \end{figure}
 
 \begin{figure}[ht]
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$T$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$P$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$E$
+\end{subfigure}
+
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avTemperature_T1d0_F20d0_M100.png}
 \end{subfigure}
@@ -34,9 +70,29 @@ Here we used a window of $M = 100$.
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avEnergies_T1d0_F20d0_M100.png}
 \end{subfigure}
+\caption{
+Desired Temperature: $T_0=1.0$.
+Average values of temperature, pressure and energies from the left to the right.}
+\label{9T1d0}
 \end{figure}
 
 \begin{figure}[ht]
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$T$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$P$
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\centering
+$E$
+\end{subfigure}
+
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avTemperature_T2d0_F20d0_M100.png}
 \end{subfigure}
@@ -48,13 +104,47 @@ Here we used a window of $M = 100$.
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/avEnergies_T2d0_F20d0_M100.png}
 \end{subfigure}
+\caption{
+Desired Temperature: $T_0=2.0$.
+Average values of temperature, pressure and energies from the left to the right.}
+\label{9T2d0}
 \end{figure}
 
-The commands only differed in the thermostat temperature and the datafilename to be analyzed. Finally we plot the average RDF for the three different temperatures after equilibrium and compute the mean equilibrium values of the observables. The command to perform this analysis is:
+\FloatBarrier
 
-{\tt python ljanalyze.py --datafile ../dat/ljsim\_T0d3\_F20d0.dat --teq 400}
+The commands only differed in the thermostat temperature and the datafilename to be analyzed. Finally we plot the average RDF for the three different temperatures after equilibrium and compute the mean equilibrium values of the observables. The command to perform this analysis is:\\
 
-\noindent Here we have assumed that our system has equilibrated by timestep 400. For $T = 0.3$ we measured $E_\mathrm{pot} = -5754.9$, $E_\mathrm{kin} = 450.0$, $E_\mathrm{tot} = -5304.9$, $T = 0.300$, and $P = 0.281$. For  $T = 1.0$ we measured $E_\mathrm{pot} = -2367.3$, $E_\mathrm{kin} = 1500.1$, $E_\mathrm{tot} = -867.3$, $T = 1.000$, and $P = 0.577$. For $T = 2.0$ we measured $E_\mathrm{pot} = -1679.0$, $E_\mathrm{kin} = 3000.0$, $E_\mathrm{tot} = 1321.0$, $T = 2.000$, and $P = 0.642$. The equilibruim RDF plots follow with temperature increasing from left to right.
+{\tt python ljanalyze.py --datafile ../dat/ljsim\_T0d3\_F20d0.dat --teq 400}\\
+
+\noindent Here we have assumed that our system has equilibrated by timestep 400. We measured the folloing average values:\\
+
+\begin{tabular}{S|SSSSS}
+\multicolumn{1}{c|}{$T_0$}
+	&\multicolumn{1}{c}{$E_\mathrm{pot}$}
+	&\multicolumn{1}{c}{$E_\mathrm{kin}$}
+	&\multicolumn{1}{c}{$E_\mathrm{tot}$}
+	&\multicolumn{1}{c}{$T$}
+	&\multicolumn{1}{c}{$P$}\\
+	\hline
+0.3
+	&-5754.9
+	&450.0
+	&-5304.9
+	&0.300
+	&0.281\\
+1.0
+	&-2367.3
+	&1500.1
+	&-867.3
+	&1.000
+	&0.577\\
+2.0
+	&-1679.0
+	&3000.0
+	&1321.0
+	&2.000
+	&0.642\\
+\end{tabular}
 
 \begin{figure}[ht]
 \begin{subfigure}{0.3\textwidth}
@@ -68,5 +158,7 @@ The commands only differed in the thermostat temperature and the datafilename to
 \begin{subfigure}{0.3\textwidth}
 \includegraphics[width=\textwidth]{fig/meanRDF_T2d0.png}
 \end{subfigure}
+\caption{Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left\lbrace 0.3,1.0,2.0\right\rbrace$ from the left to the right.} 
+\label{9plotrdf}
 \end{figure}
 

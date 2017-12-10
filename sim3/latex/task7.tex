@@ -12,8 +12,7 @@ The reason for this is because you have to do many if requests and calculations 
 The function in code block \ref{7forcap} limits the forces to a given maximum force fcap, but conserves the direction if the forces. 
 Although this process is not physically correct.
 Furthermore the function tests if no force is capped any more. 
-When this is the case it sets fcap to zero.\\
-
+When this is the case it sets fcap to zero.
 The function is called in the vv\_step() function in ljsim.py.
 
 \listfile{../src/ljsim.py}{src/ljsim.py}{164}{168}{Limiting forces}{7limfor}
