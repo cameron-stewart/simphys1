@@ -55,15 +55,15 @@ With this knowldege we can derive the pressure of the system:
 P
 	&=P_\text{id. gas} + P_\text{interaction}
 	\label{4p4}\\
-	&=\frac{Nk_BT}{V} + \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_{i,\text{interaction}}\cdot\ovec{r}_i\right\rangle
+	&=\frac{Nk_BT}{V} - \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_{i,\text{interaction}}\cdot\ovec{r}_i\right\rangle
 	\label{4p5}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
 	\label{4p6}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rj-\fij\cdot\ri\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rj-\fij\cdot\ri\right\rangle\right]
 	\label{4p7}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p8}\\
-	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p9}
 \end{align}
 
