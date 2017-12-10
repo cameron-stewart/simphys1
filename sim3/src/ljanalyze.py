@@ -50,7 +50,7 @@ def compute_mean_value(O,keq):
 
 def compute_mean_rdf(O,keq):
     N = O.shape[0]
-    Om = empty(O.shape[1])
+    Om = zeros(O.shape[1])
     for k in xrange(keq,N):
         Om += O[k,:]
     return Om/(N-keq)
