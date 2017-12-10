@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  10 DEC 2017 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  10 DEC 2017 20:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1794,105 +1794,111 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 File: ../dat/Temperature_T0d3.png Graphic file (type png)
 
 <use ../dat/Temperature_T0d3.png>
-Package pdftex.def Info: ../dat/Temperature_T0d3.png used on input line 58.
+Package pdftex.def Info: ../dat/Temperature_T0d3.png used on input line 56.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Temperature_T1d0.png, id=40, 462.528pt x 346.896pt>
 File: ../dat/Temperature_T1d0.png Graphic file (type png)
 
 <use ../dat/Temperature_T1d0.png>
-Package pdftex.def Info: ../dat/Temperature_T1d0.png used on input line 62.
+Package pdftex.def Info: ../dat/Temperature_T1d0.png used on input line 60.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Temperature_T2d0.png, id=41, 462.528pt x 346.896pt>
 File: ../dat/Temperature_T2d0.png Graphic file (type png)
 
 <use ../dat/Temperature_T2d0.png>
-Package pdftex.def Info: ../dat/Temperature_T2d0.png used on input line 66.
+Package pdftex.def Info: ../dat/Temperature_T2d0.png used on input line 64.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Energies_T0d3.png, id=42, 462.528pt x 346.896pt>
 File: ../dat/Energies_T0d3.png Graphic file (type png)
 
 <use ../dat/Energies_T0d3.png>
-Package pdftex.def Info: ../dat/Energies_T0d3.png used on input line 72.
+Package pdftex.def Info: ../dat/Energies_T0d3.png used on input line 70.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Energies_T1d0.png, id=43, 462.528pt x 346.896pt>
 File: ../dat/Energies_T1d0.png Graphic file (type png)
 
 <use ../dat/Energies_T1d0.png>
-Package pdftex.def Info: ../dat/Energies_T1d0.png used on input line 76.
+Package pdftex.def Info: ../dat/Energies_T1d0.png used on input line 74.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Energies_T2d0.png, id=44, 462.528pt x 346.896pt>
 File: ../dat/Energies_T2d0.png Graphic file (type png)
 
 <use ../dat/Energies_T2d0.png>
-Package pdftex.def Info: ../dat/Energies_T2d0.png used on input line 80.
+Package pdftex.def Info: ../dat/Energies_T2d0.png used on input line 78.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Total_Energy_T0d3.png, id=45, 462.528pt x 346.896pt>
 File: ../dat/Total_Energy_T0d3.png Graphic file (type png)
 
 <use ../dat/Total_Energy_T0d3.png>
-Package pdftex.def Info: ../dat/Total_Energy_T0d3.png used on input line 86.
+Package pdftex.def Info: ../dat/Total_Energy_T0d3.png used on input line 84.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Total_Energy_T1d0.png, id=46, 462.528pt x 346.896pt>
 File: ../dat/Total_Energy_T1d0.png Graphic file (type png)
 
 <use ../dat/Total_Energy_T1d0.png>
-Package pdftex.def Info: ../dat/Total_Energy_T1d0.png used on input line 90.
+Package pdftex.def Info: ../dat/Total_Energy_T1d0.png used on input line 88.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Total_Energy_T2d0.png, id=47, 462.528pt x 346.896pt>
 File: ../dat/Total_Energy_T2d0.png Graphic file (type png)
 
 <use ../dat/Total_Energy_T2d0.png>
-Package pdftex.def Info: ../dat/Total_Energy_T2d0.png used on input line 94.
+Package pdftex.def Info: ../dat/Total_Energy_T2d0.png used on input line 92.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Pressure_T0d3.png, id=48, 462.528pt x 346.896pt>
 File: ../dat/Pressure_T0d3.png Graphic file (type png)
 
 <use ../dat/Pressure_T0d3.png>
-Package pdftex.def Info: ../dat/Pressure_T0d3.png used on input line 100.
+Package pdftex.def Info: ../dat/Pressure_T0d3.png used on input line 98.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Pressure_T1d0.png, id=49, 462.528pt x 346.896pt>
 File: ../dat/Pressure_T1d0.png Graphic file (type png)
 
 <use ../dat/Pressure_T1d0.png>
-Package pdftex.def Info: ../dat/Pressure_T1d0.png used on input line 104.
+Package pdftex.def Info: ../dat/Pressure_T1d0.png used on input line 102.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
 
 <../dat/Pressure_T2d0.png, id=50, 462.528pt x 346.896pt>
 File: ../dat/Pressure_T2d0.png Graphic file (type png)
 
 <use ../dat/Pressure_T2d0.png>
-Package pdftex.def Info: ../dat/Pressure_T2d0.png used on input line 108.
+Package pdftex.def Info: ../dat/Pressure_T2d0.png used on input line 106.
 (pdftex.def)             Requested size: 125.47794pt x 94.10779pt.
-) (./task7.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+[7]) (./task7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
 
-[7]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 10--10
-[][][][][][][] 
- []
-
 
 Overfull \hbox (6.0pt too wide) in paragraph at lines 10--10
 [][][][][][][] 
  []
 
-(../src/c_lj.cpp [8 <../dat/Temperature_T0d3.png> <../dat/Temperature_T1d0.png>
- <../dat/Temperature_T2d0.png> <../dat/Energies_T0d3.png> <../dat/Energies_T1d0
-.png> <../dat/Energies_T2d0.png> <../dat/Total_Energy_T0d3.png> <../dat/Total_E
-nergy_T1d0.png> <../dat/Total_Energy_T2d0.png> <../dat/Pressure_T0d3.png> <../d
-at/Pressure_T1d0.png> <../dat/Pressure_T2d0.png>])
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10--10
+[][][][][][][] 
+ []
+
+(../src/c_lj.cpp [8])
 Underfull \hbox (badness 10000) in paragraph at lines 12--16
 
  []
@@ -1922,7 +1928,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 26--26
 [][][][][][][] 
  []
 
-(../src/ljsim.py) [9]
+(../src/ljsim.py)
 Overfull \hbox (6.0pt too wide) in paragraph at lines 32--32
 [][][][][][][] 
  []
@@ -1932,7 +1938,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 32--32
 [][][][][][][] 
  []
 
-(../src/ljsim.py)) (./task8.tex
+(../src/ljsim.py)) (./task8.tex [9]
 Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
 [][][][][][][] 
  []
@@ -1952,7 +1958,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 11--11
 [][][][][][][] 
  []
 
-(../src/ljsim.py) [10]
+(../src/ljsim.py)
 
 Class scrartcl Warning: Usage of deprecated font command `\tt'!
 (scrartcl)              You should note, that in 1994 font command `\tt' has
@@ -1977,33 +1983,37 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 14--14
 [][][][][][][] 
  []
 
-(../src/ljanalyze.py)) [11] (./sim3.aux) ) 
+(../src/ljanalyze.py)) [10] [11 <../dat/Temperature_T0d3.png> <../dat/Temperatu
+re_T1d0.png> <../dat/Temperature_T2d0.png> <../dat/Energies_T0d3.png> <../dat/E
+nergies_T1d0.png> <../dat/Energies_T2d0.png> <../dat/Total_Energy_T0d3.png> <..
+/dat/Total_Energy_T1d0.png> <../dat/Total_Energy_T2d0.png> <../dat/Pressure_T0d
+3.png> <../dat/Pressure_T1d0.png> <../dat/Pressure_T2d0.png>] (./sim3.aux) ) 
 Here is how much of TeX's memory you used:
- 41481 strings out of 493029
- 946226 string characters out of 6136235
+ 41493 strings out of 493029
+ 946343 string characters out of 6136235
  1331196 words of memory out of 5000000
- 44329 multiletter control sequences out of 15000+600000
+ 44341 multiletter control sequences out of 15000+600000
  17257 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,12n,81p,10364b,1854s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/euler/eurm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts
-/t1xtt.pfb>
-Output written on sim3.pdf (11 pages, 520199 bytes).
+</u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
+Output written on sim3.pdf (11 pages, 549571 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  81 compressed objects within 1 object stream
