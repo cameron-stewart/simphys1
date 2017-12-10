@@ -14,7 +14,7 @@ def compute_histogram(r):
 # command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--cont", type=double, help="continue calculation with for cont further time")
-parser.add_argument("--time", type=double, help="How long do you want to run the simulation? | default time=10s")
+parser.add_argument("--time", type=double, help="How long do you want to run the simulation? | default time=10")
 parser.add_argument("--tstat", type=double, help="Uses a thermostat with a given temperature")
 parser.add_argument("--warm", type=double, help="Use the warming up | pass force")
 parser.add_argument("--ctstat", type=double, help="continue for the simulation with tstat")
