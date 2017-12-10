@@ -31,48 +31,102 @@ This is necessary because the programm saves the results of the simulation with 
 
 \subsection*{Measurement}
 
-Now we can test the simulation for desired temperatures of  $T\epsilon\left\lbrace 0.3,1.0,2.0\right\rbrace $. The following figures show the results respectively.
-
 \begin{figure}[ht]
+
+Obs.
+\hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T0d3_M100.png}
+\centering
+$T_0 = 0.3$
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T0d3_M100.png}
+\centering
+$T_0 = 1.0$
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T0d3_M100.png}
+\centering
+$T_0 = 2.0$
 \end{subfigure}
+
+T
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Temperature_T0d3.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Temperature_T1d0.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Temperature_T2d0.png}
+\end{subfigure}
+
+E
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Energies_T0d3.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Energies_T1d0.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Energies_T2d0.png}
+\end{subfigure}
+
+U
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Total_Energy_T0d3.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Total_Energy_T1d0.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Total_Energy_T2d0.png}
+\end{subfigure}
+
+P
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Pressure_T0d3.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Pressure_T1d0.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+\includegraphics[width=\textwidth]{../dat/Pressure_T2d0.png}
+\end{subfigure}
+
+\caption{
+Measured Observables (Obs.) for a thermostat temperature $T_O$.\\
+T is the real temperature of the system, E are the energies (green: potential, red: kinetic, blue: total).\\
+U is the total energy of the system alone.\\
+P is the pressure of the system.}
+\label{fig4}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T1d0_M100.png}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T1d0_M100.png}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T1d0_M100.png}
-\end{subfigure}
-\end{figure}
+Now we can test the simulation for desired temperatures of  $T\epsilon\left\lbrace 0.3,1.0,2.0\right\rbrace $. 
+Therefor we must type into the command line:\\
 
-\begin{figure}[ht]
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T2d0_M100.png}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T2d0_M100.png}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T2d0_M100.png}
-\end{subfigure}
-\end{figure}
-We can easily see the system reach the desired temperature and the energies reach equilibrium. The pressure is a bit harder to see as the fluctuations are so large and take large amounts of time.
+\ls{>> python ljsim.py --tstat T0 --time 250}.\\
 
+
+Figure \ref{fig4} shows the results respectively.\\
+
+We can easily see the system reach the desired temperature and the energies reach equilibrium. The pressure is a bit harder to see as the fluctuations are so large and take large amounts of time.\\
+
+As you can see the equilibration time seems to be highest for $T_O=0.3$ and lowest for $T_O=2.0$. 
+This is because the temperature $T_0=0.3$ is much lower than the initial temperature. 
+Therefor the total energy of the system must decrease. But the positive kinetic energy is much lower, than the necessary energy differece. 
+If the temperature should be $T=0.3$ the potential energy of the system must decrease, but it is not directly effected by the velocity rescaling.
+By contrast for $T_0=2.0$ the necessary energy can simply  be reached by increasing the kinetic energy because it is much higher than the initial energy.
+For $T_0=1.0$ the necessary energy is not much different from the initial one and therefor the other effects on equilibration have a higher influence.
