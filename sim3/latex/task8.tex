@@ -1,0 +1,15 @@
+\section{Radial Distribution Function}
+An important observable for our simulation is the radial distribution function. It is the probability to find a particle at a given radial distance away from another particle compared to an ideal gas. Mathematically it is written as
+\begin{equation}
+g(r) = \frac{1}{\rho 4 \pi \mathbf{r}^2 dr}\sum_{i,j} \langle \delta (r - |\mathbf{r}_{ij}|)\rangle
+\end{equation}
+For an ideal gas we expect $g(r) = 1$ if we normalize correctly. 
+
+In our simulation we implement the rdf using both C and python. First we calculate all the pair distances for our particles in C.
+\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{307}{317}{Radial Distances}{8raddist}
+We then send this to an array in python and compute a histogram using numpy and normalize it in the correct way
+\listfile{../src/ljsim.py}{src/ljsim.py}{10}{12}{Numpy Histogram}{7numhist}
+
+Finally we implement an average RDF after equilibrium in \tt{ljanalyze.py }. We compute this using the following function
+\listfile{../src/ljanalyze.py}{src/ljanalyze.py}{51}{56}{Compute Mean RDF}{8meanrdf}
+and plot it.
