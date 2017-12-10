@@ -12,6 +12,7 @@ cdef extern double c_rebuild_neighbor_lists(double *x, double vlsize)
 cdef extern double c_compute_pressure(double Ekin, double* x)
 cdef extern void c_velocity_rescaling(double T0, double T, double* v)
 cdef extern double c_force_capping(double* f, double fcap)
+cdef extern void c_compute_distances(double* v, double* r)
 
 def set_globals(double L, int N, double rcut, double shift):
     c_set_globals(L, N, rcut, shift)
@@ -48,3 +49,8 @@ def velocity_rescaling(T0, T, np.ndarray[double, ndim=2, mode='c'] v not None):
 def force_capping(np.ndarray[double, ndim=2, mode='c'] f not None, fcap):
     N = f.shape[1]
     fcap = c_force_capping(&f[0,0], fcap)
+
+def compute_distances(np.ndarray[double, ndim=2, mode='c'] x not None,
+                      np.ndarray[double, ndim=2, mode='c'] r not None):
+    N = x.shape[1]
+    c_compute_distances(&x[0,0], &r[0,0])

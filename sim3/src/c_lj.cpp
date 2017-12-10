@@ -303,4 +303,16 @@ extern "C" {
     }
   return fcap;
   }
+
+   void c_compute_distances(double* x, double* r){
+      double rij[3];
+      int k = 0;
+      for ( int i = 0; i < N; i++){
+         for ( int j = i+1; j < N; j++){
+            minimum_image(x, i, j, rij);
+            r[k] = sqrt(rij[0]*rij[0]+rij[1]*rij[1]+rij[2]*rij[2]);
+            k++;
+         }
+      }
+   }
 }

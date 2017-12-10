@@ -5,6 +5,11 @@ import sys, os
 import pickle
 from lj import *
 import argparse
+import scipy.misc as binomial
+
+def compute_histogram(r):
+        h, bins = histogram(r, bins=100, range=(0.8, 5.),density=True)
+        return  h*vol/(4*pi*bins[:-1]*bins[:-1])
 
 # command line arguments
 parser = argparse.ArgumentParser()
@@ -61,12 +66,16 @@ N = n*n*n
 volume = N/density
 # side length of the system
 L = volume**(1./3.)
-	
+# volume for RDF
+vol = 4*pi*(5)**3/3
+
+r = empty((binomial.comb(N,2),1))
+
 # Import previous data
 if args.cont:
 	# open datafile
 	datafile = open(datafilename,'r')
-	ts, Es, Ts, Ps, x, v = pickle.load(datafile)
+	ts, Es, Ts, Ps, x, v, hs = pickle.load(datafile)
 	datafile.close()
 	
 	# length of run
@@ -108,6 +117,7 @@ else:
 	Es = []
 	Ts = []
 	Ps = []
+        hs = []
 
 print("density={}, L={}, N={}".format(density, L, N))
 
@@ -181,11 +191,14 @@ while t < tmax:
         T = 2*E_kin/(3*N)
         P = compute_pressure(E_kin, x)
         print("t={}:\n\tE_pot={}\n\tE_kin={}\n\tE_tot={}\n\tT={}\n\tP={}".format(t, E_pot, E_kin, E_tot, T, P))
+        compute_distances(x, r)
+        h = compute_histogram(r)
 
         ts.append(t)
         Es.append([E_pot,E_kin,E_tot])
         Ts.append(T)
         Ps.append(P)
+        hs.append(h)
 
         # write out that a new timestep starts
         vtffile.write('timestep\n')
@@ -200,7 +213,7 @@ while t < tmax:
         # rescale fcap
         if args.warm:
         	args.warm *= 1.1
-
+                
 # close vtf file
 print("Closing {}.".format(vtffilename))
 vtffile.close()

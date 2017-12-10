@@ -27,7 +27,7 @@ ending = datafilename[12:-4]
 
 print("Reading data from {}.".format(datafilename))
 datafile = open(datafilename, 'r')
-ts, Es, Ts, Ps, x, v = pickle.load(datafile)
+ts, Es, Ts, Ps, x, v, hs = pickle.load(datafile)
 datafile.close()
 
 def compute_running_average(O,M):
@@ -49,7 +49,7 @@ def compute_mean_value(O,keq):
 	return Om/(N-keq)
 
 # Plot Runing Averages
-print("Calculating avrage values...")
+print("Calculating average values...")
 ts = array(ts)
 Es = array(Es)
 Ts = array(Ts)
