@@ -221,7 +221,7 @@ vtffile.close()
 # write out simulation data
 print("Writing simulation data to {}.".format(datafilename))
 datafile = open(datafilename, 'w')
-pickle.dump([ts, Es, Ts, Ps, x, v], datafile)
+pickle.dump([ts, Es, Ts, Ps, x, v, hs], datafile)
 datafile.close()
 
 print("Finished simulation.")
