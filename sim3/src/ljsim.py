@@ -42,15 +42,15 @@ shift = -0.016316891136
 
 # Filename addings
 if args.ctstat:
-	tstat = "_T" + str(args.ctstat)
+	tstat = "_T" + str(args.ctstat).replace('.','d')
 elif args.tstat:
-	tstat = "_T" + str(args.tstat) 
+	tstat = "_T" + str(args.tstat).replace('.','d')
 else:
 	tstat = ""
 if args.cwarm:
-	warm = "_F" + str(args.cwarm)
+	warm = "_F" + str(args.cwarm).replace('.','d')
 elif args.warm:
-	warm = "_F" + str(args.warm)
+	warm = "_F" + str(args.warm).replace('.','d')
 else:
 	warm = ""
 		

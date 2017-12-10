@@ -14,7 +14,7 @@ parser.add_argument("--tlim", type=double, nargs='+', help="type in the time lim
 
 args = parser.parse_args()
 
-MM = args.M
+MM = int(args.M)
 datafilename = args.datafile
 bins = np.linspace(0.8, 5.0, 100)
 # check whether data file exists
