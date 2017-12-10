@@ -69,7 +69,7 @@ L = volume**(1./3.)
 # volume for RDF
 vol = 4*pi*(5)**3/3
 
-r = empty((binomial.comb(N,2),1))
+r = empty((int(binomial.comb(N,2)),1))
 
 # Import previous data
 if args.cont:
