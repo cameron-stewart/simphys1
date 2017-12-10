@@ -32,14 +32,16 @@ In the case
 
 the following equation can be derived:
 \begin{align}
-\left\langle\sum_i^N\frac{\ovec{p}_i^2}{m_i}\right\rangle
-	&=-\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+-\sum_i^N\left\langle\ovec{F}_i\cdot\ovec{r}_i\right\rangle
+	&=\left\langle\sum_i^N\frac{\ovec{p}_i^2}{m_i}\right\rangle
+	=2\left\langle\Ekin\right\rangle
 	=3Nk_BT
 	\stackrel{id.gas}{=}3PV
 	\label{4p3}
 \end{align}
 
-For an pair interaction (like in the simulation) let the forces $\fij$ and the distance vectors $\rij$ be defined as follows. Thereby $f^\text{lj}(\abs{\rij})$ is the scalar lennard jones force for the distance $\abs{\rij}$, where a positive value means repulsion.
+For a lennard jones pair interaction (like in the simulation) let the forces $\fij$ and the distance vectors $\rij$ be defined as follows. 
+Thereby $f^\text{lj}(\abs{\rij})$ is the scalar lennard jones force for the distance $\abs{\rij}$, where a positive value means repulsion.
 \begin{align}
 \rij
 	&=\rj - \ri
@@ -48,7 +50,9 @@ For an pair interaction (like in the simulation) let the forces $\fij$ and the d
 	&= f^\text{lj}(\abs{\rij})\cdot\frac{\rij}{\abs{\rij}}
 	\label{4fij}\\
 \fij
-	&=-\fji
+	&=-\fji 
+	\ \ \ \ \rij
+	=-\rji
 \end{align}
 
 With this knowldege we can derive the pressure of the system by splitting up the force $\ovec{F}$ in equation \eqref{4p3} into an ideal gas part $\ovec{F}^\text{id.gas}$ and a lennard jones part $\ovec{F}^\text{lj}$.
@@ -71,6 +75,9 @@ P
 	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p10}
 \end{align}
+
+This works also for a non lennard jones pair interaction with analogous definition.
+In the programm we will use equation \eqref{4p10} but we use the actual state instead of calculating the expection values.
 
 \subsection*{Pressure in Cython}
 
