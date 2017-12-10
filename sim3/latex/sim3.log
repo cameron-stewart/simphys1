@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  9 DEC 2017 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  10 DEC 2017 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1701,12 +1701,12 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 7--7
  []
 
 (../src/ljsim.py
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
 )
 Overfull \hbox (6.0pt too wide) in paragraph at lines 9--9
 [][][][][][][] 
@@ -1786,7 +1786,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 22--22
 [][][][][][][] 
  []
 
-(../src/c_lj.cpp [6])
+[6] (../src/c_lj.cpp)
 Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
@@ -1806,7 +1806,7 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 10--10
 [][][][][][][] 
  []
 
-(../src/c_lj.cpp) [7]
+(../src/c_lj.cpp [7])
 Underfull \hbox (badness 10000) in paragraph at lines 12--16
 
  []
@@ -1853,10 +1853,10 @@ See the caption package documentation for explanation.
 
 [8] (./sim3.aux) ) 
 Here is how much of TeX's memory you used:
- 41338 strings out of 493029
- 943542 string characters out of 6136235
- 1332196 words of memory out of 5000000
- 44209 multiletter control sequences out of 15000+600000
+ 41347 strings out of 493029
+ 943658 string characters out of 6136235
+ 1331196 words of memory out of 5000000
+ 44218 multiletter control sequences out of 15000+600000
  17257 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,12n,81p,10364b,1856s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1874,7 +1874,7 @@ public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfont
 s/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pf
 b>
-Output written on sim3.pdf (8 pages, 169266 bytes).
+Output written on sim3.pdf (8 pages, 169282 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream

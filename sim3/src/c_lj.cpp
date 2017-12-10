@@ -275,7 +275,7 @@ extern "C" {
           interaction += fij[k]*rij[k];
       }
     }
-    return (2.*E_kin+interaction)/(3*L*L*L);
+    return (2.*E_kin-interaction)/(3*L*L*L);
   }
   
   void c_velocity_rescaling(double T0, double T, double* v){

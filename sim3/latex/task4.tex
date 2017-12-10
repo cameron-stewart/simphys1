@@ -1,11 +1,11 @@
-\section{Calculating Temperature and Pressure}
+\section{Simple Observables}
 
 \subsection{Expanding Energy Calculation}
 
 First the energy calculation should be changed in order to also get the kinetic and potential energy.
 This is done by changing the compute\_energy() function call and the parameter Es in ljsim.py (code block \ref{4energy}).
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{179}{188}{$E_\text{kin}$ + $E_\text{pot}$}{4energy}
+\listfile{../src/ljsim.py}{src/ljsim.py}{189}{201}{$E_\text{kin}$ + $E_\text{pot}$}{4energy}
 
 \subsection{Calculating the Temperature}
 
@@ -40,13 +40,13 @@ the following equation can be derived:
 	\label{4p3}
 \end{align}
 
-For an pair interaction (like in the simulation) let the forces $\fij$ and the vectors $\rij$ be defined as follows:
+For an pair interaction (like in the simulation) let the forces $\fij$ and the distance vectors $\rij$ be defined as follows:
 \begin{align}
 \rij
 	&=\rj - \ri
 	\label{4rij}\\
 \fij 
-	&= f_\text{lj}(\rij^2)\cdot\frac{\rij}{\abs{\rij}}
+	&= f_\text{l.jones}(\rij^2)\cdot\frac{\rij}{\abs{\rij}}
 	\label{4fij}
 \end{align}
 
@@ -55,15 +55,15 @@ With this knowldege we can derive the pressure of the system:
 P
 	&=P_\text{id. gas} + P_\text{interaction}
 	\label{4p4}\\
-	&=\frac{Nk_BT}{V} + \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_{i,\text{interaction}}\cdot\ovec{r}_i\right\rangle
+	&=\frac{Nk_BT}{V} - \frac{1}{3V}\sum_i^N\left\langle\ovec{F}_{i,\text{interaction}}\cdot\ovec{r}_i\right\rangle
 	\label{4p5}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j\neq i}^N-\fij\cdot\ovec{r}_i\right\rangle\right]
 	\label{4p6}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rj-\fij\cdot\ri\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rj-\fij\cdot\ri\right\rangle\right]
 	\label{4p7}\\
-	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	&=\frac{1}{3V}\left[\left\langle\sum_i^N\frac{\ovec{p}_i^2}{2m_i}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p8}\\
-	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle + \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
+	&=\frac{1}{3V}\left[ 2\left\langle E_\text{kin}\right\rangle - \left\langle\sum_{i,j>i}^N\fij\cdot\rij\right\rangle\right]
 	\label{4p9}
 \end{align}
 
@@ -72,7 +72,7 @@ P
 Becaus of the vectorial calculations for each particle pair the calculation has to be done in C if it should be fast. 
 Therefor the function c\_compute\_pressure() is written in c\_lj.cpp.
 
-\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{253}{279}{$E_\text{kin}$ + $E_\text{pot}$}{4pressure}
+\listfile[MyCstyle]{../src/c_lj.cpp}{src/c\_lj.cpp}{253}{279}{Pressure calculation in C}{4pressure}
 
 As you can see the first part is the same like in c\_compute\_forces(), but the last part differs.
-In order to save calculation time the function takes the kinetic energy, which is already calculated, as an argument.
+In order to save run time the function takes the kinetic energy, which is already calculated, as an argument.

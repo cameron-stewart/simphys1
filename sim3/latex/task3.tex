@@ -6,7 +6,7 @@ This happens in code block \ref{3storing}.
 Furthermore there are the new variables Ts and Ps.
 The represent the temperature and pressure of the system over time and will be explained in the next chapter.
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{208}{212}{Storing data}{3storing}
+\listfile{../src/ljsim.py}{src/ljsim.py}{221}{225}{Storing data}{3storing}
 
 %\begin{lstlisting}[
 %	style=MyPythonstyle, 
@@ -24,10 +24,10 @@ The represent the temperature and pressure of the system over time and will be e
 %\end{lstlisting}
 
 Now this data must be read by ljsim.py.
-Therefore we define a command line parameter \ls{--cont} which accepts as argument the time for which the simulation should be continued (code block \ref{comsim}).
+Therefore we define a command line option \ls{--cont} which accepts as argument the time for which the simulation should be continued (code block \ref{comsim}).
 If the parameter is not used the simulation will start new.
-Furtehrmore there is another argument \ls{--time} which takes the simulationtime for a new simulation.
+Furtehrmore there is another argument \ls{--time} which takes the simulation time for a new simulation.
 The code in code block \ref{3cont} does exactly this.
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{65}{82}{Continue simulation}{3cont}
+\listfile{../src/ljsim.py}{src/ljsim.py}{74}{91}{Continue simulation}{3cont}
 

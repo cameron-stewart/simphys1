@@ -16,17 +16,17 @@ When this is the case it sets fcap to zero.\\
 
 The function is called in the vv\_step() function in ljsim.py.
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{154}{158}{Limiting forces}{7limfor}
+\listfile{../src/ljsim.py}{src/ljsim.py}{164}{168}{Limiting forces}{7limfor}
 
 As you can see, the function will not be activated any more if fcap = args.warm is set to zero.\\
 
 At least the fcap should be increased by ten percent every time the measurements are done. 
 This is done in code block \ref{7inc}.
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{200}{202}{Increase maximum force}{7inc}
+\listfile{../src/ljsim.py}{src/ljsim.py}{213}{215}{Increase maximum force}{7inc}
 
 But all the capping is useless without random initial conditions. 
 The velocity is already random, so only the initial position has to be changed. 
 You can do this with a similar command like in \ref{7rand}.
 
-\listfile{../src/ljsim.py}{src/ljsim.py}{89}{92}{Random initial position}{7rand}
+\listfile{../src/ljsim.py}{src/ljsim.py}{98}{101}{Random initial position}{7rand}
