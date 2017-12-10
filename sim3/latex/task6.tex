@@ -1,5 +1,7 @@
 \section{Molecular Dynamics at a Desired Temperature}
 
+\subsection*{Programming}
+
 For the \emph{velocity rescaling} thermostat we can derive the rescaling-factor $\fr$ from equation \eqref{6fr1}.
 \begin{align}
 \frac{3}{2}k_BT_0
@@ -26,3 +28,6 @@ This function is used in the main loop in ljsim.py every time after meausuring t
 To start the thermostat you can use the command line option \ls{--tstat} which accepts the desired temperature as argument (see code block \ref{comsim}).
 The option \ls{--ctstat} is there for continuing the simulation for the interrupted simulation with temperature T thermostat, but now with deactivated thermostat.
 This is necessary because the programm saves the results of the simulation with different names for different temperatures.
+
+\subsection*{Measurement}
+
