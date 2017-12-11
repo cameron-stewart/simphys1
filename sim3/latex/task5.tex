@@ -38,6 +38,12 @@ Figures \ref{fig:pres1}, \ref{fig:temp1}, and \ref{fig:energy1} show the running
   \caption{Running average of energy with M = 10}\label{fig:energy1}
 \endminipage
 \end{figure}
+
+Finally, we extend ljanalyze.py to compute the average value of the observables after equilibration. This is done with the following function.
+\listfile{../src/ljanalyze.py}{src/ljanalyze.py}{44}{49}{Compute Mean}{5mean}
+We pass the number of timesteps needed for equilibration in with a command line argument and our code returns the mean values.
+In our case we measured $E_\mathrm{pot} = -2652.8$, $E_\mathrm{kin} = 1427.8$, $E_\mathrm{tot} = -1225.0$, $T = 0.952$, and $P = 0.568$.
+
 \begin{figure}[h]
 \minipage{0.32\textwidth}
   \includegraphics[width=\linewidth]{fig/avPressure_M100.png}
@@ -52,8 +58,3 @@ Figures \ref{fig:pres1}, \ref{fig:temp1}, and \ref{fig:energy1} show the running
   \caption{Running average of energy with M = 100}\label{fig:energy2}
 \endminipage
 \end{figure}
-Finally, we extend ljanalyze.py to compute the average value of the observables after equilibration. This is done with the following function.
-\listfile{../src/ljanalyze.py}{src/ljanalyze.py}{44}{49}{Compute Mean}{5mean}
-We pass the number of timesteps needed for equilibration in with a command line argument and our code returns the mean values.
-In our case we measured $E_\mathrm{pot} = -2652.8$, $E_\mathrm{kin} = 1427.8$, $E_\mathrm{tot} = -1225.0$, $T = 0.952$, and $P = 0.568$.
-

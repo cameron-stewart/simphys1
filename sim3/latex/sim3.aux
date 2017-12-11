@@ -38,39 +38,62 @@
 \newlabel{4p10}{{13}{5}{Derivation of the pressure}{}{}}
 \newlabel{4pressure}{{6}{6}{{Pressure calculation in C} \hfill script: src/c\_lj.cpp}{}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6}{Pressure calculation in C} \hfill script: src/c\_lj.cpp}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Molecular Dynamics at a Desired Temperature}{7}}
-\newlabel{6fr1}{{14}{7}{Programming}{}{}}
-\newlabel{6fr2}{{15}{7}{Programming}{}{}}
-\newlabel{6fr3}{{16}{7}{Programming}{}{}}
-\newlabel{6fr4}{{17}{7}{Programming}{}{}}
-\newlabel{6r5}{{18}{7}{Programming}{}{}}
-\newlabel{6rescaling}{{7}{7}{{Velocity rescaling} \hfill script: src/c\_lj.cpp}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}{Velocity rescaling} \hfill script: src/c\_lj.cpp}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Measured Observables (Obs.) for a thermostat temperature $T_O$.  T is the real temperature of the system, E are the energies (green: potential, red: kinetic, blue: total).  U is the total energy of the system alone.  P is the pressure of the system.\relax }}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Equilibration}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Pressure plotted over 1000 timesteps\relax }}{7}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig4}{{1}{9}{Measured Observables (Obs.) for a thermostat temperature $T_O$.\\ T is the real temperature of the system, E are the energies (green: potential, red: kinetic, blue: total).\\ U is the total energy of the system alone.\\ P is the pressure of the system.\relax }{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Warming up the System}{10}}
-\newlabel{7forcap}{{8}{10}{{Force capping} \hfill script: src/c\_lj.cpp}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}{Force capping} \hfill script: src/c\_lj.cpp}{10}}
-\newlabel{7limfor}{{9}{10}{{Limiting forces} \hfill script: src/ljsim.py}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}{Limiting forces} \hfill script: src/ljsim.py}{10}}
-\newlabel{7inc}{{10}{11}{{Increase maximum force} \hfill script: src/ljsim.py}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}{Increase maximum force} \hfill script: src/ljsim.py}{11}}
-\newlabel{7rand}{{11}{11}{{Random initial position} \hfill script: src/ljsim.py}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}{Random initial position} \hfill script: src/ljsim.py}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Radial Distribution Function}{11}}
-\newlabel{8raddist}{{12}{11}{{Radial Distances} \hfill script: src/c\_lj.cpp}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}{Radial Distances} \hfill script: src/c\_lj.cpp}{11}}
-\newlabel{7numhist}{{13}{12}{{Numpy Histogram} \hfill script: src/ljsim.py}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}{Numpy Histogram} \hfill script: src/ljsim.py}{12}}
-\newlabel{8meanrdf}{{14}{12}{{Compute Mean RDF} \hfill script: src/ljanalyze.py}{}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}{Compute Mean RDF} \hfill script: src/ljanalyze.py}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Measuring Equilibrium Mean Values of the Observables}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Desired Temperature: $T_0=0.3$. Average values of temperature, pressure and energies from the left to the right.\relax }}{13}}
-\newlabel{9T0d3}{{2}{13}{Desired Temperature: $T_0=0.3$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Desired Temperature: $T_0=1.0$. Average values of temperature, pressure and energies from the left to the right.\relax }}{13}}
-\newlabel{9T1d0}{{3}{13}{Desired Temperature: $T_0=1.0$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Desired Temperature: $T_0=2.0$. Average values of temperature, pressure and energies from the left to the right.\relax }}{13}}
-\newlabel{9T2d0}{{4}{13}{Desired Temperature: $T_0=2.0$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left \delimiter "4266308 0.3,1.0,2.0\right \delimiter "5267309 $ from the left to the right.\relax }}{14}}
-\newlabel{9plotrdf}{{5}{14}{Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left \lbrace 0.3,1.0,2.0\right \rbrace $ from the left to the right.\relax }{}{}}
+\newlabel{fig:pres}{{1}{7}{Pressure plotted over 1000 timesteps\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Temperature plotted over 1000 timesteps\relax }}{7}}
+\newlabel{fig:temp}{{2}{7}{Temperature plotted over 1000 timesteps\relax }{}{}}
+\newlabel{5ave}{{7}{7}{{Running Average} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}{Running Average} \hfill script: src/ljanalyze.py}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Energy plotted over 1000 timesteps.\relax }}{8}}
+\newlabel{fig:energy}{{3}{8}{Energy plotted over 1000 timesteps.\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Running average of pressure with M = 10\relax }}{8}}
+\newlabel{fig:pres1}{{4}{8}{Running average of pressure with M = 10\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Running average of temperature with M = 10\relax }}{8}}
+\newlabel{fig:temp1}{{5}{8}{Running average of temperature with M = 10\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Running average of energy with M = 10\relax }}{8}}
+\newlabel{fig:energy1}{{6}{8}{Running average of energy with M = 10\relax }{}{}}
+\newlabel{5mean}{{8}{8}{{Compute Mean} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}{Compute Mean} \hfill script: src/ljanalyze.py}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Running average of pressure with M = 100\relax }}{9}}
+\newlabel{fig:pres2}{{7}{9}{Running average of pressure with M = 100\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Running average of temperature with M = 100\relax }}{9}}
+\newlabel{fig:temp2}{{8}{9}{Running average of temperature with M = 100\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Running average of energy with M = 100\relax }}{9}}
+\newlabel{fig:energy2}{{9}{9}{Running average of energy with M = 100\relax }{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Molecular Dynamics at a Desired Temperature}{9}}
+\newlabel{6fr1}{{15}{9}{Programming}{}{}}
+\newlabel{6fr2}{{16}{9}{Programming}{}{}}
+\newlabel{6fr3}{{17}{9}{Programming}{}{}}
+\newlabel{6fr4}{{18}{9}{Programming}{}{}}
+\newlabel{6r5}{{19}{9}{Programming}{}{}}
+\newlabel{6rescaling}{{9}{10}{{Velocity rescaling} \hfill script: src/c\_lj.cpp}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}{Velocity rescaling} \hfill script: src/c\_lj.cpp}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Measured Observables (Obs.) for a thermostat temperature $T_O$.  T is the real temperature of the system, E are the energies (green: potential, red: kinetic, blue: total).  U is the total energy of the system alone.  P is the pressure of the system.\relax }}{11}}
+\newlabel{fig4}{{10}{11}{Measured Observables (Obs.) for a thermostat temperature $T_O$.\\ T is the real temperature of the system, E are the energies (green: potential, red: kinetic, blue: total).\\ U is the total energy of the system alone.\\ P is the pressure of the system.\relax }{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Warming up the System}{12}}
+\newlabel{7forcap}{{10}{12}{{Force capping} \hfill script: src/c\_lj.cpp}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}{Force capping} \hfill script: src/c\_lj.cpp}{12}}
+\newlabel{7limfor}{{11}{12}{{Limiting forces} \hfill script: src/ljsim.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}{Limiting forces} \hfill script: src/ljsim.py}{12}}
+\newlabel{7inc}{{12}{13}{{Increase maximum force} \hfill script: src/ljsim.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}{Increase maximum force} \hfill script: src/ljsim.py}{13}}
+\newlabel{7rand}{{13}{13}{{Random initial position} \hfill script: src/ljsim.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}{Random initial position} \hfill script: src/ljsim.py}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Radial Distribution Function}{13}}
+\newlabel{8raddist}{{14}{13}{{Radial Distances} \hfill script: src/c\_lj.cpp}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}{Radial Distances} \hfill script: src/c\_lj.cpp}{13}}
+\newlabel{7numhist}{{15}{14}{{Numpy Histogram} \hfill script: src/ljsim.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}{Numpy Histogram} \hfill script: src/ljsim.py}{14}}
+\newlabel{8meanrdf}{{16}{14}{{Compute Mean RDF} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}{Compute Mean RDF} \hfill script: src/ljanalyze.py}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Measuring Equilibrium Mean Values of the Observables}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces  Desired Temperature: $T_0=0.3$. Average values of temperature, pressure and energies from the left to the right.\relax }}{15}}
+\newlabel{9T0d3}{{11}{15}{Desired Temperature: $T_0=0.3$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces  Desired Temperature: $T_0=1.0$. Average values of temperature, pressure and energies from the left to the right.\relax }}{15}}
+\newlabel{9T1d0}{{12}{15}{Desired Temperature: $T_0=1.0$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  Desired Temperature: $T_0=2.0$. Average values of temperature, pressure and energies from the left to the right.\relax }}{15}}
+\newlabel{9T2d0}{{13}{15}{Desired Temperature: $T_0=2.0$. Average values of temperature, pressure and energies from the left to the right.\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left \delimiter "4266308 0.3,1.0,2.0\right \delimiter "5267309 $ from the left to the right.\relax }}{16}}
+\newlabel{9plotrdf}{{14}{16}{Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left \lbrace 0.3,1.0,2.0\right \rbrace $ from the left to the right.\relax }{}{}}
