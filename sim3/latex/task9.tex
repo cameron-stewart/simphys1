@@ -1,7 +1,7 @@
 \section{Measuring Equilibrium Mean Values of the Observables}
 We now run the simulation for the same three temperatures ${0.3, 1.0, 2.0}$ including random particle positions and the previously described warm up. We run the simulations for 1200 time steps. Using our command line arguments an example looks like:\\
 
-{\tt python ljsim.py --warm 20 --tstat 0.3 --time 120}\\
+{\tt python ljsim.py --warm 20 --tstat 0.3 --time 1200}\\
 
 This sets an inital force cap of 20. The equilibration of the observables is plotted in the following figures with the first 100 timesteps omitted to preserve plot scaling. The command to produce these plots with our command line arguments looks like:\\
 
@@ -26,15 +26,15 @@ $E$
 \end{subfigure}
 
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T0d3_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avTemperature_T0d3_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T0d3_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avPressure_T0d3_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T0d3_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avEnergies_T0d3_F20d0_M100.png}
 \end{subfigure}
 \caption{
 Desired Temperature: $T_0=0.3$.
@@ -60,15 +60,15 @@ $E$
 \end{subfigure}
 
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T1d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avTemperature_T1d0_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T1d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avPressure_T1d0_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T1d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avEnergies_T1d0_F20d0_M100.png}
 \end{subfigure}
 \caption{
 Desired Temperature: $T_0=1.0$.
@@ -94,15 +94,15 @@ $E$
 \end{subfigure}
 
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avTemperature_T2d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avTemperature_T2d0_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avPressure_T2d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avPressure_T2d0_F20d0_M100.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/avEnergies_T2d0_F20d0_M100.png}
+\includegraphics[width=\textwidth]{../dat/avEnergies_T2d0_F20d0_M100.png}
 \end{subfigure}
 \caption{
 Desired Temperature: $T_0=2.0$.
@@ -148,15 +148,15 @@ The commands only differed in the thermostat temperature and the datafilename to
 
 \begin{figure}[ht]
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/meanRDF_T0d3.png}
+\includegraphics[width=\textwidth]{../dat/meanRDF_T0d3_F20d0.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/meanRDF_T1d0.png}
+\includegraphics[width=\textwidth]{../dat/meanRDF_T1d0_F20d0.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.3\textwidth}
-\includegraphics[width=\textwidth]{fig/meanRDF_T2d0.png}
+\includegraphics[width=\textwidth]{../dat/meanRDF_T2d0_F20d0.png}
 \end{subfigure}
 \caption{Radial distribution finction (RDF) in equilibrium for desired temperature of $T_0=\left\lbrace 0.3,1.0,2.0\right\rbrace$ from the left to the right.} 
 \label{9plotrdf}

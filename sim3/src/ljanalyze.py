@@ -89,7 +89,7 @@ else:
 	plot(ts, Ea[:,1],'r-',label=r'E_{kin}')
 	plot(ts, Ea[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t")
-legend()
+#legend()
 savefig('../dat/avEnergies{}_M{}.png'.format(ending,MM),bbox_inches='tight')
 close()
 # Total Energy
