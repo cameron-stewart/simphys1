@@ -14,6 +14,7 @@ parser.add_argument("--tlim", type=double, nargs='+', help="type in the time lim
 
 args = parser.parse_args()
 
+rcParams.update({'font.size': 28})
 MM = int(args.M)
 datafilename = args.datafile
 bins = np.linspace(0.8, 5.0, 100)
@@ -89,7 +90,7 @@ else:
 	plot(ts, Ea[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t")
 legend()
-savefig('../dat/avEnergies{}_M{}.png'.format(ending,MM))
+savefig('../dat/avEnergies{}_M{}.png'.format(ending,MM),bbox_inches='tight')
 close()
 # Total Energy
 if args.tlim:
@@ -99,8 +100,8 @@ else:
 	plot(ts, Ea[:,2],'b-',label=r'E_{tot}')
 xlabel("Time t")
 ylabel("Energy E")
-legend()
-savefig('../dat/avTotal_Energy{}_M{}.png'.format(ending,MM))
+#legend()
+savefig('../dat/avTotal_Energy{}_M{}.png'.format(ending,MM),bbox_inches='tight')
 close()
 # Temperature
 if args.tlim:
@@ -111,7 +112,7 @@ else:
 xlabel("Time t")
 ylabel("Temperature T")
 #legend()
-savefig('../dat/avTemperature{}_M{}.png'.format(ending,MM))
+savefig('../dat/avTemperature{}_M{}.png'.format(ending,MM),bbox_inches='tight')
 close()
 # Pressure
 if args.tlim:
@@ -122,7 +123,7 @@ else:
 xlabel("Time t")
 ylabel("Pressure P")
 #legend()
-savefig('../dat/avPressure{}_M{}.png'.format(ending,MM))
+savefig('../dat/avPressure{}_M{}.png'.format(ending,MM),bbox_inches='tight')
 close()
 
 print("Finished.")
@@ -144,7 +145,7 @@ if args.teq:
         plot(bins,hm, 'g-', label=r'Radial Distribution Function')
         xlabel("Radial Distance r")
         ylabel("Probability")
-        savefig('../dat/meanRDF.png')
+        savefig('../dat/meanRDF{}.png'.format(ending),bbox_inches='tight')
         close()
         
 	print("Mean Values for t >= {}:\n\tE_pot={}\n\tE_kin={}\n\tE_tot={}\n\tT={}\n\tP={}".format(ts[keq],E_potm, E_kinm, E_totm, Tm, Pm))
