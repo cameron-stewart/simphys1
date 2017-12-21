@@ -1,0 +1,8 @@
+Hi Cameron,
+
+I removed the documentation directory and all the dat and fig directories from git. 
+	git rm --cached -r dat.
+
+I think it will be necessary to add the new data-files to git because we will need the graphics for the report and when we produce random data, we cannot make a copy by running the program again. We can delete it after finishing of the task.
+
+What do you think is necessary to add to the git repository and what not?
