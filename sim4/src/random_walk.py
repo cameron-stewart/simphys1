@@ -10,7 +10,6 @@ from inspect import currentframe, getframeinfo
 # Additional bibs
 import argparse
 import time
-import matplotlib.pyplot as plt
 
 # Own bibs
 from random_numbers import *
@@ -30,13 +29,14 @@ else:
 
 # 1D-random walk
 N = 1000
-x = np.zeros(N+1)
-
-for k in range(0,N):
-	x[k+1] = x[k] + normal_LCG() - 0.5
+x = random_walk(N=N)
 
 # Plot
-plt.plot(range(0,N+1),x,label=r'random walk')
+plot(range(0,N+1),x,label=r'random walk')
 xlabel('time')
 ylabel('position')
-plt.show()
+#show()
+
+# Box-Mueller
+print(BM())
+show_BM_hist()
