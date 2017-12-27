@@ -7,10 +7,18 @@ import pickle
 
 from inspect import currentframe, getframeinfo
 
+# Additional bibs
+import argparse
+
 # Own bibs
-import random_numbers
+from random_numbers import *
 
+# Argparse command line options
+parser = argparse.ArgumentParser()
 
+parser.add_argument( '--ID', type=str, help='simulation ID' )
+
+args = parser.parse_args()
 
 # SYSTEM CONSTANTS
 # timestep
@@ -35,15 +43,15 @@ measurement_stride = 100
 # cutoff length
 
 # OPEN SIMULATION FILES
-if len(sys.argv) != 2:
-    print("Usage: python {} ID".format(sys.argv[0]))
+if not args.ID:
+    print('ERROR: simuation ID missing.\nUse --ID <ID>')
     sys.exit(2)
-simulation_id = sys.argv[1]
+simulation_id = args.ID
 
 log_vel= False
-vtffilename = '{}.vtf'.format(simulation_id)
-velfilename = '{}.vel'.format(simulation_id)
-datafilename = '{}.dat'.format(simulation_id)
+vtffilename = '../dat/{}.vtf'.format(simulation_id)
+velfilename = '../dat/{}.vel'.format(simulation_id)
+datafilename = '../dat/{}.dat'.format(simulation_id)
 
 def compute_temperature(v):
     _, N = v.shape

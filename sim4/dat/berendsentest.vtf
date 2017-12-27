@@ -1,0 +1,2004 @@
+atom 0:0 radius 0.5
+pbc 10.0 10.0 10.0
+timestep
+0.1 2.0 0.0
+timestep
+0.2 2.0 1.0
+timestep
+0.3 2.0 2.0
+timestep
+0.4 2.0 3.0
+timestep
+0.5 2.0 4.0
+timestep
+0.6 2.0 5.0
+timestep
+0.7 2.0 6.0
+timestep
+0.8 2.0 7.0
+timestep
+0.9 2.0 8.0
+timestep
+1.0 2.0 9.0
+timestep
+1.1 2.0 10.0
+timestep
+1.2 2.0 11.0
+timestep
+1.3 2.0 12.0
+timestep
+1.4 2.0 13.0
+timestep
+1.5 2.0 14.0
+timestep
+1.6 2.0 15.0
+timestep
+1.7 2.0 16.0
+timestep
+1.8 2.0 17.0
+timestep
+1.9 2.0 18.0
+timestep
+2.0 2.0 19.0
+timestep
+2.1 2.0 20.0
+timestep
+2.2 2.0 21.0
+timestep
+2.3 2.0 22.0
+timestep
+2.4 2.0 23.0
+timestep
+2.5 2.0 24.0
+timestep
+2.6 2.0 25.0
+timestep
+2.7 2.0 26.0
+timestep
+2.8 2.0 27.0
+timestep
+2.9 2.0 28.0
+timestep
+3.0 2.0 29.0
+timestep
+3.1 2.0 30.0
+timestep
+3.2 2.0 31.0
+timestep
+3.3 2.0 32.0
+timestep
+3.4 2.0 33.0
+timestep
+3.5 2.0 34.0
+timestep
+3.6 2.0 35.0
+timestep
+3.7 2.0 36.0
+timestep
+3.8 2.0 37.0
+timestep
+3.9 2.0 38.0
+timestep
+4.0 2.0 39.0
+timestep
+4.1 2.0 40.0
+timestep
+4.2 2.0 41.0
+timestep
+4.3 2.0 42.0
+timestep
+4.4 2.0 43.0
+timestep
+4.5 2.0 44.0
+timestep
+4.6 2.0 45.0
+timestep
+4.7 2.0 46.0
+timestep
+4.8 2.0 47.0
+timestep
+4.9 2.0 48.0
+timestep
+5.0 2.0 49.0
+timestep
+5.1 2.0 50.0
+timestep
+5.2 2.0 51.0
+timestep
+5.3 2.0 52.0
+timestep
+5.4 2.0 53.0
+timestep
+5.5 2.0 54.0
+timestep
+5.6 2.0 55.0
+timestep
+5.7 2.0 56.0
+timestep
+5.8 2.0 57.0
+timestep
+5.9 2.0 58.0
+timestep
+6.0 2.0 59.0
+timestep
+6.1 2.0 60.0
+timestep
+6.2 2.0 61.0
+timestep
+6.3 2.0 62.0
+timestep
+6.4 2.0 63.0
+timestep
+6.5 2.0 64.0
+timestep
+6.6 2.0 65.0
+timestep
+6.7 2.0 66.0
+timestep
+6.8 2.0 67.0
+timestep
+6.9 2.0 68.0
+timestep
+7.0 2.0 69.0
+timestep
+7.1 2.0 70.0
+timestep
+7.2 2.0 71.0
+timestep
+7.3 2.0 72.0
+timestep
+7.4 2.0 73.0
+timestep
+7.5 2.0 74.0
+timestep
+7.6 2.0 75.0
+timestep
+7.7 2.0 76.0
+timestep
+7.8 2.0 77.0
+timestep
+7.9 2.0 78.0
+timestep
+8.0 2.0 79.0
+timestep
+8.1 2.0 80.0
+timestep
+8.2 2.0 81.0
+timestep
+8.3 2.0 82.0
+timestep
+8.4 2.0 83.0
+timestep
+8.5 2.0 84.0
+timestep
+8.6 2.0 85.0
+timestep
+8.7 2.0 86.0
+timestep
+8.8 2.0 87.0
+timestep
+8.9 2.0 88.0
+timestep
+9.0 2.0 89.0
+timestep
+9.1 2.0 90.0
+timestep
+9.2 2.0 91.0
+timestep
+9.3 2.0 92.0
+timestep
+9.4 2.0 93.0
+timestep
+9.5 2.0 94.0
+timestep
+9.6 2.0 95.0
+timestep
+9.7 2.0 96.0
+timestep
+9.8 2.0 97.0
+timestep
+9.9 2.0 98.0
+timestep
+10.0 2.0 99.0
+timestep
+10.1 2.0 100.0
+timestep
+10.2 2.0 101.0
+timestep
+10.3 2.0 102.0
+timestep
+10.4 2.0 103.0
+timestep
+10.5 2.0 104.0
+timestep
+10.6 2.0 105.0
+timestep
+10.7 2.0 106.0
+timestep
+10.8 2.0 107.0
+timestep
+10.9 2.0 108.0
+timestep
+11.0 2.0 109.0
+timestep
+11.1 2.0 110.0
+timestep
+11.2 2.0 111.0
+timestep
+11.3 2.0 112.0
+timestep
+11.4 2.0 113.0
+timestep
+11.5 2.0 114.0
+timestep
+11.6 2.0 115.0
+timestep
+11.7 2.0 116.0
+timestep
+11.8 2.0 117.0
+timestep
+11.9 2.0 118.0
+timestep
+12.0 2.0 119.0
+timestep
+12.1 2.0 120.0
+timestep
+12.2 2.0 121.0
+timestep
+12.3 2.0 122.0
+timestep
+12.4 2.0 123.0
+timestep
+12.5 2.0 124.0
+timestep
+12.6 2.0 125.0
+timestep
+12.7 2.0 126.0
+timestep
+12.8 2.0 127.0
+timestep
+12.9 2.0 128.0
+timestep
+13.0 2.0 129.0
+timestep
+13.1 2.0 130.0
+timestep
+13.2 2.0 131.0
+timestep
+13.3 2.0 132.0
+timestep
+13.4 2.0 133.0
+timestep
+13.5 2.0 134.0
+timestep
+13.6 2.0 135.0
+timestep
+13.7 2.0 136.0
+timestep
+13.8 2.0 137.0
+timestep
+13.9 2.0 138.0
+timestep
+14.0 2.0 139.0
+timestep
+14.1 2.0 140.0
+timestep
+14.2 2.0 141.0
+timestep
+14.3 2.0 142.0
+timestep
+14.4 2.0 143.0
+timestep
+14.5 2.0 144.0
+timestep
+14.6 2.0 145.0
+timestep
+14.7 2.0 146.0
+timestep
+14.8 2.0 147.0
+timestep
+14.9 2.0 148.0
+timestep
+15.0 2.0 149.0
+timestep
+15.1 2.0 150.0
+timestep
+15.2 2.0 151.0
+timestep
+15.3 2.0 152.0
+timestep
+15.4 2.0 153.0
+timestep
+15.5 2.0 154.0
+timestep
+15.6 2.0 155.0
+timestep
+15.7 2.0 156.0
+timestep
+15.8 2.0 157.0
+timestep
+15.9 2.0 158.0
+timestep
+16.0 2.0 159.0
+timestep
+16.1 2.0 160.0
+timestep
+16.2 2.0 161.0
+timestep
+16.3 2.0 162.0
+timestep
+16.4 2.0 163.0
+timestep
+16.5 2.0 164.0
+timestep
+16.6 2.0 165.0
+timestep
+16.7 2.0 166.0
+timestep
+16.8 2.0 167.0
+timestep
+16.9 2.0 168.0
+timestep
+17.0 2.0 169.0
+timestep
+17.1 2.0 170.0
+timestep
+17.2 2.0 171.0
+timestep
+17.3 2.0 172.0
+timestep
+17.4 2.0 173.0
+timestep
+17.5 2.0 174.0
+timestep
+17.6 2.0 175.0
+timestep
+17.7 2.0 176.0
+timestep
+17.8 2.0 177.0
+timestep
+17.9 2.0 178.0
+timestep
+18.0 2.0 179.0
+timestep
+18.1 2.0 180.0
+timestep
+18.2 2.0 181.0
+timestep
+18.3 2.0 182.0
+timestep
+18.4 2.0 183.0
+timestep
+18.5 2.0 184.0
+timestep
+18.6 2.0 185.0
+timestep
+18.7 2.0 186.0
+timestep
+18.8 2.0 187.0
+timestep
+18.9 2.0 188.0
+timestep
+19.0 2.0 189.0
+timestep
+19.1 2.0 190.0
+timestep
+19.2 2.0 191.0
+timestep
+19.3 2.0 192.0
+timestep
+19.4 2.0 193.0
+timestep
+19.5 2.0 194.0
+timestep
+19.6 2.0 195.0
+timestep
+19.7 2.0 196.0
+timestep
+19.8 2.0 197.0
+timestep
+19.9 2.0 198.0
+timestep
+20.0 2.0 199.0
+timestep
+20.1 2.0 200.0
+timestep
+20.2 2.0 201.0
+timestep
+20.3 2.0 202.0
+timestep
+20.4 2.0 203.0
+timestep
+20.5 2.0 204.0
+timestep
+20.6 2.0 205.0
+timestep
+20.7 2.0 206.0
+timestep
+20.8 2.0 207.0
+timestep
+20.9 2.0 208.0
+timestep
+21.0 2.0 209.0
+timestep
+21.1 2.0 210.0
+timestep
+21.2 2.0 211.0
+timestep
+21.3 2.0 212.0
+timestep
+21.4 2.0 213.0
+timestep
+21.5 2.0 214.0
+timestep
+21.6 2.0 215.0
+timestep
+21.7 2.0 216.0
+timestep
+21.8 2.0 217.0
+timestep
+21.9 2.0 218.0
+timestep
+22.0 2.0 219.0
+timestep
+22.1 2.0 220.0
+timestep
+22.2 2.0 221.0
+timestep
+22.3 2.0 222.0
+timestep
+22.4 2.0 223.0
+timestep
+22.5 2.0 224.0
+timestep
+22.6 2.0 225.0
+timestep
+22.7 2.0 226.0
+timestep
+22.8 2.0 227.0
+timestep
+22.9 2.0 228.0
+timestep
+23.0 2.0 229.0
+timestep
+23.1 2.0 230.0
+timestep
+23.2 2.0 231.0
+timestep
+23.3 2.0 232.0
+timestep
+23.4 2.0 233.0
+timestep
+23.5 2.0 234.0
+timestep
+23.6 2.0 235.0
+timestep
+23.7 2.0 236.0
+timestep
+23.8 2.0 237.0
+timestep
+23.9 2.0 238.0
+timestep
+24.0 2.0 239.0
+timestep
+24.1 2.0 240.0
+timestep
+24.2 2.0 241.0
+timestep
+24.3 2.0 242.0
+timestep
+24.4 2.0 243.0
+timestep
+24.5 2.0 244.0
+timestep
+24.6 2.0 245.0
+timestep
+24.7 2.0 246.0
+timestep
+24.8 2.0 247.0
+timestep
+24.9 2.0 248.0
+timestep
+25.0 2.0 249.0
+timestep
+25.1 2.0 250.0
+timestep
+25.2 2.0 251.0
+timestep
+25.3 2.0 252.0
+timestep
+25.4 2.0 253.0
+timestep
+25.5 2.0 254.0
+timestep
+25.6 2.0 255.0
+timestep
+25.7 2.0 256.0
+timestep
+25.8 2.0 257.0
+timestep
+25.9 2.0 258.0
+timestep
+26.0 2.0 259.0
+timestep
+26.1 2.0 260.0
+timestep
+26.2 2.0 261.0
+timestep
+26.3 2.0 262.0
+timestep
+26.4 2.0 263.0
+timestep
+26.5 2.0 264.0
+timestep
+26.6 2.0 265.0
+timestep
+26.7 2.0 266.0
+timestep
+26.8 2.0 267.0
+timestep
+26.9 2.0 268.0
+timestep
+27.0 2.0 269.0
+timestep
+27.1 2.0 270.0
+timestep
+27.2 2.0 271.0
+timestep
+27.3 2.0 272.0
+timestep
+27.4 2.0 273.0
+timestep
+27.5 2.0 274.0
+timestep
+27.6 2.0 275.0
+timestep
+27.7 2.0 276.0
+timestep
+27.8 2.0 277.0
+timestep
+27.9 2.0 278.0
+timestep
+28.0 2.0 279.0
+timestep
+28.1 2.0 280.0
+timestep
+28.2 2.0 281.0
+timestep
+28.3 2.0 282.0
+timestep
+28.4 2.0 283.0
+timestep
+28.5 2.0 284.0
+timestep
+28.6 2.0 285.0
+timestep
+28.7 2.0 286.0
+timestep
+28.8 2.0 287.0
+timestep
+28.9 2.0 288.0
+timestep
+29.0 2.0 289.0
+timestep
+29.1 2.0 290.0
+timestep
+29.2 2.0 291.0
+timestep
+29.3 2.0 292.0
+timestep
+29.4 2.0 293.0
+timestep
+29.5 2.0 294.0
+timestep
+29.6 2.0 295.0
+timestep
+29.7 2.0 296.0
+timestep
+29.8 2.0 297.0
+timestep
+29.9 2.0 298.0
+timestep
+30.0 2.0 299.0
+timestep
+30.1 2.0 300.0
+timestep
+30.2 2.0 301.0
+timestep
+30.3 2.0 302.0
+timestep
+30.4 2.0 303.0
+timestep
+30.5 2.0 304.0
+timestep
+30.6 2.0 305.0
+timestep
+30.7 2.0 306.0
+timestep
+30.8 2.0 307.0
+timestep
+30.9 2.0 308.0
+timestep
+31.0 2.0 309.0
+timestep
+31.1 2.0 310.0
+timestep
+31.2 2.0 311.0
+timestep
+31.3 2.0 312.0
+timestep
+31.4 2.0 313.0
+timestep
+31.5 2.0 314.0
+timestep
+31.6 2.0 315.0
+timestep
+31.7 2.0 316.0
+timestep
+31.8 2.0 317.0
+timestep
+31.9 2.0 318.0
+timestep
+32.0 2.0 319.0
+timestep
+32.1 2.0 320.0
+timestep
+32.2 2.0 321.0
+timestep
+32.3 2.0 322.0
+timestep
+32.4 2.0 323.0
+timestep
+32.5 2.0 324.0
+timestep
+32.6 2.0 325.0
+timestep
+32.7 2.0 326.0
+timestep
+32.8 2.0 327.0
+timestep
+32.9 2.0 328.0
+timestep
+33.0 2.0 329.0
+timestep
+33.1 2.0 330.0
+timestep
+33.2 2.0 331.0
+timestep
+33.3 2.0 332.0
+timestep
+33.4 2.0 333.0
+timestep
+33.5 2.0 334.0
+timestep
+33.6 2.0 335.0
+timestep
+33.7 2.0 336.0
+timestep
+33.8 2.0 337.0
+timestep
+33.9 2.0 338.0
+timestep
+34.0 2.0 339.0
+timestep
+34.1 2.0 340.0
+timestep
+34.2 2.0 341.0
+timestep
+34.3 2.0 342.0
+timestep
+34.4 2.0 343.0
+timestep
+34.5 2.0 344.0
+timestep
+34.6 2.0 345.0
+timestep
+34.7 2.0 346.0
+timestep
+34.8 2.0 347.0
+timestep
+34.9 2.0 348.0
+timestep
+35.0 2.0 349.0
+timestep
+35.1 2.0 350.0
+timestep
+35.2 2.0 351.0
+timestep
+35.3 2.0 352.0
+timestep
+35.4 2.0 353.0
+timestep
+35.5 2.0 354.0
+timestep
+35.6 2.0 355.0
+timestep
+35.7 2.0 356.0
+timestep
+35.8 2.0 357.0
+timestep
+35.9 2.0 358.0
+timestep
+36.0 2.0 359.0
+timestep
+36.1 2.0 360.0
+timestep
+36.2 2.0 361.0
+timestep
+36.3 2.0 362.0
+timestep
+36.4 2.0 363.0
+timestep
+36.5 2.0 364.0
+timestep
+36.6 2.0 365.0
+timestep
+36.7 2.0 366.0
+timestep
+36.8 2.0 367.0
+timestep
+36.9 2.0 368.0
+timestep
+37.0 2.0 369.0
+timestep
+37.1 2.0 370.0
+timestep
+37.2 2.0 371.0
+timestep
+37.3 2.0 372.0
+timestep
+37.4 2.0 373.0
+timestep
+37.5 2.0 374.0
+timestep
+37.6 2.0 375.0
+timestep
+37.7 2.0 376.0
+timestep
+37.8 2.0 377.0
+timestep
+37.9 2.0 378.0
+timestep
+38.0 2.0 379.0
+timestep
+38.1 2.0 380.0
+timestep
+38.2 2.0 381.0
+timestep
+38.3 2.0 382.0
+timestep
+38.4 2.0 383.0
+timestep
+38.5 2.0 384.0
+timestep
+38.6 2.0 385.0
+timestep
+38.7 2.0 386.0
+timestep
+38.8 2.0 387.0
+timestep
+38.9 2.0 388.0
+timestep
+39.0 2.0 389.0
+timestep
+39.1 2.0 390.0
+timestep
+39.2 2.0 391.0
+timestep
+39.3 2.0 392.0
+timestep
+39.4 2.0 393.0
+timestep
+39.5 2.0 394.0
+timestep
+39.6 2.0 395.0
+timestep
+39.7 2.0 396.0
+timestep
+39.8 2.0 397.0
+timestep
+39.9 2.0 398.0
+timestep
+40.0 2.0 399.0
+timestep
+40.1 2.0 400.0
+timestep
+40.2 2.0 401.0
+timestep
+40.3 2.0 402.0
+timestep
+40.4 2.0 403.0
+timestep
+40.5 2.0 404.0
+timestep
+40.6 2.0 405.0
+timestep
+40.7 2.0 406.0
+timestep
+40.8 2.0 407.0
+timestep
+40.9 2.0 408.0
+timestep
+41.0 2.0 409.0
+timestep
+41.1 2.0 410.0
+timestep
+41.2 2.0 411.0
+timestep
+41.3 2.0 412.0
+timestep
+41.4 2.0 413.0
+timestep
+41.5 2.0 414.0
+timestep
+41.6 2.0 415.0
+timestep
+41.7 2.0 416.0
+timestep
+41.8 2.0 417.0
+timestep
+41.9 2.0 418.0
+timestep
+42.0 2.0 419.0
+timestep
+42.1 2.0 420.0
+timestep
+42.2 2.0 421.0
+timestep
+42.3 2.0 422.0
+timestep
+42.4 2.0 423.0
+timestep
+42.5 2.0 424.0
+timestep
+42.6 2.0 425.0
+timestep
+42.7 2.0 426.0
+timestep
+42.8 2.0 427.0
+timestep
+42.9 2.0 428.0
+timestep
+43.0 2.0 429.0
+timestep
+43.1 2.0 430.0
+timestep
+43.2 2.0 431.0
+timestep
+43.3 2.0 432.0
+timestep
+43.4 2.0 433.0
+timestep
+43.5 2.0 434.0
+timestep
+43.6 2.0 435.0
+timestep
+43.7 2.0 436.0
+timestep
+43.8 2.0 437.0
+timestep
+43.9 2.0 438.0
+timestep
+44.0 2.0 439.0
+timestep
+44.1 2.0 440.0
+timestep
+44.2 2.0 441.0
+timestep
+44.3 2.0 442.0
+timestep
+44.4 2.0 443.0
+timestep
+44.5 2.0 444.0
+timestep
+44.6 2.0 445.0
+timestep
+44.7 2.0 446.0
+timestep
+44.8 2.0 447.0
+timestep
+44.9 2.0 448.0
+timestep
+45.0 2.0 449.0
+timestep
+45.1 2.0 450.0
+timestep
+45.2 2.0 451.0
+timestep
+45.3 2.0 452.0
+timestep
+45.4 2.0 453.0
+timestep
+45.5 2.0 454.0
+timestep
+45.6 2.0 455.0
+timestep
+45.7 2.0 456.0
+timestep
+45.8 2.0 457.0
+timestep
+45.9 2.0 458.0
+timestep
+46.0 2.0 459.0
+timestep
+46.1 2.0 460.0
+timestep
+46.2 2.0 461.0
+timestep
+46.3 2.0 462.0
+timestep
+46.4 2.0 463.0
+timestep
+46.5 2.0 464.0
+timestep
+46.6 2.0 465.0
+timestep
+46.7 2.0 466.0
+timestep
+46.8 2.0 467.0
+timestep
+46.9 2.0 468.0
+timestep
+47.0 2.0 469.0
+timestep
+47.1 2.0 470.0
+timestep
+47.2 2.0 471.0
+timestep
+47.3 2.0 472.0
+timestep
+47.4 2.0 473.0
+timestep
+47.5 2.0 474.0
+timestep
+47.6 2.0 475.0
+timestep
+47.7 2.0 476.0
+timestep
+47.8 2.0 477.0
+timestep
+47.9 2.0 478.0
+timestep
+48.0 2.0 479.0
+timestep
+48.1 2.0 480.0
+timestep
+48.2 2.0 481.0
+timestep
+48.3 2.0 482.0
+timestep
+48.4 2.0 483.0
+timestep
+48.5 2.0 484.0
+timestep
+48.6 2.0 485.0
+timestep
+48.7 2.0 486.0
+timestep
+48.8 2.0 487.0
+timestep
+48.9 2.0 488.0
+timestep
+49.0 2.0 489.0
+timestep
+49.1 2.0 490.0
+timestep
+49.2 2.0 491.0
+timestep
+49.3 2.0 492.0
+timestep
+49.4 2.0 493.0
+timestep
+49.5 2.0 494.0
+timestep
+49.6 2.0 495.0
+timestep
+49.7 2.0 496.0
+timestep
+49.8 2.0 497.0
+timestep
+49.9 2.0 498.0
+timestep
+50.0 2.0 499.0
+timestep
+50.1 2.0 500.0
+timestep
+50.2 2.0 501.0
+timestep
+50.3 2.0 502.0
+timestep
+50.4 2.0 503.0
+timestep
+50.5 2.0 504.0
+timestep
+50.6 2.0 505.0
+timestep
+50.7 2.0 506.0
+timestep
+50.8 2.0 507.0
+timestep
+50.9 2.0 508.0
+timestep
+51.0 2.0 509.0
+timestep
+51.1 2.0 510.0
+timestep
+51.2 2.0 511.0
+timestep
+51.3 2.0 512.0
+timestep
+51.4 2.0 513.0
+timestep
+51.5 2.0 514.0
+timestep
+51.6 2.0 515.0
+timestep
+51.7 2.0 516.0
+timestep
+51.8 2.0 517.0
+timestep
+51.9 2.0 518.0
+timestep
+52.0 2.0 519.0
+timestep
+52.1 2.0 520.0
+timestep
+52.2 2.0 521.0
+timestep
+52.3 2.0 522.0
+timestep
+52.4 2.0 523.0
+timestep
+52.5 2.0 524.0
+timestep
+52.6 2.0 525.0
+timestep
+52.7 2.0 526.0
+timestep
+52.8 2.0 527.0
+timestep
+52.9 2.0 528.0
+timestep
+53.0 2.0 529.0
+timestep
+53.1 2.0 530.0
+timestep
+53.2 2.0 531.0
+timestep
+53.3 2.0 532.0
+timestep
+53.4 2.0 533.0
+timestep
+53.5 2.0 534.0
+timestep
+53.6 2.0 535.0
+timestep
+53.7 2.0 536.0
+timestep
+53.8 2.0 537.0
+timestep
+53.9 2.0 538.0
+timestep
+54.0 2.0 539.0
+timestep
+54.1 2.0 540.0
+timestep
+54.2 2.0 541.0
+timestep
+54.3 2.0 542.0
+timestep
+54.4 2.0 543.0
+timestep
+54.5 2.0 544.0
+timestep
+54.6 2.0 545.0
+timestep
+54.7 2.0 546.0
+timestep
+54.8 2.0 547.0
+timestep
+54.9 2.0 548.0
+timestep
+55.0 2.0 549.0
+timestep
+55.1 2.0 550.0
+timestep
+55.2 2.0 551.0
+timestep
+55.3 2.0 552.0
+timestep
+55.4 2.0 553.0
+timestep
+55.5 2.0 554.0
+timestep
+55.6 2.0 555.0
+timestep
+55.7 2.0 556.0
+timestep
+55.8 2.0 557.0
+timestep
+55.9 2.0 558.0
+timestep
+56.0 2.0 559.0
+timestep
+56.1 2.0 560.0
+timestep
+56.2 2.0 561.0
+timestep
+56.3 2.0 562.0
+timestep
+56.4 2.0 563.0
+timestep
+56.5 2.0 564.0
+timestep
+56.6 2.0 565.0
+timestep
+56.7 2.0 566.0
+timestep
+56.8 2.0 567.0
+timestep
+56.9 2.0 568.0
+timestep
+57.0 2.0 569.0
+timestep
+57.1 2.0 570.0
+timestep
+57.2 2.0 571.0
+timestep
+57.3 2.0 572.0
+timestep
+57.4 2.0 573.0
+timestep
+57.5 2.0 574.0
+timestep
+57.6 2.0 575.0
+timestep
+57.7 2.0 576.0
+timestep
+57.8 2.0 577.0
+timestep
+57.9 2.0 578.0
+timestep
+58.0 2.0 579.0
+timestep
+58.1 2.0 580.0
+timestep
+58.2 2.0 581.0
+timestep
+58.3 2.0 582.0
+timestep
+58.4 2.0 583.0
+timestep
+58.5 2.0 584.0
+timestep
+58.6 2.0 585.0
+timestep
+58.7 2.0 586.0
+timestep
+58.8 2.0 587.0
+timestep
+58.9 2.0 588.0
+timestep
+59.0 2.0 589.0
+timestep
+59.1 2.0 590.0
+timestep
+59.2 2.0 591.0
+timestep
+59.3 2.0 592.0
+timestep
+59.4 2.0 593.0
+timestep
+59.5 2.0 594.0
+timestep
+59.6 2.0 595.0
+timestep
+59.7 2.0 596.0
+timestep
+59.8 2.0 597.0
+timestep
+59.9 2.0 598.0
+timestep
+60.0 2.0 599.0
+timestep
+60.1 2.0 600.0
+timestep
+60.2 2.0 601.0
+timestep
+60.3 2.0 602.0
+timestep
+60.3999999999 2.0 603.0
+timestep
+60.4999999999 2.0 604.0
+timestep
+60.5999999999 2.0 605.0
+timestep
+60.6999999999 2.0 606.0
+timestep
+60.7999999999 2.0 607.0
+timestep
+60.8999999999 2.0 608.0
+timestep
+60.9999999999 2.0 609.0
+timestep
+61.0999999999 2.0 610.0
+timestep
+61.1999999999 2.0 611.0
+timestep
+61.2999999999 2.0 612.0
+timestep
+61.3999999999 2.0 613.0
+timestep
+61.4999999999 2.0 614.0
+timestep
+61.5999999999 2.0 615.0
+timestep
+61.6999999999 2.0 616.0
+timestep
+61.7999999999 2.0 617.0
+timestep
+61.8999999999 2.0 618.0
+timestep
+61.9999999999 2.0 619.0
+timestep
+62.0999999999 2.0 620.0
+timestep
+62.1999999999 2.0 621.0
+timestep
+62.2999999999 2.0 622.0
+timestep
+62.3999999999 2.0 623.0
+timestep
+62.4999999999 2.0 624.0
+timestep
+62.5999999999 2.0 625.0
+timestep
+62.6999999999 2.0 626.0
+timestep
+62.7999999999 2.0 627.0
+timestep
+62.8999999999 2.0 628.0
+timestep
+62.9999999999 2.0 629.0
+timestep
+63.0999999999 2.0 630.0
+timestep
+63.1999999999 2.0 631.0
+timestep
+63.2999999999 2.0 632.0
+timestep
+63.3999999999 2.0 633.0
+timestep
+63.4999999999 2.0 634.0
+timestep
+63.5999999999 2.0 635.0
+timestep
+63.6999999999 2.0 636.0
+timestep
+63.7999999999 2.0 637.0
+timestep
+63.8999999999 2.0 638.0
+timestep
+63.9999999999 2.0 639.0
+timestep
+64.0999999999 2.0 640.0
+timestep
+64.1999999999 2.0 641.0
+timestep
+64.2999999999 2.0 642.0
+timestep
+64.3999999999 2.0 643.0
+timestep
+64.4999999999 2.0 644.0
+timestep
+64.5999999999 2.0 645.0
+timestep
+64.6999999999 2.0 646.0
+timestep
+64.7999999999 2.0 647.0
+timestep
+64.8999999999 2.0 648.0
+timestep
+64.9999999999 2.0 649.0
+timestep
+65.0999999999 2.0 650.0
+timestep
+65.1999999999 2.0 651.0
+timestep
+65.2999999999 2.0 652.0
+timestep
+65.3999999999 2.0 653.0
+timestep
+65.4999999999 2.0 654.0
+timestep
+65.5999999999 2.0 655.0
+timestep
+65.6999999999 2.0 656.0
+timestep
+65.8 2.0 657.0
+timestep
+65.9 2.0 658.0
+timestep
+66.0 2.0 659.0
+timestep
+66.1 2.0 660.0
+timestep
+66.2 2.0 661.0
+timestep
+66.3 2.0 662.0
+timestep
+66.4 2.0 663.0
+timestep
+66.5 2.0 664.0
+timestep
+66.6 2.0 665.0
+timestep
+66.7 2.0 666.0
+timestep
+66.8 2.0 667.0
+timestep
+66.9 2.0 668.0
+timestep
+67.0 2.0 669.0
+timestep
+67.1 2.0 670.0
+timestep
+67.2 2.0 671.0
+timestep
+67.3 2.0 672.0
+timestep
+67.4 2.0 673.0
+timestep
+67.5 2.0 674.0
+timestep
+67.6 2.0 675.0
+timestep
+67.7 2.0 676.0
+timestep
+67.8 2.0 677.0
+timestep
+67.9 2.0 678.0
+timestep
+68.0 2.0 679.0
+timestep
+68.1 2.0 680.0
+timestep
+68.2 2.0 681.0
+timestep
+68.3 2.0 682.0
+timestep
+68.4 2.0 683.0
+timestep
+68.5 2.0 684.0
+timestep
+68.6 2.0 685.0
+timestep
+68.7 2.0 686.0
+timestep
+68.8 2.0 687.0
+timestep
+68.9 2.0 688.0
+timestep
+69.0 2.0 689.0
+timestep
+69.1 2.0 690.0
+timestep
+69.2 2.0 691.0
+timestep
+69.3 2.0 692.0
+timestep
+69.4 2.0 693.0
+timestep
+69.5 2.0 694.0
+timestep
+69.6 2.0 695.0
+timestep
+69.7 2.0 696.0
+timestep
+69.8 2.0 697.0
+timestep
+69.9 2.0 698.0
+timestep
+70.0 2.0 699.0
+timestep
+70.1 2.0 700.0
+timestep
+70.2 2.0 701.0
+timestep
+70.3 2.0 702.0
+timestep
+70.4 2.0 703.0
+timestep
+70.5 2.0 704.0
+timestep
+70.6 2.0 705.0
+timestep
+70.7 2.0 706.0
+timestep
+70.8 2.0 707.0
+timestep
+70.9 2.0 708.0
+timestep
+71.0 2.0 709.0
+timestep
+71.1 2.0 709.999999999
+timestep
+71.2 2.0 710.999999999
+timestep
+71.3 2.0 711.999999999
+timestep
+71.4 2.0 712.999999999
+timestep
+71.5 2.0 713.999999999
+timestep
+71.6 2.0 714.999999999
+timestep
+71.7 2.0 715.999999999
+timestep
+71.8 2.0 716.999999999
+timestep
+71.9 2.0 717.999999999
+timestep
+72.0 2.0 718.999999999
+timestep
+72.1 2.0 719.999999999
+timestep
+72.2 2.0 720.999999999
+timestep
+72.3 2.0 721.999999999
+timestep
+72.4 2.0 722.999999999
+timestep
+72.5 2.0 723.999999999
+timestep
+72.6 2.0 724.999999999
+timestep
+72.7 2.0 725.999999999
+timestep
+72.8 2.0 726.999999999
+timestep
+72.9 2.0 727.999999999
+timestep
+73.0 2.0 728.999999999
+timestep
+73.1 2.0 729.999999999
+timestep
+73.2 2.0 730.999999999
+timestep
+73.3 2.0 731.999999999
+timestep
+73.4 2.0 732.999999999
+timestep
+73.5 2.0 733.999999999
+timestep
+73.6 2.0 734.999999999
+timestep
+73.7 2.0 735.999999999
+timestep
+73.8 2.0 736.999999999
+timestep
+73.9 2.0 737.999999999
+timestep
+74.0 2.0 738.999999999
+timestep
+74.1 2.0 739.999999999
+timestep
+74.2 2.0 740.999999999
+timestep
+74.3 2.0 741.999999999
+timestep
+74.4 2.0 742.999999999
+timestep
+74.5 2.0 743.999999999
+timestep
+74.6 2.0 744.999999999
+timestep
+74.7 2.0 745.999999999
+timestep
+74.8 2.0 746.999999999
+timestep
+74.9 2.0 747.999999999
+timestep
+75.0 2.0 748.999999999
+timestep
+75.1 2.0 749.999999999
+timestep
+75.2 2.0 750.999999999
+timestep
+75.3 2.0 751.999999999
+timestep
+75.4 2.0 752.999999999
+timestep
+75.5 2.0 753.999999999
+timestep
+75.6 2.0 754.999999999
+timestep
+75.7 2.0 755.999999999
+timestep
+75.8 2.0 756.999999999
+timestep
+75.9 2.0 757.999999999
+timestep
+76.0 2.0 758.999999999
+timestep
+76.1 2.0 759.999999999
+timestep
+76.2 2.0 760.999999999
+timestep
+76.3 2.0 761.999999999
+timestep
+76.4 2.0 762.999999999
+timestep
+76.5 2.0 763.999999999
+timestep
+76.6 2.0 764.999999999
+timestep
+76.7 2.0 765.999999999
+timestep
+76.8 2.0 766.999999999
+timestep
+76.9 2.0 767.999999999
+timestep
+77.0 2.0 768.999999999
+timestep
+77.1 2.0 769.999999999
+timestep
+77.2 2.0 770.999999999
+timestep
+77.3 2.0 771.999999999
+timestep
+77.4 2.0 772.999999999
+timestep
+77.5 2.0 773.999999999
+timestep
+77.6 2.0 774.999999999
+timestep
+77.7 2.0 775.999999999
+timestep
+77.8 2.0 776.999999999
+timestep
+77.9 2.0 777.999999999
+timestep
+78.0 2.0 778.999999999
+timestep
+78.1 2.0 779.999999999
+timestep
+78.2 2.0 780.999999999
+timestep
+78.3 2.0 781.999999999
+timestep
+78.4 2.0 782.999999999
+timestep
+78.5 2.0 783.999999999
+timestep
+78.6 2.0 784.999999999
+timestep
+78.7 2.0 785.999999999
+timestep
+78.8 2.0 786.999999999
+timestep
+78.9 2.0 787.999999999
+timestep
+79.0 2.0 788.999999999
+timestep
+79.1 2.0 789.999999999
+timestep
+79.2 2.0 790.999999999
+timestep
+79.3 2.0 791.999999999
+timestep
+79.4 2.0 792.999999999
+timestep
+79.5 2.0 793.999999999
+timestep
+79.6 2.0 794.999999999
+timestep
+79.7 2.0 795.999999999
+timestep
+79.8 2.0 796.999999999
+timestep
+79.9 2.0 797.999999999
+timestep
+80.0 2.0 798.999999999
+timestep
+80.1 2.0 799.999999999
+timestep
+80.2 2.0 800.999999999
+timestep
+80.3 2.0 801.999999999
+timestep
+80.4 2.0 802.999999999
+timestep
+80.5 2.0 803.999999999
+timestep
+80.6 2.0 804.999999999
+timestep
+80.7 2.0 805.999999999
+timestep
+80.8 2.0 806.999999999
+timestep
+80.9 2.0 807.999999999
+timestep
+81.0 2.0 808.999999999
+timestep
+81.1 2.0 809.999999999
+timestep
+81.2 2.0 810.999999999
+timestep
+81.3 2.0 811.999999999
+timestep
+81.4 2.0 812.999999999
+timestep
+81.5 2.0 813.999999999
+timestep
+81.6 2.0 814.999999999
+timestep
+81.7 2.0 815.999999999
+timestep
+81.8 2.0 816.999999999
+timestep
+81.9 2.0 817.999999999
+timestep
+82.0 2.0 818.999999999
+timestep
+82.1 2.0 819.999999999
+timestep
+82.2 2.0 820.999999999
+timestep
+82.3 2.0 821.999999999
+timestep
+82.4 2.0 822.999999999
+timestep
+82.5 2.0 823.999999999
+timestep
+82.6 2.0 824.999999999
+timestep
+82.7 2.0 825.999999999
+timestep
+82.8 2.0 826.999999999
+timestep
+82.9 2.0 827.999999999
+timestep
+83.0 2.0 828.999999999
+timestep
+83.1 2.0 829.999999999
+timestep
+83.2 2.0 830.999999999
+timestep
+83.3 2.0 831.999999999
+timestep
+83.4 2.0 832.999999999
+timestep
+83.5 2.0 833.999999999
+timestep
+83.6 2.0 834.999999999
+timestep
+83.7 2.0 835.999999999
+timestep
+83.8 2.0 836.999999999
+timestep
+83.9 2.0 837.999999999
+timestep
+84.0 2.0 838.999999999
+timestep
+84.1 2.0 839.999999999
+timestep
+84.2 2.0 840.999999999
+timestep
+84.3 2.0 841.999999999
+timestep
+84.4 2.0 842.999999999
+timestep
+84.5 2.0 843.999999999
+timestep
+84.6 2.0 844.999999999
+timestep
+84.7 2.0 845.999999999
+timestep
+84.8 2.0 846.999999999
+timestep
+84.9 2.0 847.999999999
+timestep
+85.0 2.0 848.999999999
+timestep
+85.1 2.0 849.999999999
+timestep
+85.2 2.0 850.999999999
+timestep
+85.3 2.0 851.999999999
+timestep
+85.4 2.0 852.999999999
+timestep
+85.5 2.0 853.999999999
+timestep
+85.6 2.0 854.999999999
+timestep
+85.7 2.0 855.999999999
+timestep
+85.8 2.0 856.999999999
+timestep
+85.9 2.0 857.999999999
+timestep
+86.0 2.0 858.999999999
+timestep
+86.1 2.0 859.999999999
+timestep
+86.2 2.0 860.999999999
+timestep
+86.3 2.0 861.999999999
+timestep
+86.4 2.0 862.999999999
+timestep
+86.5 2.0 863.999999999
+timestep
+86.6 2.0 864.999999999
+timestep
+86.7 2.0 865.999999999
+timestep
+86.8000000001 2.0 866.999999999
+timestep
+86.9000000001 2.0 867.999999999
+timestep
+87.0000000001 2.0 868.999999999
+timestep
+87.1000000001 2.0 869.999999999
+timestep
+87.2000000001 2.0 870.999999999
+timestep
+87.3000000001 2.0 871.999999999
+timestep
+87.4000000001 2.0 872.999999999
+timestep
+87.5000000001 2.0 873.999999999
+timestep
+87.6000000001 2.0 874.999999999
+timestep
+87.7000000001 2.0 875.999999999
+timestep
+87.8000000001 2.0 876.999999999
+timestep
+87.9000000001 2.0 877.999999999
+timestep
+88.0000000001 2.0 878.999999999
+timestep
+88.1000000001 2.0 879.999999999
+timestep
+88.2000000001 2.0 880.999999999
+timestep
+88.3000000001 2.0 881.999999999
+timestep
+88.4000000001 2.0 882.999999999
+timestep
+88.5000000001 2.0 883.999999999
+timestep
+88.6000000001 2.0 884.999999999
+timestep
+88.7000000001 2.0 885.999999999
+timestep
+88.8000000001 2.0 886.999999999
+timestep
+88.9000000001 2.0 887.999999999
+timestep
+89.0000000001 2.0 888.999999999
+timestep
+89.1000000001 2.0 889.999999999
+timestep
+89.2000000001 2.0 890.999999999
+timestep
+89.3000000001 2.0 891.999999999
+timestep
+89.4000000001 2.0 892.999999999
+timestep
+89.5000000001 2.0 893.999999999
+timestep
+89.6000000001 2.0 894.999999999
+timestep
+89.7000000001 2.0 895.999999999
+timestep
+89.8000000001 2.0 896.999999999
+timestep
+89.9000000001 2.0 897.999999999
+timestep
+90.0000000001 2.0 898.999999999
+timestep
+90.1000000001 2.0 899.999999999
+timestep
+90.2000000001 2.0 900.999999999
+timestep
+90.3000000001 2.0 901.999999999
+timestep
+90.4000000001 2.0 902.999999999
+timestep
+90.5000000001 2.0 903.999999999
+timestep
+90.6000000001 2.0 904.999999999
+timestep
+90.7000000001 2.0 905.999999999
+timestep
+90.8000000001 2.0 906.999999999
+timestep
+90.9000000001 2.0 907.999999999
+timestep
+91.0000000001 2.0 908.999999999
+timestep
+91.1000000001 2.0 909.999999999
+timestep
+91.2000000001 2.0 910.999999999
+timestep
+91.3000000001 2.0 911.999999999
+timestep
+91.4000000001 2.0 912.999999999
+timestep
+91.5000000001 2.0 913.999999999
+timestep
+91.6000000001 2.0 914.999999999
+timestep
+91.7000000001 2.0 915.999999999
+timestep
+91.8000000001 2.0 916.999999999
+timestep
+91.9000000001 2.0 917.999999999
+timestep
+92.0000000001 2.0 918.999999999
+timestep
+92.1000000001 2.0 919.999999999
+timestep
+92.2000000001 2.0 920.999999999
+timestep
+92.3000000001 2.0 921.999999999
+timestep
+92.4000000001 2.0 922.999999999
+timestep
+92.5000000001 2.0 923.999999999
+timestep
+92.6000000001 2.0 924.999999999
+timestep
+92.7000000001 2.0 925.999999999
+timestep
+92.8000000001 2.0 926.999999999
+timestep
+92.9000000001 2.0 927.999999999
+timestep
+93.0000000001 2.0 928.999999999
+timestep
+93.1000000001 2.0 929.999999999
+timestep
+93.2000000001 2.0 930.999999999
+timestep
+93.3000000001 2.0 931.999999999
+timestep
+93.4000000001 2.0 932.999999999
+timestep
+93.5000000001 2.0 933.999999999
+timestep
+93.6000000001 2.0 934.999999999
+timestep
+93.7000000001 2.0 935.999999999
+timestep
+93.8000000001 2.0 936.999999999
+timestep
+93.9000000001 2.0 937.999999999
+timestep
+94.0000000001 2.0 938.999999999
+timestep
+94.1000000001 2.0 939.999999999
+timestep
+94.2000000001 2.0 940.999999999
+timestep
+94.3000000001 2.0 941.999999999
+timestep
+94.4000000001 2.0 942.999999999
+timestep
+94.5000000001 2.0 943.999999999
+timestep
+94.6000000001 2.0 944.999999999
+timestep
+94.7000000001 2.0 945.999999999
+timestep
+94.8000000001 2.0 946.999999999
+timestep
+94.9000000001 2.0 947.999999999
+timestep
+95.0000000001 2.0 948.999999999
+timestep
+95.1000000001 2.0 949.999999999
+timestep
+95.2000000001 2.0 950.999999999
+timestep
+95.3000000001 2.0 951.999999999
+timestep
+95.4000000001 2.0 952.999999999
+timestep
+95.5000000001 2.0 953.999999999
+timestep
+95.6000000001 2.0 954.999999999
+timestep
+95.7000000001 2.0 955.999999999
+timestep
+95.8000000001 2.0 956.999999999
+timestep
+95.9000000001 2.0 957.999999999
+timestep
+96.0000000001 2.0 958.999999999
+timestep
+96.1000000001 2.0 959.999999999
+timestep
+96.2000000001 2.0 960.999999999
+timestep
+96.3000000001 2.0 961.999999999
+timestep
+96.4000000001 2.0 962.999999999
+timestep
+96.5000000001 2.0 963.999999999
+timestep
+96.6000000001 2.0 964.999999999
+timestep
+96.7000000001 2.0 965.999999999
+timestep
+96.8000000001 2.0 966.999999999
+timestep
+96.9000000001 2.0 967.999999999
+timestep
+97.0000000001 2.0 968.999999999
+timestep
+97.1000000001 2.0 969.999999999
+timestep
+97.2000000001 2.0 970.999999999
+timestep
+97.3000000001 2.0 971.999999999
+timestep
+97.4000000001 2.0 972.999999999
+timestep
+97.5000000001 2.0 973.999999999
+timestep
+97.6000000001 2.0 974.999999999
+timestep
+97.7000000001 2.0 975.999999999
+timestep
+97.8000000001 2.0 976.999999999
+timestep
+97.9000000001 2.0 977.999999999
+timestep
+98.0000000001 2.0 978.999999999
+timestep
+98.1000000001 2.0 979.999999999
+timestep
+98.2000000001 2.0 980.999999999
+timestep
+98.3000000001 2.0 981.999999999
+timestep
+98.4000000001 2.0 982.999999999
+timestep
+98.5000000001 2.0 983.999999999
+timestep
+98.6000000001 2.0 984.999999999
+timestep
+98.7000000001 2.0 985.999999999
+timestep
+98.8000000001 2.0 986.999999999
+timestep
+98.9000000001 2.0 987.999999999
+timestep
+99.0000000001 2.0 988.999999999
+timestep
+99.1000000001 2.0 989.999999999
+timestep
+99.2000000001 2.0 990.999999999
+timestep
+99.3000000001 2.0 991.999999999
+timestep
+99.4000000001 2.0 992.999999999
+timestep
+99.5000000001 2.0 993.999999999
+timestep
+99.6000000001 2.0 994.999999999
+timestep
+99.7000000001 2.0 995.999999999
+timestep
+99.8000000001 2.0 996.999999999
+timestep
+99.9000000001 2.0 997.999999999
+timestep
+100.0 2.0 998.999999999
+timestep
+100.1 2.0 999.999999999
