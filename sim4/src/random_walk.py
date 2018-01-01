@@ -28,15 +28,7 @@ else:
 	init_LCG(do2int(time.time()))
 
 # 1D-random walk
-N = 1000
-x = random_walk(N=N)
-
-# Plot
-plot(range(0,N+1),x,label=r'random walk')
-xlabel('time')
-ylabel('position')
-#show()
+#x = random_walk(N=1000)
 
 # Box-Mueller
-print(BM())
 show_BM_hist()
