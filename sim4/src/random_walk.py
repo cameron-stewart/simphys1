@@ -1,11 +1,6 @@
 from __future__ import print_function, division
 from numpy import *
 from matplotlib.pyplot import *
-import scipy.stats
-import sys, os
-import pickle 
-
-from inspect import currentframe, getframeinfo
 
 # Additional bibs
 import argparse
@@ -17,7 +12,7 @@ from random_numbers import *
 # Commandline options
 parser = argparse.ArgumentParser()
 
-parser.add_argument( "--Xlcg", type=double, help="initial value for the linear congruental generator\nif not set: time.time() is used" )
+parser.add_argument( "--Xlcg", type=double, help="Initial value for the linear congruental generator\nif not set: time.time() is used" )
 
 args = parser.parse_args()
 

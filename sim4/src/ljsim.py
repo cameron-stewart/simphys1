@@ -16,9 +16,15 @@ from random_numbers import *
 # Argparse command line options
 parser = argparse.ArgumentParser()
 
-parser.add_argument( '--ID', type=str, help='simulation ID' )
+parser.add_argument( '--ID', type=str, help='Simulation ID' )
+parser.add_argument( '--gamma', type=float, default=0.3, help='Friction coefficient\nDefault: 0.3' )
+parser.add_argument( '--tstat', type=float, default=1.0, help='Desired temperature for thermostat' )
 
 args = parser.parse_args()
+
+# SET GLOBALS
+global gamma; gamma = args.gamma
+global T_des; T_des = args.tstat
 
 # SYSTEM CONSTANTS
 # timestep
@@ -73,6 +79,27 @@ def step_vv(x, v, f, dt, xup):
 
     # second half update of the velocity
     v += 0.5*f * dt
+
+    return x, v, f, xup
+    
+def step_vv_langevin(x, v, f, dt, xup):
+    '''
+    velocity verlet for langevin thermostat
+    '''
+    global rcut, skin, gamma, T_des
+
+    # update positions
+    x += v*dt*(1-0.5*gamma*dt) + 0.5*f*dt*dt
+
+    # half update of the velocity
+    v += -0.5*gamma*dt + 0.5*f*dt
+       
+    # for this excercise no forces from other particles
+    f = sqrt( 24*T_des*gamma/dt ) * ( random.random(x.shape)-0.5 )
+
+    # second half update of the velocity
+    v += 0.5*f*dt
+    v /= 1+0.5*gamma*dt
 
     return x, v, f, xup
 
@@ -143,7 +170,8 @@ while t < tmax:
         x, v, f, xup = step_vv(x, v, f, dt, xup)
 
     elif simulation_id.startswith('langevin'):
-        # change this
+        # Using langevin thermostat 
+        f = sqrt( 24*T_des*gamma/dt ) * ( random.random(x.shape)-0.5 )
         x, v, f, xup = step_vv(x, v, f, dt, xup)
 
     elif simulation_id.startswith('andersen'):

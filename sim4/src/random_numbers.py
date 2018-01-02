@@ -6,8 +6,7 @@ def init_LCG(X):
 	'''
 	Initialize the random nuber generator with Xlgc.
 	'''
-	global Xlcg
-	Xlcg = X
+	global Xlcg; Xlcg = X
 	
 def LCG( m=2**32, a=1664525, c=1013904223 ):
 	'''
@@ -99,7 +98,7 @@ def gauss_3d( r, sigma=1. ):
 	'''
 	returns the 3D gaussian-function
 	'''
-	return exp(-0.5*(r/sigma)**2) * r**2 * sqrt(2./pi) * sigma**-6
+	return exp(-0.5*(r/sigma)**2) * r**2 * sqrt(2./pi) * sigma**-3
 	
 def show_vel_hist( N=1000, sigma=1., limits=[-0,5], bars=100 ):
 	'''
