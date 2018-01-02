@@ -28,7 +28,10 @@ else:
 	init_LCG(do2int(time.time()))
 
 # 1D-random walk
-#x = random_walk(N=1000)
+x = random_walk(N=1000)
 
 # Box-Mueller
-show_BM_hist()
+show_BM_hist(N=10000)
+
+# Velocity distribution
+show_vel_hist(N=1000)

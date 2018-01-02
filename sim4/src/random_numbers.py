@@ -68,19 +68,51 @@ def gauss( x, mu=2.0, sigma=5.0 ):
 	'''
 	returns the gaussian-function
 	'''
-	return exp(-0.5*((x-mu)/sigma)**2) / sqrt(2.0*pi*sigma)
+	return exp(-0.5*((x-mu)/sigma)**2) / (sqrt(2.0*pi)*sigma)
 
-def show_BM_hist( N=10000, mu=2.0, sigma=5.0, bins=linspace(-10,10,100)):
+def show_BM_hist( N=10000, mu=2.0, sigma=5.0, limits=[-15,20], bars=150 ):
 	'''
 	draws gaussian and hist of random numbers with BM
 	'''
-	BM_hist, BM_bins = histogram(BM(N, mu, sigma),bins)
+	bins=linspace(limits[0], limits[1], bars)
 	
-	x = linspace(-10.0,14.0,1000)
-	gauss_fun = gauss(x,mu,sigma)
+	BM_numbers = BM(N, mu, sigma)
 	
-	plot(x, gauss_fun, label=r'gauss: \mu={} \sigma={}'.format(mu,sigma))
-	hist(BM_hist, BM_bins, label=r'BM    : \mu={} \sigma={}'.format(mu,sigma))
-	#TODO something doesnt work with the hist. maybe I pass the wrong arguments
+	x = linspace(limits[0], limits[1], 1000)
+	gauss_fun = gauss(x, mu, sigma)
+	
+	plot(x, gauss_fun, label=r'gauss: $\mu={} \sigma={}$'.format(mu,sigma))
+	hist(BM_numbers, bins, normed=1, label=r'BM    : $\mu={} \sigma={}$'.format(mu,sigma))
+	legend()
+	show()
+	
+def rand_vel_vec( N=1000, sigma=1. ):
+	'''
+	returns an numpy array with shape (N,3) of normal distributed random numbers
+	'''
+	vel_vec = zeros((N,3))
+	for k in range(0,3):
+		vel_vec[:,k] = BM(N, mu=0., sigma=sigma)
+	return vel_vec
+	
+def gauss_3d( r, sigma=1. ):
+	'''
+	returns the 3D gaussian-function
+	'''
+	return exp(-0.5*(r/sigma)**2) * r**2 * sqrt(2./pi) * sigma**-6
+	
+def show_vel_hist( N=1000, sigma=1., limits=[-0,5], bars=100 ):
+	'''
+	draws gaussian and hist of the velocity distribution
+	'''
+	bins=linspace(limits[0], limits[1], bars)
+	
+	vel_abs = linalg.norm(rand_vel_vec(N, sigma), axis=1)
+	
+	r = linspace(limits[0], limits[1], 1000)
+	gauss_fun = gauss_3d(r, sigma)
+	
+	plot(r, gauss_fun, label=r'gauss: $\sigma={}$'.format(sigma))
+	hist(vel_abs, bins, normed=1, label=r'BM    : $\sigma={}$'.format(sigma))
 	legend()
 	show()
