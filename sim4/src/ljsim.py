@@ -10,21 +10,23 @@ from inspect import currentframe, getframeinfo
 # Additional bibs
 import argparse
 
-# Own bibs
-from random_numbers import *
-
 # Argparse command line options
 parser = argparse.ArgumentParser()
 
 parser.add_argument( '--ID', type=str, help='Simulation ID' )
 parser.add_argument( '--gamma', type=float, default=0.3, help='Friction coefficient\nDefault: 0.3' )
-parser.add_argument( '--tstat', type=float, default=1.0, help='Desired temperature for thermostat' )
+parser.add_argument( '--nu', type=float, default=0.1, help='Frequency of stochastic collisions\nDefault: 0.1' )
+parser.add_argument( '--tstat', type=float, default=1.0, help='Desired temperature for thermostat\nDefault: 1.0' )
+parser.add_argument( '--restart', action='store_false', default=True, help='Do you want to restart the simulation instead of continuing?' )
 
 args = parser.parse_args()
 
+### INITIALIZATION ###############################################################################
+
 # SET GLOBALS
-global gamma; gamma = args.gamma
-global T_des; T_des = args.tstat
+global gamma;   gamma = args.gamma
+global nu;      nu    = args.nu
+global T_des;   T_des = args.tstat
 
 # SYSTEM CONSTANTS
 # timestep
@@ -59,10 +61,19 @@ vtffilename = '../dat/{}.vtf'.format(simulation_id)
 velfilename = '../dat/{}.vel'.format(simulation_id)
 datafilename = '../dat/{}.dat'.format(simulation_id)
 
+### FUNCTIONS ####################################################################################
+
 def compute_temperature(v):
     _, N = v.shape
     Tm = (v*v).sum()/(3*N)
     return Tm
+
+def rand_vel(T):
+    '''
+    Creates 3D vector of normal distributed random numbers with sigma=sqrt(T)
+    Because the expectation value of T for the normal distribution is sigma**2
+    '''
+    return sqrt(T)*random.randn(3)
 
 
 def step_vv(x, v, f, dt, xup):
@@ -102,11 +113,37 @@ def step_vv_langevin(x, v, f, dt, xup):
     v /= 1+0.5*gamma*dt
 
     return x, v, f, xup
+    
+def step_vv_andersen(x, v, f, dt, xup):
+    '''
+    velocity verlet for anderson thermostat
+    '''
+    global rcut, skin, nu, T_des
 
+    # update positions
+    x += v*dt + 0.5*f * dt*dt
 
+    # half update of the velocity
+    v += 0.5*f * dt
+        
+    # for this excercise no forces from other particles
+    f = zeros_like(x)
+
+    # second half update of the velocity
+    v += 0.5*f * dt
+    
+    # random velocity replacing:
+    for k in range(0,v.shape[1]): # (only one particle to test, but extendable or more)
+        if random.random() < nu*dt: 
+            v[:,k] = rand_vel(T_des)
+
+    return x, v, f, xup
+   
+### PREPARING FOR SIMULATION #####################################################################
+    
 # SET UP SYSTEM OR LOAD IT
 # check whether data file already exists
-if os.path.exists(datafilename):
+if os.path.exists(datafilename) and args.restart:
     print("Reading data from {}.".format(datafilename))
     datafile = open(datafilename, 'rb')
     step, t, x, v, ts, Tms = pickle.load(datafile)
@@ -116,15 +153,15 @@ else:
     print("Starting simulation...")
     t = 0.0
     step = 0
-    x = np.array([[0.1], [2], [0]])
-    v = np.array([[0.1], [0], [1]])
+    x = np.array([[0.1], [2.], [0.]])
+    v = np.array([[0.1], [0.], [1.]])
 
- # variables to cumulate data
+    # variables to cumulate data
     ts = []
     Tms = []
 
 # check whether vtf file already exists
-if os.path.exists(vtffilename):
+if os.path.exists(vtffilename) and args.restart:
     print("Opening {} to append new timesteps...".format(vtffilename))
     vtffile = open(vtffilename, 'a')
 
@@ -145,7 +182,7 @@ else:
         vtffile.write("{} {} {}\n".format(x[0,i], x[1,i], x[2,i]))
 
 # check whether velocity file already exists
-if os.path.exists(velfilename):
+if os.path.exists(velfilename) and args.restart:
     print("Opening {} to append new timesteps...".format(velfilename))
     velfile = open(velfilename, 'a')
 
@@ -160,7 +197,7 @@ f = zeros_like(x)
 
 tmax = t+trun
 
-
+### SIMULATION ###################################################################################
 
 print("Simulating until tmax={}...".format(tmax))
 
@@ -171,12 +208,11 @@ while t < tmax:
 
     elif simulation_id.startswith('langevin'):
         # Using langevin thermostat 
-        f = sqrt( 24*T_des*gamma/dt ) * ( random.random(x.shape)-0.5 )
-        x, v, f, xup = step_vv(x, v, f, dt, xup)
+        x, v, f, xup = step_vv_langevin(x, v, f, dt, xup)
 
     elif simulation_id.startswith('andersen'):
         # change this
-        x, v, f, xup = step_vv(x, v, f, dt, xup)
+        x, v, f, xup = step_vv_andersen(x, v, f, dt, xup)
     else:
         raise Exception("Please implement the integrator for " + simulation_id)
 
@@ -185,7 +221,7 @@ while t < tmax:
 
     if step % measurement_stride == 0:
         Tm = compute_temperature(v)
-        print("t={}, T_m={}".format(t, Tm))
+        #print("t={}, T_m={}".format(t, Tm))
 
         ts.append(t)
         Tms.append(Tm)
@@ -199,7 +235,7 @@ while t < tmax:
         for i in range(N):
             vtffile.write("{} {} {}\n".format(x[0,i], x[1,i], x[2,i]))
             
-
+### MEASUREMENT ##################################################################################
 
 # at the end of the simulation, write out the final state
 print("Writing simulation data to {}.".format(datafilename))
@@ -213,3 +249,15 @@ vtffile.close()
 velfile.close()
 
 print("Finished simulation.")
+
+# PLOTS
+print('Plotting.')
+
+# Temperature over time
+plot(ts,Tms)
+xlabel("Time t")
+ylabel("Temperature Tm")
+savefig('../dat/{}_Tm.png'.format(simulation_id))
+close()
+
+print('Finished')
