@@ -148,7 +148,7 @@ def step_vv_berendsen(x, v, f, dt, xup):
     '''
     velocity verlet for berendsen thermostat
     '''
-    global rcut, skin, tau, T_des
+    global rcut, skin, nu, tau, T_des
     
     # update positions
     x += v*dt + 0.5*f * dt*dt
