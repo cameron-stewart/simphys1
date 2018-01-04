@@ -10,12 +10,16 @@ from inspect import currentframe, getframeinfo
 # Additional bibs
 import argparse
 
+# Own files
+from random_numbers import *
+
 # Argparse command line options
 parser = argparse.ArgumentParser()
 
 parser.add_argument( '--ID', type=str, help='Simulation ID' )
 parser.add_argument( '--gamma', type=float, default=0.3, help='Friction coefficient\nDefault: 0.3' )
 parser.add_argument( '--nu', type=float, default=0.1, help='Frequency of stochastic collisions\nDefault: 0.1' )
+parser.add_argument( '--tau', type=float, default=3.0, help='Constant for berendsen in terms of dt\nDefault: 3.0s' )
 parser.add_argument( '--tstat', type=float, default=1.0, help='Desired temperature for thermostat\nDefault: 1.0' )
 parser.add_argument( '--restart', action='store_false', default=True, help='Do you want to restart the simulation instead of continuing?' )
 
@@ -24,9 +28,10 @@ args = parser.parse_args()
 ### INITIALIZATION ###############################################################################
 
 # SET GLOBALS
-global gamma;   gamma = args.gamma
-global nu;      nu    = args.nu
-global T_des;   T_des = args.tstat
+global gamma;   gamma   = args.gamma
+global nu;      nu      = args.nu
+global tau;     tau     = args.tau
+global T_des;   T_des   = args.tstat
 
 # SYSTEM CONSTANTS
 # timestep
@@ -139,6 +144,35 @@ def step_vv_andersen(x, v, f, dt, xup):
 
     return x, v, f, xup
    
+def step_vv_berendsen(x, v, f, dt, xup):
+    '''
+    velocity verlet for berendsen thermostat
+    '''
+    global rcut, skin, tau, T_des
+    
+    # update positions
+    x += v*dt + 0.5*f * dt*dt
+
+    # half update of the velocity
+    v += 0.5*f * dt
+        
+    # for this excercise no forces from other particles
+    f = zeros_like(x)
+
+    # second half update of the velocity
+    v += 0.5*f * dt
+    
+    # velocity rescaling
+    T_act = compute_temperature(v)
+    v *= sqrt( 1 + ( T_des/T_act - 1 )/tau )
+
+    # random velocity replacing:
+    for k in range(0,v.shape[1]): # (only one particle to test, but extendable or more)
+        if random.random() < nu*dt: 
+            v[:,k] = rand_vel(T_des)
+
+    return x, v, f, xup  
+   
 ### PREPARING FOR SIMULATION #####################################################################
     
 # SET UP SYSTEM OR LOAD IT
@@ -146,7 +180,7 @@ def step_vv_andersen(x, v, f, dt, xup):
 if os.path.exists(datafilename) and args.restart:
     print("Reading data from {}.".format(datafilename))
     datafile = open(datafilename, 'rb')
-    step, t, x, v, ts, Tms = pickle.load(datafile)
+    step, t, x, v, ts, Tms, vs = pickle.load(datafile)
     datafile.close()
     print("Restarting simulation at t={}...".format(t))
 else:
@@ -159,6 +193,7 @@ else:
     # variables to cumulate data
     ts = []
     Tms = []
+    vs = []
 
 # check whether vtf file already exists
 if os.path.exists(vtffilename) and args.restart:
@@ -203,15 +238,15 @@ print("Simulating until tmax={}...".format(tmax))
 
 while t < tmax:
     if  simulation_id.startswith('berendsen'):
-        # change this
-        x, v, f, xup = step_vv(x, v, f, dt, xup)
+        # Using berendsen thermostat
+        x, v, f, xup = step_vv_berendsen(x, v, f, dt, xup)
 
     elif simulation_id.startswith('langevin'):
         # Using langevin thermostat 
         x, v, f, xup = step_vv_langevin(x, v, f, dt, xup)
 
     elif simulation_id.startswith('andersen'):
-        # change this
+        # Using andersen thermostat
         x, v, f, xup = step_vv_andersen(x, v, f, dt, xup)
     else:
         raise Exception("Please implement the integrator for " + simulation_id)
@@ -225,6 +260,7 @@ while t < tmax:
 
         ts.append(t)
         Tms.append(Tm)
+        vs.append(linalg.norm(v,axis=0)[0])
 
         for i in range(N):
             velfile.write("{}\t{}\t{}\n".format(v[0,i], v[1,i], v[2,i]))
@@ -240,7 +276,7 @@ while t < tmax:
 # at the end of the simulation, write out the final state
 print("Writing simulation data to {}.".format(datafilename))
 datafile = open(datafilename, 'wb')
-pickle.dump([step, t, x, v, ts, Tms ], datafile)
+pickle.dump([step, t, x, v, ts, Tms, vs ], datafile)
 datafile.close()
 
 # close vtf file
@@ -258,6 +294,15 @@ plot(ts,Tms)
 xlabel("Time t")
 ylabel("Temperature Tm")
 savefig('../dat/{}_Tm.png'.format(simulation_id))
+close()
+
+# Velocity distribution
+r = linspace(0, 10, 1000)
+gauss_fun = gauss_3d(r, T_des**2)       # function from random_numbers.py
+plot(r, gauss_fun, label=r'gauss       : $T_d$$_e$$_s={}$'.format(T_des))
+hist(array(vs).flatten(), linspace(0,10,100), normed=1, label=r'simulation: $T_d$$_e$$_s={}$'.format(T_des))
+legend()
+savefig('../dat/{}_vv.png'.format(simulation_id))
 close()
 
 print('Finished')
