@@ -148,7 +148,7 @@ def step_vv_berendsen(x, v, f, dt, xup):
     '''
     velocity verlet for berendsen thermostat
     '''
-    global rcut, skin, nu, tau, T_des
+    global rcut, skin, tau, T_des
     
     # update positions
     x += v*dt + 0.5*f * dt*dt
@@ -165,11 +165,6 @@ def step_vv_berendsen(x, v, f, dt, xup):
     # velocity rescaling
     T_act = compute_temperature(v)
     v *= sqrt( 1 + ( T_des/T_act - 1 )/tau )
-
-    # random velocity replacing:
-    for k in range(0,v.shape[1]): # (only one particle to test, but extendable or more)
-        if random.random() < nu*dt: 
-            v[:,k] = rand_vel(T_des)
 
     return x, v, f, xup  
    
@@ -260,7 +255,7 @@ while t < tmax:
 
         ts.append(t)
         Tms.append(Tm)
-        vs.append(linalg.norm(v,axis=0)[0])
+        vs.append(linalg.norm(v,axis=0))
 
         for i in range(N):
             velfile.write("{}\t{}\t{}\n".format(v[0,i], v[1,i], v[2,i]))
@@ -301,6 +296,8 @@ r = linspace(0, 10, 1000)
 gauss_fun = gauss_3d(r, T_des**2)       # function from random_numbers.py
 plot(r, gauss_fun, label=r'gauss       : $T_d$$_e$$_s={}$'.format(T_des))
 hist(array(vs).flatten(), linspace(0,10,100), normed=1, label=r'simulation: $T_d$$_e$$_s={}$'.format(T_des))
+xlabel('velocity v')
+ylabel('frequenzy of v in time')
 legend()
 savefig('../dat/{}_vv.png'.format(simulation_id))
 close()
