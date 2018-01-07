@@ -18,15 +18,15 @@ args = parser.parse_args()
 
 # initialize LCG
 if args.Xlcg:
-	init_LCG(args.Xlcg)
+    init_LCG(args.Xlcg)
 else:
-	init_LCG(do2int(time.time()))
+    init_LCG(do2int(time.time()))
 
 # 1D-random walk
-x = random_walk(N=1000)
+x = random_walk()
 
 # Box-Mueller
-show_BM_hist(N=10000)
+show_BM_hist()
 
 # Velocity distribution
-show_vel_hist(N=1000)
+show_vel_hist()

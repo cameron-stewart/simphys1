@@ -20,7 +20,7 @@ parser.add_argument( '--ID', type=str, help='Simulation ID' )
 parser.add_argument( '--gamma', type=float, default=0.3, help='Friction coefficient\nDefault: 0.3' )
 parser.add_argument( '--nu', type=float, default=0.1, help='Frequency of stochastic collisions\nDefault: 0.1' )
 parser.add_argument( '--tau', type=float, default=3.0, help='Constant for berendsen in terms of dt\nDefault: 3.0s' )
-parser.add_argument( '--tstat', type=float, default=1.0, help='Desired temperature for thermostat\nDefault: 1.0' )
+parser.add_argument( '--T', type=float, default=1.0, help='Desired temperature for thermostat\nDefault: 1.0' )
 parser.add_argument( '--restart', action='store_false', default=True, help='Do you want to restart the simulation instead of continuing?' )
 
 args = parser.parse_args()
@@ -31,7 +31,7 @@ args = parser.parse_args()
 global gamma;   gamma   = args.gamma
 global nu;      nu      = args.nu
 global tau;     tau     = args.tau
-global T_des;   T_des   = args.tstat
+global T_des;   T_des   = args.T
 
 # SYSTEM CONSTANTS
 # timestep
@@ -48,7 +48,7 @@ L = 10.
 # SIMULATION CONSTANTS
 # warmup?
 freq_andersen = 0.1
-tau_berendsen = 3*dt
+tau_berendsen = 3.*dt
 gamma_langevin = 0.3
 
 # number of steps to do before the next measurement
@@ -72,13 +72,6 @@ def compute_temperature(v):
     _, N = v.shape
     Tm = (v*v).sum()/(3*N)
     return Tm
-
-def rand_vel(T):
-    '''
-    Creates 3D vector of normal distributed random numbers with sigma=sqrt(T)
-    Because the expectation value of T for the normal distribution is sigma**2
-    '''
-    return sqrt(T)*random.randn(3)
 
 
 def step_vv(x, v, f, dt, xup):
@@ -105,17 +98,17 @@ def step_vv_langevin(x, v, f, dt, xup):
     global rcut, skin, gamma, T_des
 
     # update positions
-    x += v*dt*(1-0.5*gamma*dt) + 0.5*f*dt*dt
+    x += v*dt*(1.-0.5*gamma*dt) + 0.5*f*dt*dt
 
     # half update of the velocity
-    v += -0.5*gamma*dt + 0.5*f*dt
+    v += -0.5*gamma*dt*v + 0.5*f*dt
        
     # for this excercise no forces from other particles
-    f = sqrt( 24*T_des*gamma/dt ) * ( random.random(x.shape)-0.5 )
+    f = sqrt( 24.*T_des*gamma/dt ) * ( random.random(x.shape) - 0.5 )
 
     # second half update of the velocity
     v += 0.5*f*dt
-    v /= 1+0.5*gamma*dt
+    v /= 1.+0.5*gamma*dt
 
     return x, v, f, xup
     
@@ -140,7 +133,7 @@ def step_vv_andersen(x, v, f, dt, xup):
     # random velocity replacing:
     for k in range(0,v.shape[1]): # (only one particle to test, but extendable or more)
         if random.random() < nu*dt: 
-            v[:,k] = rand_vel(T_des)
+            v[:,k] = sqrt(T_des)*random.randn(3)
 
     return x, v, f, xup
    
@@ -175,19 +168,20 @@ def step_vv_berendsen(x, v, f, dt, xup):
 if os.path.exists(datafilename) and args.restart:
     print("Reading data from {}.".format(datafilename))
     datafile = open(datafilename, 'rb')
-    step, t, x, v, ts, Tms, vs = pickle.load(datafile)
+    step, t, x, v, ts, Tms, xs, vs = pickle.load(datafile)
     datafile.close()
     print("Restarting simulation at t={}...".format(t))
 else:
     print("Starting simulation...")
     t = 0.0
     step = 0
-    x = np.array([[0.1], [2.], [0.]])
-    v = np.array([[0.1], [0.], [1.]])
+    x = array([[0.1], [2.], [0.]])
+    v = array([[0.1], [0.], [1.]])
 
     # variables to cumulate data
     ts = []
     Tms = []
+    xs = []
     vs = []
 
 # check whether vtf file already exists
@@ -255,7 +249,8 @@ while t < tmax:
 
         ts.append(t)
         Tms.append(Tm)
-        vs.append(linalg.norm(v,axis=0))
+        xs.append(x.copy())
+        vs.append(v.copy())
 
         for i in range(N):
             velfile.write("{}\t{}\t{}\n".format(v[0,i], v[1,i], v[2,i]))
@@ -271,7 +266,7 @@ while t < tmax:
 # at the end of the simulation, write out the final state
 print("Writing simulation data to {}.".format(datafilename))
 datafile = open(datafilename, 'wb')
-pickle.dump([step, t, x, v, ts, Tms, vs ], datafile)
+pickle.dump([step, t, x, v, ts, Tms, xs, vs ], datafile)
 datafile.close()
 
 # close vtf file
@@ -285,17 +280,18 @@ print("Finished simulation.")
 print('Plotting.')
 
 # Temperature over time
-plot(ts,Tms)
+plot(ts,Tms,label=r'$t_m$$_a$$_x$ = {}'.format(round(t)))
 xlabel("Time t")
 ylabel("Temperature Tm")
+legend()
 savefig('../dat/{}_Tm.png'.format(simulation_id))
 close()
 
 # Velocity distribution
 r = linspace(0, 10, 1000)
-gauss_fun = gauss_3d(r, T_des**2)       # function from random_numbers.py
-plot(r, gauss_fun, label=r'gauss       : $T_d$$_e$$_s={}$'.format(T_des))
-hist(array(vs).flatten(), linspace(0,10,100), normed=1, label=r'simulation: $T_d$$_e$$_s={}$'.format(T_des))
+gauss_fun = gauss_3d(r, sqrt(T_des))       # function from random_numbers.py
+plot(r, gauss_fun, label=r'gauss')
+hist(linalg.norm(array(vs), axis=1).flatten(), linspace(0,10,100), normed=1, label=r'simulation, $t_m$$_a$$_x$ = {}'.format(round(t)))
 xlabel('velocity v')
 ylabel('frequenzy of v in time')
 legend()
