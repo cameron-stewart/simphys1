@@ -59,8 +59,40 @@
 \newlabel{berendsen}{{11}{13}{{Berendsen thermostat} \hfill script: src/ljsim.py}{}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {11}{Berendsen thermostat} \hfill script: src/ljsim.py}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Simulation}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Plot of the temperature over time for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Andersen thermostat and $\tau _T =3.0$. \relax }}{14}}
-\newlabel{berendsenT}{{8}{14}{Plot of the temperature over time for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Andersen thermostat and $\tau _T =3.0$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Plot of the temperature over time for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }}{14}}
+\newlabel{berendsenT}{{8}{14}{Plot of the temperature over time for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }{}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Plot of the temperature over time for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }}{15}}
 \newlabel{berendsenvv}{{9}{15}{Plot of the temperature over time for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Diffusion}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Implementation}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Mean Squared Displacement (MSD)}{15}}
+\newlabel{MSD}{{3}{15}{Mean Squared Displacement (MSD)}{}{}}
+\newlabel{fit}{{4}{15}{Mean Squared Displacement (MSD)}{}{}}
+\newlabel{calcmsd}{{12}{16}{{MSD calculation} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}{MSD calculation} \hfill script: src/ljanalyze.py}{16}}
+\newlabel{msdmain}{{13}{16}{{MSD main loop} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}{MSD main loop} \hfill script: src/ljanalyze.py}{16}}
+\newlabel{calcerr}{{14}{16}{{MSD error} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}{MSD error} \hfill script: src/ljanalyze.py}{16}}
+\newlabel{msdfit}{{15}{17}{{MSD Fit} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}{MSD Fit} \hfill script: src/ljanalyze.py}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Velocity autocorrelation Function (VACF)}{17}}
+\newlabel{vacf}{{6}{17}{Velocity autocorrelation Function (VACF)}{}{}}
+\newlabel{fft}{{7}{17}{Velocity autocorrelation Function (VACF)}{}{}}
+\newlabel{autocor}{{16}{17}{{Autocorrelation function} \hfill script: src/ljanalyze.py}{}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}{Autocorrelation function} \hfill script: src/ljanalyze.py}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Analyze}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Langevin thermostat and $\upgamma =0.3$. \relax }}{18}}
+\newlabel{langevin3}{{10}{18}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Langevin thermostat and $\gamma =0.3$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Langevin thermostat and $\upgamma =0.8$. \relax }}{19}}
+\newlabel{langevin8}{{11}{19}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Langevin thermostat and $\gamma =0.8$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Langevin thermostat and $\upgamma =0.1$. \relax }}{19}}
+\newlabel{langevin1}{{12}{19}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Langevin thermostat and $\gamma =0.1$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.1$. \relax }}{20}}
+\newlabel{andersennana0}{{13}{20}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.1$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.5$. \relax }}{20}}
+\newlabel{andersennana5}{{14}{20}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.5$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.01$. \relax }}{21}}
+\newlabel{andersennana01}{{15}{21}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Andersen thermostat and $\nu =0.01$. \relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces  Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text  {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }}{21}}
+\newlabel{berendsenana}{{16}{21}{Plot of the MSD (left) and the VACF (right) for a desired temperature of $T_\text {des}=1.0$ for a simulation with the Berendsen thermostat and $\tau _T =3.0$. \relax }{}{}}

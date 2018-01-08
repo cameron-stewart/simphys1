@@ -96,7 +96,7 @@ Dx = p[0] * 0.5 / float(d)
 # Plot
 print('Plot MSD...')
 errorbar(dt,msd_vec,yerr=err_vec,fmt='*')
-x = linspace(linreg[0],linreg[1],1000)
+x = linspace(linreg[0],linreg[1],2)
 plot( x, p[0]*x+p[1], '-r')
 xlabel("Duration $\Delta t$")
 ylabel("MSD of $x$")
@@ -114,9 +114,9 @@ def autocor(v):
     The result is normed to autocor(v)[0] = 1
     '''
     ftv = real( fft.ifft( conj( fft.fft(v, axis=0) ) * fft.fft(v, axis=0), axis=0 ) )
-    while size(ftv.shape) > 1:
+    while size(ftv.shape) > 1:  # only one loop in this case 
          ftv = sum( ftv, axis=1 ) 
-    return ftv[:int(ftv.shape[0]/2)] / ftv[0]
+    return ftv[:ftv.shape[0]//2] / ftv[0]
 
  
 # Calculate VACF  
@@ -125,7 +125,7 @@ vacf = autocor(vs)
 
 print('Plot VACF...')
 plot(arange(0,vacf.shape[0]),vacf)
-xlabel("VACF$")
+xlabel("VACF")
 ylabel("Time t")
 savefig('../dat/{}_VACF.png'.format(simulation_id))
 close()
