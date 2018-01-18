@@ -1,0 +1,5 @@
+*synctex*
+*.aux
+*.log
+*.pdf
+*/latex/.*

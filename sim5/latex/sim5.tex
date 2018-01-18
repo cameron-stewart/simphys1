@@ -1,0 +1,282 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+% Pakete
+\usepackage[english]{babel}
+\usepackage[UKenglish]{isodate}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\sisetup{
+output-decimal-marker={.},
+exponent-product=\cdot }
+\usepackage{esvect}
+\usepackage{eqnarray}
+\usepackage{placeins}
+\usepackage{scrpage2}
+\usepackage{nameref}
+\usepackage{upgreek}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{bm}
+\usepackage{mwe}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xstring}
+\usepackage{stringstrings}
+\usepackage{floatflt}
+\usepackage{pgfplots}
+\usepackage{tikz}
+%\usepackage{physics}
+
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% tikz
+\usetikzlibrary{arrows}
+
+% caption setup
+\captionsetup[subfigure]{labelformat=simple, labelsep=colon}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcommand{\thesubfigure}{\arabic{figure}.\arabic{subfigure}}
+\renewcommand{\thesubtable}{\arabic{table}.\arabic{subtable}}
+
+% Listning Einstellungen
+\lstloadlanguages{python}       % Default highlighting set to "python"
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+  \parbox{0.99\textwidth}{\colorbox{gray}{\parbox{0.99\textwidth}{#1#2#3}}\vskip+5pt}}
+\captionsetup[lstlisting]{format=listing, labelfont=white, textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+\pagestyle{empty}
+\lstset{escapeinside={<@}{@>}}
+\lstdefinestyle{MyPythonStyle}{
+		language=Python,
+		numbers=left,
+		breaklines=true,
+		basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+		}
+\lstdefinestyle{MyCStyle}{
+		language=C,
+		numbers=left,
+		tabsize=4,
+		breaklines=true,
+		basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+		}
+\renewcommand{\lstlistingname}{Code block}
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+
+% Griechische Buchstaben vereinheitlichen
+\renewcommand{\alpha}{\upalpha}
+\renewcommand{\beta}{\upbeta}
+\renewcommand{\gamma}{\upgamma}
+\renewcommand{\delta}{\updelta}
+\newcommand{\w}{\omega}
+\newcommand{\la}{\lambda}
+
+% Eigene mathematische Kommandos
+\newcommand{\dd}{\text{d}} 							% Differential
+\newcommand{\p}{\partial} 								% Partielles Differential
+\newcommand{\D}{\Delta} 								% Fehler / Laplace
+\newcommand{\order}[1]{\mathcal{O}\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1\right|} 					% Betrag
+\newcommand{\Max}[1]{\max \left\lbrace #1\right\rbrace} % max{}
+\newcommand{\Min}[1]{\min \left\lbrace #1\right\rbrace} % min{}
+\newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}	% Ableitung
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}} % Partielle Ableitung
+\newcommand{\errprop}[2]{\left| \frac{\partial #1}{\partial #2}\right| \cdot \Delta #2}
+
+% Klammern
+\newcommand{\lk}{\left\langle}
+\newcommand{\rk}{\right\rangle}
+\newcommand{\lb}{\left\lbrace}
+\newcommand{\rb}{\right\rbrace}
+\newcommand{\lc}{\left(}
+\newcommand{\rc}{\right)}
+												% Fehlerfortpflanzung
+\newcommand{\rel}[1]{\frac{\Delta #1}{#1}}				% Relativer Fehler
+
+% Eigene trigonometrische Funktionen
+\newcommand{\Exp}[1]{\text{exp}\left( #1 \right)}		% exp()
+\newcommand{\Ln}[1]{\text{ln}\left( #1 \right)}			% ln()
+\newcommand{\Log}[1]{\text{log}\left( #1 \right)}		% log()
+\newcommand{\Sin}[1]{\text{sin}\left( #1 \right)}     	% sin()
+\newcommand{\Cos}[1]{\text{cos}\left( #1 \right)}		% cos()
+\newcommand{\Sinz}[1]{\text{sin}^2\left( #1 \right)}	% sin^2()
+\newcommand{\Cosz}[1]{\text{cos}^2\left( #1 \right)}	% cos^2()
+\newcommand{\Tan}[1]{\text{tan}\left( #1 \right)}		% tan()
+\newcommand{\Asin}[1]{\text{asin}\left( #1 \right)}		% asin()
+\newcommand{\Acos}[1]{\text{acos}\left( #1 \right)}		% acos()
+\newcommand{\Atan}[1]{\text{atan} \left( #1 \right)}	% atan()
+
+% Eigene Vektor Kommandos
+\newcommand{\tovec}[2]{\begin{pmatrix}#1\\ #2\end{pmatrix}}	% 2D-Vektor
+\newcommand{\trvec}[3]{\begin{pmatrix}#1\\ #2\\ #3\end{pmatrix}}	% 3D-Vektor	
+\newcommand{\ovec}[1]{\boldsymbol{#1}}
+
+% Eigene Referenz-Kommandos
+\newcommand{\eref}[1]{(\ref{#1})}						% Gleichungen
+\newcommand{\sref}[2]{\subref{#2}}						% Unterabbildungen
+\newcommand{\kref}[1]{\ref{#1} \glqq\nameref{#1}\grqq}  % Kapitel
+\newcommand{\lref}[1]{$[#1]$}							% Quellen: \newcommand{\lit}{1} => \lref{\lit}
+
+% listing commandos
+\newcommand{\listfile}[7][MyPythonStyle]{
+\lstinputlisting[linerange={#4-#5}, firstnumber=#4, caption={#6} \hfill script:  #3, label=#7, style=#1]{#2}}
+% arguments:
+% \listfile[style]{location/filename}{filename}{firstline}{lastline}{title}{label}
+% Imports code from a file 
+% You will have to escape the filename and the title
+% style is an optional argument.
+
+\newcommand{\ls}[1]{\lstinline@#1@}
+
+% using \lstinline@code@ for code in line
+% works with every sign instead of @
+
+% commands for this task
+\newcommand{\ua}{AU}
+\newcommand{\vecx}[1]{\ovec{x}^{(#1)}}
+\newcommand{\vecv}[1]{\ovec{v}^{(#1)}}
+\newcommand{\veca}[1]{\ovec{a}^{(#1)}}
+\newcommand{\vecF}[1]{\ovec{F}^{(#1)}}
+\newcommand{\vecr}[1]{\ovec{r}^{(#1)}}
+\newcommand{\nx}[1]{x^{(#1)}}
+\newcommand{\nv}[1]{v^{(#1)}}
+\newcommand{\na}[1]{a^{(#1)}}
+\newcommand{\nm}[1]{m^{(#1)}}
+\newcommand{\nF}[1]{F^{(#1)}}
+\newcommand{\nr}[1]{r^{(#1)}}
+\newcommand{\Ekin}{E_\text{kin}}
+\newcommand{\Ekino}{E_{\text{kin},0}}
+\newcommand{\fr}{f_\text{re}}
+\newcommand{\fij}{\ovec{f}_{ij}}
+\newcommand{\rij}{\ovec{r}_{ij}}
+\newcommand{\fji}{\ovec{f}_{ji}}
+\newcommand{\rji}{\ovec{r}_{ji}}
+\newcommand{\rj}{\ovec{r}_{j}}
+\newcommand{\ri}{\ovec{r}_{i}}
+
+
+
+% Kopf-/Fusszeile
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\chead{Simulation Methods in Physics I}
+\ihead{Worksheet 3}
+\ohead{\today}
+\ofoot{\pagemark}
+\ifoot{Michael Marquardt, Cameron Stewart}
+
+\begin{document}
+
+% Titelseite
+\begin{titlepage}
+
+\ \\ \ \\ \ \\
+
+\center\textbf{
+\begin{large}
+Simulation Methods in Physics I
+\end{large} \\ \ \\
+\begin{Large}
+Worksheet 5: Monte-Carlo
+\end{Large}}   \\ \ \\
+\ \\ \ \\
+
+\begin{tabular}{lll}
+Students: &Michael Marquardt &Cameron Stewart\\ 
+matriculation numbers: &3122118 &3216338\\
+\end{tabular}
+
+\end{titlepage}
+
+% Inhaltsverzeichnis
+
+% -------------------------------------- Begin Of Document ----------------------------------------
+
+\section{Simple Sampling - Integration}
+In this worksheet we will use the Monte Carlo technique to integrate a function and to look at the Ising 
+spin model. The Monte Carlo method is a statistical technique for computing expectation values that are 
+given by
+\begin{equation}
+\langle A \rangle = \frac{\int_\Phi A(\phi) P(\phi) d\phi}{\int P(\phi) d\phi}
+\label{eq:exp}
+\end{equation}
+where $A$ is an observable, $P$ is the probability of finding the system in a certain state, $\phi$ is a state of the system and $\Phi$ is the set of all states of the system.
+
+The Monte Carlo simply replaces these integrals with finite sums over random states of the system as
+\begin{equation}
+\langle A \rangle = \frac{\sum_N A(\phi) P(\phi) d\phi}{\sum_N P(\phi) d\phi}.
+\label{eq:mc}
+\end{equation}
+If the states $\phi$ are randomly distributed then this is called simple sampling.
+
+We can use the Monte Carlo method to evaluate an integral if we set $\phi = x$ and let $P(x)$ be constant. Equate eqs. \ref{eq:exp} and \ref{eq:mc} and solve for the integral leaves us with
+\begin{equation}
+\int_a^b f(x) dx = \frac{b-a}{N} \sum_N f(x_i)
+\label{eq:int}
+\end{equation}
+where we have renamed $A$ to $f$.
+
+We begin this worksheet by using this method to evaluate the integral of the Runge function over the interval $[-5, 5]$. The Runge function is given by
+\begin{equation}
+f(x) = \frac{1}{1+x^2}
+\end{equation}
+and its integral is 
+\begin{equation}
+\int_a^b \frac{1}{1+x^2} dx = \arctan(b)-\arctan(a).
+\end{equation}
+
+We begin by writing a simple function in python to compute the Runge function and another to compute its integral.
+\listfile{../src/mon_car.py}{src/mon\_car.py}{3}{7}{Runge Function}{runge}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../fig/rungeplot.png}
+	\caption{Plot of the Runge function from $-5$ to $5$.	}
+	\label{fig:runge}
+\end{figure}
+The Runge function is plotted in fig. \ref{fig:runge}
+
+Now we will use a simple sampling Monte Carlo technique to evaluate the integral. Equation \ref{eq:int} is implemented as:
+\listfile{../src/mon_car.py}{src/mon\_car.py}{9}{12}{Simple Sampling}{simple}
+This allows us to set a function, upper and lower bound, and number of samples as parameters. The measured value of the integral and the standard error of the mean are returned. 
+
+We now write a program to use our Monte Carlo algorithm to compute this integral for a number of samples $N = 2^i$ with $2 \leq i \leq 20$. 
+\listfile{../src/integration.py}{src/integration.py}{5}{13}{Simple Sampling}{simpsamp}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../fig/simple_err.png}
+	\caption{Plot of the statistical vs actual error in our simple sampling evaluation of the integral of the Runge function for various number of samples.	}
+	\label{fig:simple}
+\end{figure}
+Figure \ref{fig:simple} shows the statistical vs. actual error in our calculation of this integral for our range of samples. We used a log-log plot for readability.
+
+\section{Importance Sampling - Metropolis-Hastings Algorithm}
+
+
+
+\end{document}
+
