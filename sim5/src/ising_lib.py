@@ -57,3 +57,8 @@ def generate(states):
                 state[k%4,k/4]=-1
         states.append(np.copy(state))
 
+def bivariate_gaussian(N, rho):
+    e = np.random.normal(size=N)
+    for i in range(1, N):
+        e[i] = rho*e[i-1] + np.sqrt(1-rho**2)*e[i]
+    return e
