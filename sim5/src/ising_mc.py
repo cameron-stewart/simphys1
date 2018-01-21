@@ -12,7 +12,7 @@ def ising_mc(T, L):
         montecarlo(T, state, L)
     e = np.array(e)
     m = np.array(m)
-    return np.mean(e)/(L*L), np.mean(m)
+    return e/(L*L), m
 
 L = 4
 T = np.arange(1.0, 5.1, 0.1)
@@ -26,5 +26,6 @@ for t in T:
 e0 = np.array(e0)
 m0 = np.array(m0)
 
-np.savetxt('../dat/mc_en.txt', e0)
-np.savetxt('../dat/mc_mag.txt', m0)
+np.savetxt('../dat/mc_en_series.txt', e0)
+np.savetxt('../dat/mc_mag_series.txt', m0)
+

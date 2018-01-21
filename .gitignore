@@ -4,3 +4,4 @@
 *.pdf
 */latex/.*
 *.pyc*
+*.swp
