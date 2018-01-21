@@ -58,7 +58,38 @@ def generate(states):
         states.append(np.copy(state))
 
 def bivariate_gaussian(N, rho):
+    # generates N samples from a bivariate gaussian
     e = np.random.normal(size=N)
     for i in range(1, N):
         e[i] = rho*e[i-1] + np.sqrt(1-rho**2)*e[i]
     return e
+
+def error_analyze(e):
+    # Given a time series of observables, returns the mean, size of bins, autocorrelation time,
+    # effective number of samples, and measured error of the mean using binning analysis
+    k_final = 0
+    tau_final = 0
+    N_eff = 0
+    error = 0
+    N = len(e)
+    
+    for k in range(1,N/10):
+        if (N%k==0):
+            Nb = N/k
+            varB = 0 
+            Ob = np.zeros(Nb)
+            for n in range(Nb):
+                for i in range(k):
+                    Ob[n] += e[n*k+i]/k
+            Ob_mean = np.mean(Ob)
+            for n in range(Nb):
+                varB += (Ob[n] - Ob_mean)**2/(Nb-1)
+            tau = k*varB/(2*np.var(e))
+            if tau > tau_final:
+                tau_final = tau
+                k_final = k
+                N_eff = N/(2*tau)   
+                error = np.sqrt(varB/Nb)
+
+    return Ob_mean, error, k_final, tau_final, N_eff
+
