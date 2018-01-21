@@ -31,8 +31,7 @@ def mag(state, L):
     return np.abs(mu/(L*L))
 
 def montecarlo(T, state, L):
-    # Performs a single Monte Carlo step on a state with side length L using the 
-    # Metropolis-Hastings algorithm
+    # Performs a single Monte Carlo step on a state with side length L using the Metropolis-Hastings algorithm
     i = np.random.randint(0,L)
     j = np.random.randint(0,L)
     delta = 2*state[i,j]*(state[(i-1)%L,j] + state[(i+1)%L,j] + state[i,(j+1)%L] 
@@ -43,8 +42,7 @@ def montecarlo(T, state, L):
         state[i,j] *= -1
 
 def generate(states):
-    # Generates all possible states with a side length L = 4. Don't judge me for this
-    # monstrosity.
+    # Generates all possible states with a side length L = 4
     state = np.zeros([4,4])
     for i in range(2**16):
         binstr = "{0:b}".format(i)
@@ -65,8 +63,9 @@ def bivariate_gaussian(N, rho):
     return e
 
 def error_analyze(e):
-    # Given a time series of observables, returns the mean, size of bins, autocorrelation time,
-    # effective number of samples, and measured error of the mean using binning analysis
+    # Given a time series of observables, returns the mean, size of bins,
+    # autocorrelation time, effective number of samples, 
+    # and measured error of the mean using binning analysis
     k_final = 0
     tau_final = 0
     N_eff = 0
